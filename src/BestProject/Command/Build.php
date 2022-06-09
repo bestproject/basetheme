@@ -189,6 +189,10 @@ class Build
         foreach (glob($this->base . '/src/BaseTheme/Action/*.php') as $path) {
             $this->replaceInFile($path, $strings);
         }
+
+        // Rename namespace directory
+        rename($this->base . '/src/BaseTheme', $this->namespace);
+
     }
 
     /**
