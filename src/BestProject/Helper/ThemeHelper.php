@@ -5,7 +5,7 @@ namespace BestProject\Helper;
 use Exception;
 
 /**
- * Template helper.
+ * Theme helper.
  *
  * @since 1.5.0
  */
