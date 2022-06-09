@@ -1,0 +1,42 @@
+{
+  "name": "basetheme",
+  "version": "1.0.0",
+  "description": "Wordress theme build on Bootstrap 5",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "watch-prod": "npm encore prod --watch",
+    "prod": "encore prod",
+    "build": "encore prod",
+    "postinstall": "node .dev/js/build/postinstall.js"
+  },
+  "private": true,
+  "author": "Grupa Best Sp. z o.o.",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@fortawesome/fontawesome-free": "^6.0.0",
+    "@symfony/webpack-encore": "^1.1.2",
+    "animate.css": "^4.1.1",
+    "autoprefixer": "10.4.5",
+    "bootstrap": "^5.1",
+    "core-js": "^3.9.1",
+    "file-loader": "^6.2.0",
+    "magnific-popup": "^1.1.0",
+    "node-sass": "^7.0.1",
+    "popper.js": "^1.16.1",
+    "postcss-loader": "6.2.1",
+    "sass-loader": "^12.6.0",
+    "swiper": "8.1.4",
+    "webpack-notifier": "^1.13.0"
+  },
+  "engines": {
+    "node": ">=13.0"
+  },
+  "browserslist": [
+    "> 0.25%",
+    "not dead",
+    "IE 11"
+  ]
+}

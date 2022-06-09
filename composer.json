@@ -1,0 +1,29 @@
+{
+    "name": "bestproject/basetheme",
+    "description": "Wordpress base theme build on Bootstrap 5",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Artur Stępień",
+            "email": "artur.stepien@bestproject.pl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "":"src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "scripts": {
+        "post-autoload-dump": [
+            "@build"
+        ],
+        "build": [
+            "BestProject\\Command\\Build::execute"
+        ]
+    },
+    "scripts-descriptions": {
+        "build": "Build theme."
+    }
+}

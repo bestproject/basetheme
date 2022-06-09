@@ -1,0 +1,20 @@
+//----------------------------------------
+// This is the file where you add your custom sass source files.
+// Try to keep style split into modules/components, this will make it a lot
+// easier to manage.
+//----------------------------------------
+
+
+// Tools
+@import "tools/layout";
+@import "tools/text";
+
+// Components updates
+@import "components/navbar";
+@import "components/footer";
+@import "components/header";
+
+// Page styling
+@import "pages/all";
+@import "pages/frontpage";
+@import "pages/subpage";

@@ -1,0 +1,38 @@
+@import "mixins";
+@import "functions";
+
+// Boostrap SASS functions
+@import "~bootstrap/scss/functions";
+
+// Variables overrides
+@import "variables";
+
+// Boostrap SASS default variables
+@import "~bootstrap/scss/variables";
+
+// Boostrap SASS default styles
+@import "~bootstrap/scss/bootstrap";
+
+/* Main column width */
+.wp-block {
+    max-width: map-get($container-max-widths, 'xl') !important;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    color:$body-color;
+    font-weight:$font-weight-light;
+
+}
+
+.wp-block-post-title {
+    @extend .h1;
+}
+
+.wp-block-gallery {
+    margin: rem(20) 0;
+    &.columns-4,&.columns-5 {
+        .blocks-gallery-grid {
+            justify-content: space-between;
+            width:100%;
+        }
+    }
+}
