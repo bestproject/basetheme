@@ -69,6 +69,11 @@ class Bootstrap5NavWalker extends Walker_Nav_Menu
             $item_attributes['class'] = implode(' ',$classes);
         }
 
+        // Check if this is current page
+        if( $item->current ) {
+            $anchor_attributes['class'] .= ' active';
+        }
+
         // Render item
         $output_item = '<li '.$this->getAttributesString($item_attributes).'>';
         $output_item.=
