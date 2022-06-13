@@ -13,26 +13,33 @@
 // Boostrap SASS default styles
 @import "~bootstrap/scss/bootstrap";
 
-/* Main column width */
-.wp-block {
-    max-width: map-get($container-max-widths, 'xl') !important;
+body {
     font-family: $font-family-base;
     font-size: $font-size-base;
     color:$body-color;
     font-weight:$font-weight-light;
 
-}
+    /* Main column width */
+    .is-root-container {
+        max-width: map-get($container-max-widths, 'xl') !important;
+        margin:0 auto;
+    }
 
-.wp-block-post-title {
-    @extend .h1;
-}
+    /* Post title */
+    .wp-block-post-title {
+        @extend .h1;
+        max-width: map-get($container-max-widths, 'xl') !important;
+        margin:0 auto !important;
+    }
 
-.wp-block-gallery {
-    margin: rem(20) 0;
-    &.columns-4,&.columns-5 {
-        .blocks-gallery-grid {
-            justify-content: space-between;
-            width:100%;
+    /* Gallery block types  */
+    .wp-block-gallery {
+        margin: rem(20) 0;
+        &.columns-4,&.columns-5 {
+            .blocks-gallery-grid {
+                justify-content: space-between;
+                width:100%;
+            }
         }
     }
 }
