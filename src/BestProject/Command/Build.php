@@ -191,7 +191,7 @@ class Build
         }
 
         // Rename namespace directory
-        rename($this->base . '/src/BaseTheme', $this->namespace);
+        rename($this->base . '/src/BaseTheme', $this->base . '/src/'.$this->namespace);
 
     }
 
