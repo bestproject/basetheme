@@ -22,7 +22,6 @@ add_action('customize_register', [customize_register::class, 'header']);
 
 // Init
 add_action('init', [init::class, 'registerPostSupport']);
-add_action('init', [init::class, 'registerPropertiesPostType']);
 add_action('widgets_init', [widgets_init::class, 'registerSidebars']);
 
 // Theme assets
