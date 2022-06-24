@@ -18,7 +18,6 @@ add_action('after_setup_theme', [after_setup_theme::class, 'registerThumbnailSiz
 // Customizer
 add_action('customize_register', [customize_register::class, 'logo']);
 add_action('customize_register', [customize_register::class, 'additionalCode']);
-add_action('customize_register', [customize_register::class, 'header']);
 
 // Init
 add_action('init', [init::class, 'registerPostSupport']);
