@@ -4,7 +4,7 @@ use BestProject\NavWalker\Bootstrap5NavWalker;
 
 ?>
 <header class="position-relative">
-    <div class="navbar navbar-dark navbar-expand-xl" id="nav">
+    <div class="navbar navbar-light navbar-expand-xl" id="nav">
         <div class="container">
             <a class="navbar-brand mr-0 mr-lg-60" href="<?php echo get_home_url() ?>">
                 <?php if (get_option('logo') !== ''): ?>
