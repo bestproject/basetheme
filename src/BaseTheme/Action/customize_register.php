@@ -27,7 +27,7 @@ final class customize_register
         ]);
 
         $customize->add_control( new WP_Customize_Image_Control( $customize, 'logo', [
-            'label' => __('Logo image (white)', 'basetheme'),
+            'label' => __('Logo image', 'basetheme'),
             'section' => 'title_tagline',
             'settings' => 'logo',
         ]));

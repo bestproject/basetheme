@@ -10,9 +10,6 @@ use BestProject\NavWalker\Bootstrap5NavWalker;
                 <?php if (get_option('logo') !== ''): ?>
                     <img src="<?php echo get_option('logo') ?>" class="logo-light" alt="<?php bloginfo('name') ?> - <?php echo __('Logo', 'basetheme') ?>">
                 <?php endif ?>
-                <?php if (get_option('logo_dark') !== ''): ?>
-                    <img src="<?php echo get_option('logo_dark') ?>" class="logo-dark" alt="<?php bloginfo('name') ?> - <?php echo __('Logo', 'basetheme') ?>" aria-hidden="true">
-                <?php endif ?>
             </a>
             
             <?php if (has_nav_menu('mainmenu')): ?>
