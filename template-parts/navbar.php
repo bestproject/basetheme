@@ -8,7 +8,7 @@ use BestProject\NavWalker\Bootstrap5NavWalker;
         <div class="container">
             <a class="navbar-brand mr-0 mr-lg-60" href="<?php echo get_home_url() ?>">
                 <?php if (get_option('logo') !== ''): ?>
-                    <img src="<?php echo get_option('logo') ?>" class="logo-light" alt="<?php bloginfo('name') ?> - <?php echo __('Logo', 'basetheme') ?>">
+                    <img src="<?php echo get_option('logo') ?>" class="navbar-brand-logo" alt="<?php bloginfo('name') ?> - <?php echo __('Logo', 'basetheme') ?>">
                 <?php endif ?>
             </a>
             
