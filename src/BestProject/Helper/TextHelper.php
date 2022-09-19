@@ -47,4 +47,38 @@ class TextHelper
 
         return $html;
     }
+
+    /**
+     * Return phone number safe for use in tel: prefix of href attribute.
+     *
+     * @param   string  $phone
+     *
+     * @return string
+     */
+    public static function getPhoneAttrSafe(string $phone): string
+    {
+        return preg_replace('/[^0-9\-+]/', '', $phone);
+    }
+
+    /**
+     * Bold the first word in sentence.
+     *
+     * @param   string  $text
+     *
+     * @return string
+     */
+    public static function boldFirst(string $text): string
+    {
+        $parts = explode(' ',$text);
+
+        // Don't bold a single word
+        if( count($parts)===1 ) {
+            return $text;
+        }
+
+        $parts[0] = "<strong>{$parts[0]}</strong>";
+
+        return implode(' ', $parts);
+    }
+
 }
