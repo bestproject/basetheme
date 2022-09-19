@@ -6,6 +6,7 @@ use BaseTheme\Action\init;
 use BaseTheme\Action\widgets_init;
 use BaseTheme\Action\wp_enqueue_scripts;
 use BaseTheme\Action\wp_footer;
+use BaseTheme\Action\wp_head;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -24,6 +25,7 @@ add_action('init', [init::class, 'registerPostSupport']);
 add_action('widgets_init', [widgets_init::class, 'registerSidebars']);
 
 // Theme assets
+add_action('wp_head', [wp_head::class, 'preload']);
 add_action('wp_enqueue_scripts', [wp_enqueue_scripts::class, 'theme']);
 
 // Theme functions
