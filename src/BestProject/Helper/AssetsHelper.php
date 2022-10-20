@@ -40,7 +40,7 @@ abstract class AssetsHelper
      * @throws Exception
      * @since 1.0.0
      */
-    public static function addEntryPointAssets(string $name): void
+    public static function addEntryPointAssets(string $name, bool $defer = false): void
     {
         $entrypoints = self::getEntryPoints()['entrypoints'];
 
@@ -52,17 +52,72 @@ abstract class AssetsHelper
             // If there are js scripts in this entry point
             if (array_key_exists('js', $entrypoint)) {
                 foreach ($entrypoint['js'] as $path) {
-                    wp_enqueue_script(basename($path), self::getAssetUrl($path), ['jquery'], false, true);
+
+                    $asset_url = home_url().self::getAssetUrl($path);
+                    wp_enqueue_script(basename($path), $asset_url, ['jquery'], false, true);
+
+                    // Deffer the script
+                    if( $defer ) {
+                        add_filter('script_loader_tag', static function($html) use ($asset_url) {
+                            if (stripos($html, $asset_url)!==false) {
+                                return str_ireplace(' />', ' defer />', $html);
+                            }
+
+                            return $html;
+                        }, 10,1);
+                    }
                 }
             }
 
             // If there are css styles in this entry point
             if (array_key_exists('css', $entrypoint)) {
                 foreach ($entrypoint['css'] as $path) {
-                    wp_enqueue_style(basename($path), self::getAssetUrl($path));
+
+                    $asset_url = home_url().self::getAssetUrl($path);
+                    wp_enqueue_style(basename($path), $asset_url);
+
+                    // Deffer the stylesheet
+                    if( $defer ) {
+                        add_filter('style_loader_tag', static function($html) use ($asset_url) {
+                            if (stripos($html, $asset_url)!==false) {
+                                return str_ireplace(" media='all'", ' media=\'none\' onLoad=\'this.media="all"\'', $html).'<noscript>'.PHP_EOL.$html.'</noscript>'.PHP_EOL;
+                            }
+
+                            return $html;
+                        }, 10,1);
+                    }
                 }
             }
         }
+    }
+
+    /**
+     * Enqueue and deffer a stylesheet.
+     *
+     * @param   string  $asset_url  Asset URL.
+     * @param   string  $handle     Handle name.
+     *
+     * @return void
+     */
+    public static function enqueueDeferredStyle(string $asset_url, string $handle = ''): void
+    {
+
+        // Create a handle if required
+        if( empty($handle) ) {
+            $handle = basename($asset_url);
+        }
+
+        // Enqueue a stylesheet
+        wp_enqueue_style($handle, $asset_url);
+
+        // Deffer the loading
+        add_filter('style_loader_tag', static function($html) use ($handle) {
+            if (stripos($html, $handle.'-css')!==false) {
+                return str_ireplace(" media='all'", ' media=\'none\' onLoad=\'this.media="all"\'', $html).'<noscript>'.PHP_EOL.$html.'</noscript>'.PHP_EOL;
+            }
+
+            return $html;
+        }, 10,1);
     }
 
     /**

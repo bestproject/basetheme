@@ -24,11 +24,13 @@ final class wp_enqueue_scripts
         AssetsHelper::addEntryPointAssets('theme');
 
         // Lightbox
-        AssetsHelper::addEntryPointAssets('lightbox');
+        AssetsHelper::addEntryPointAssets('lightbox', true);
+
+        // FontAwesome
+        AssetsHelper::addEntryPointAssets('fontawesome', true);
 
         // Register and enqueue fonts
-        wp_register_style('basetheme-google-fonts', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap', [], null);
-        wp_enqueue_style('basetheme-google-fonts');
+        AssetsHelper::enqueueDeferredStyle('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap', 'google-fonts');
     }
 
 }

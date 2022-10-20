@@ -1,5 +1,4 @@
 import 'popper.js';
-import '@fortawesome/fontawesome-free/css/all.css';
 import * as bootstrap from 'bootstrap';
 import './modules/classOnScroll';
 import 'swiper';

@@ -43,6 +43,9 @@ Encore
     .addStyleEntry('editor-styles', [
         './.dev/scss/editor-styles.scss'
     ])
+    .addStyleEntry('fontawesome', [
+        './.dev/scss/fontawesome.scss'
+    ])
     .copyFiles({
         from: './.dev/images',
         to: '[name].[contenthash].[ext]'
