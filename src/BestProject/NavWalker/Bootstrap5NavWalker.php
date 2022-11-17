@@ -34,6 +34,7 @@ class Bootstrap5NavWalker extends Walker_Nav_Menu
         $anchor_attributes = [
             'class' => 'nav-link',
             'href' => $item->url ?? '',
+            'target' => $item->target,
         ];
 
         // If this is a dropdown, prepare attributes and classes
