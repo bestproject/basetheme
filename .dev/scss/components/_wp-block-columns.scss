@@ -1,0 +1,17 @@
+.wp-block-columns {
+    margin-left: calc($grid-gutter-width / 2 * -1);
+    margin-right: calc($grid-gutter-width / 2 * -1);
+    .wp-block-column {
+        padding-left: calc($grid-gutter-width / 2);
+        padding-right: calc($grid-gutter-width / 2);
+        @include media-breakpoint-down(md) {
+            margin-bottom:$spacer/2;
+        }
+    }
+    @include media-breakpoint-up(md) {
+        &:not(.is-not-stacked-on-mobile) > .wp-block-column {
+            flex-basis: 0 !important;
+            flex-grow: 1 !important;
+        }
+    }
+}
