@@ -6,11 +6,6 @@
     }
 }
 
-// Convert number of pixels to REM
-@mixin toREM($value, $property, $baseInPixels:  14) {
-    #{$property}: ($value / $baseInPixels)*1rem;
-}
-
 // Style the placeholder
 @mixin placeholder($color) {
      /* Chrome/Opera/Safari */
