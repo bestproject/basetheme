@@ -7,6 +7,17 @@ namespace BestProject\Helper;
  */
 class TextHelper
 {
+
+    /**
+     * Conversion settings for lonelyLetter method.
+     *
+     * @since 1.5.0
+     */
+    protected const  LONELY = [
+        [' i ', ' z ', ' o ', ' a ', ' u '],
+        [' i&nbsp;', ' z&nbsp;', ' o&nbsp;', ' a&nbsp;', ' u&nbsp;']
+    ];
+
     /**
      * Split text into parts as equal as possible and adds an "i" tag with the breakpoint class.
      *
@@ -79,6 +90,18 @@ class TextHelper
         $parts[0] = "<strong>{$parts[0]}</strong>";
 
         return implode(' ', $parts);
+    }
+
+    /**
+     * Convert lonely letters in text to always join next word.
+     *
+     * @param   string  $text  Text to convert.
+     *
+     * @return string
+     */
+    public static function lonelyLetter(string $text): string
+    {
+        return str_replace(static::LONELY[0], static::LONELY[1], $text);
     }
 
 }
