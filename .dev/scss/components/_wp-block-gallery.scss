@@ -1,0 +1,10 @@
+.wp-block-gallery {
+    --gap: var(--bs-gutter-x);
+    gap: var(--gap);
+    --wp--style--unstable-gallery-gap: var(--gap) !important;
+    display:flex;
+    flex-wrap: wrap;
+    .wp-block {
+        flex-grow:1;
+    }
+}
