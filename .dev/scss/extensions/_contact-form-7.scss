@@ -1,0 +1,22 @@
+
+.wpcf7-listing,.wpcf7-period,.wpcf7-plan {
+    &:invalid {
+        @extend .is-invalid;
+    }
+}
+.wpcf7 {
+    form.wpcf7-form {
+        &.invalid {
+            .wpcf7-response-output {
+                @extend .alert;
+                @extend .alert-danger;
+            }
+        }
+        &.sent {
+            .wpcf7-response-output {
+                @extend .alert;
+                @extend .alert-success;
+            }
+        }
+    }
+}
