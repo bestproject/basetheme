@@ -6,12 +6,14 @@
 
 // Variables overrides
 @import "variables";
+@import "variables-dark";
 
 // Boostrap SASS default variables
 @import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/variables-dark";
 
 // Boostrap SASS default styles
-@import "~bootstrap/scss/bootstrap";
+@import "bootstrap";
 
 body {
     font-family: $font-family-base;
