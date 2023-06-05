@@ -13,6 +13,7 @@ let themeAssets = [
 ]
 if( Encore.isDev() ) {
     themeAssets = themeAssets.concat(['./.dev/scss/dev.scss']);
+    themeAssets = themeAssets.concat(['./.dev/js/dev.js']);
 }
 
 // Template front-end build configuration
