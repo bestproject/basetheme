@@ -1,5 +1,7 @@
 <?php
 
+use BestProject\Helper\CustomizeHelper;
+use BestProject\Helper\MediaHelper;
 use BestProject\NavWalker\Bootstrap5NavWalker;
 
 $logo = get_option('logo');
@@ -11,11 +13,9 @@ if( is_int($logo_media_id) ) {
 <header class="position-relative">
     <div class="navbar navbar-light navbar-expand-xl" id="nav">
         <div class="container">
-            <a class="navbar-brand mr-0 mr-lg-60" href="<?php echo get_home_url() ?>">
-                <?php if (is_string($logo) && $logo !== ''): ?>
-                    <img src="<?php echo $logo ?>" class="navbar-brand-logo" alt="<?php bloginfo('name') ?> - <?php echo __('Logo', 'basetheme') ?>">
-                <?php elseif( is_array($logo) && $logo!==[] ): ?>
-                    <img src="<?php echo $logo[0] ?>" width="<?php echo $logo[1] ?>" height="<?php echo $logo[2] ?>" class="navbar-brand-logo" alt="<?php bloginfo('name') ?> - <?php echo __('Logo', 'basetheme') ?>">
+            <a class="navbar-brand mr-0 mr-lg-60" href="<?php echo get_home_url() ?>"<?php CustomizeHelper::edit('logo'); ?>>
+                <?php if ($logo_media_id): ?>
+                    <?php echo MediaHelper::getImageTag($logo_media_id, ['alt' => get_bloginfo('name').' - '.__('Logo', 'basetheme'), 'class'=>'navbar-brand-logo']) ?>
                 <?php else: ?>
                     <?php bloginfo('name') ?>
                 <?php endif ?>
