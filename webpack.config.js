@@ -33,6 +33,16 @@ Encore
         useBuiltIns: 'usage',
         corejs: 3,
     })
+    .configureTerserPlugin((options)=>{
+        options.terserOptions = {
+            output: {
+                comments: false,
+            },
+            compress: {
+                drop_console: true,
+            }
+        }
+    })
     .autoProvidejQuery()
     .enablePostCssLoader()
     .addExternals({
