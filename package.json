@@ -24,21 +24,15 @@
     "core-js": "^3.9.1",
     "file-loader": "^6.2",
     "magnific-popup": "^1.1",
-    "sass": "latest",
     "popper.js": "^1.16",
     "postcss-loader": "^7.3",
+    "sass": "latest",
     "sass-loader": "^13",
-    "swiper": "^9.3",
-    "webpack-notifier": "^1.15",
-    "php": ">=8.0"
+    "swiper": "^10.3.1",
+    "webpack-notifier": "^1.15"
   },
   "engines": {
     "node": ">=13.0"
-  },
-  "config": {
-    "platform": {
-      "php": ">8"
-    }
   },
   "browserslist": [
     "> 0.25%",
