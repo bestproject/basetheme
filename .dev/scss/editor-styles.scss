@@ -24,7 +24,7 @@ body {
 
 /* Main column width */
 .is-root-container {
-    max-width: map-get($container-max-widths, 'xl') !important;
+    @include container-max-width();
     margin:0 auto;
 }
 
@@ -42,7 +42,7 @@ body {
 /* Post title */
 .wp-block.wp-block-post-title {
     @extend .h1;
-    max-width: map-get($container-max-widths, 'xl') !important;
+    @include container-max-width();
     margin:0 auto !important;
 }
 

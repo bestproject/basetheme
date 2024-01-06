@@ -31,3 +31,23 @@
     transition:$time linear all;
 }
 
+@mixin container-max-width() {
+    @include media-breakpoint-up(xxl) {
+        max-width: map-get($container-max-widths, 'xxl') !important;
+    }
+    @include media-breakpoint-only(xl) {
+        max-width: map-get($container-max-widths, 'xl') !important;
+    }
+    @include media-breakpoint-only(lg) {
+        max-width: map-get($container-max-widths, 'lg') !important;
+    }
+    @include media-breakpoint-only(md) {
+        max-width: map-get($container-max-widths, 'md') !important;
+    }
+    @include media-breakpoint-only(sm) {
+        max-width: map-get($container-max-widths, 'sm') !important;
+    }
+    @include media-breakpoint-only(xs) {
+        max-width: map-get($container-max-widths, 'xs') !important;
+    }
+}
