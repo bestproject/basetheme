@@ -7,6 +7,7 @@ use BaseTheme\Action\widgets_init;
 use BaseTheme\Action\wp_enqueue_scripts;
 use BaseTheme\Action\wp_footer;
 use BaseTheme\Action\wp_head;
+use BestProject\Feature\Comments;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -39,3 +40,6 @@ add_action('do_feed_rss2', 'wpb_disable_feed', 1);
 add_action('do_feed_atom', 'wpb_disable_feed', 1);
 add_action('do_feed_rss2_comments', 'wpb_disable_feed', 1);
 add_action('do_feed_atom_comments', 'wpb_disable_feed', 1);
+
+// Features
+// Comments::disable();
