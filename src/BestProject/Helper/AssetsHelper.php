@@ -108,7 +108,7 @@ abstract class AssetsHelper
         }
 
         // Enqueue a stylesheet
-        wp_enqueue_style($handle, $asset_url);
+        wp_enqueue_style($handle, $asset_url, [], null);
 
         // Deffer the loading
         add_filter('style_loader_tag', static function($html) use ($handle) {
