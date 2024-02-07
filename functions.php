@@ -8,6 +8,7 @@ use BaseTheme\Action\widgets_init;
 use BaseTheme\Action\wp_enqueue_scripts;
 use BaseTheme\Action\wp_footer;
 use BaseTheme\Action\wp_head;
+use BaseTheme\Block\Style\Spacer;
 use BestProject\Feature\Comments;
 use BestProject\Feature\Updates;
 
@@ -36,7 +37,7 @@ add_action('wp_enqueue_scripts', [wp_enqueue_scripts::class, 'theme']);
 //add_action('wp_footer', [wp_footer::class, 'stickyMenu']);
 
 // Block styles (Register your custom block styles)
-//add_action('init', [ButtonStyle::class, 'register']);
+add_action('init', [Spacer::class, 'register']);
 
 // Disable feeds
 add_action('do_feed', 'wpb_disable_feed', 1);
