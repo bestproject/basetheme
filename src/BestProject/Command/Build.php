@@ -186,7 +186,7 @@ class Build
         ];
 
         // Replace in files
-        foreach (glob($this->base . '/src/BaseTheme/Action/*.php') as $path) {
+        foreach (glob($this->base . '/src/BaseTheme/{,*/,*/*/,*/*/*/}*.php', GLOB_BRACE) as $path) {
             $this->replaceInFile($path, $strings);
         }
 
@@ -212,7 +212,7 @@ class Build
         ];
 
         // Replace in files
-        foreach (glob($this->base . '/template-parts/*.php') as $path) {
+        foreach (glob($this->base . '/template-parts/{,*/,*/*/,*/*/*/}*.php', GLOB_BRACE) as $path) {
             $this->replaceInFile($path, $strings);
         }
     }
