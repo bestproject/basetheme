@@ -33,6 +33,9 @@ add_action('wp_enqueue_scripts', [wp_enqueue_scripts::class, 'theme']);
 // Theme functions
 //add_action('wp_footer', [wp_footer::class, 'stickyMenu']);
 
+// Block styles (Register your custom block styles)
+//add_action('init', [ButtonStyle::class, 'register']);
+
 // Disable feeds
 add_action('do_feed', 'wpb_disable_feed', 1);
 add_action('do_feed_rdf', 'wpb_disable_feed', 1);
@@ -44,4 +47,4 @@ add_action('do_feed_atom_comments', 'wpb_disable_feed', 1);
 
 // Features
 Updates::disableThemeUpdates();
-// Comments::disable();
+Comments::disable();
