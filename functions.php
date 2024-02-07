@@ -1,5 +1,6 @@
 <?php
 
+use BaseTheme\Action\admin_init;
 use BaseTheme\Action\after_setup_theme;
 use BaseTheme\Action\customize_register;
 use BaseTheme\Action\init;
@@ -25,6 +26,7 @@ add_action('customize_register', [customize_register::class, 'additionalCode']);
 // Init
 add_action('init', [init::class, 'registerPostSupport']);
 add_action('widgets_init', [widgets_init::class, 'registerSidebars']);
+add_action('admin_init', [admin_init::class, 'registerEditorStyles']);
 
 // Theme assets
 add_action('wp_head', [wp_head::class, 'preload']);
