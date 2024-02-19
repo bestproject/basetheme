@@ -5,7 +5,7 @@ namespace BestProject\NavWalker;
 use Walker_Nav_Menu;
 
 /**
- * Bootstrap 5 menu walker for WordPress themes.
+ * Bootstrap 5 menu walker for Wordpress themes.
  *
  * @package BestProject\Menu\Walker
  */
