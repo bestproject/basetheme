@@ -12,9 +12,12 @@ use Walker_Nav_Menu;
 class OffcanvasNavWalker extends Walker_Nav_Menu
 {
 
-    public function end_lvl(&$output, $depth = 0, $args = null): void
+    private static int $submenu_counter = 0;
+    private static int $parent_counter = 0;
+
+    protected static function getMenuPrefix(object $args): string
     {
-        $output.= '</ul>';
+        return "offset-{$args->theme_location}-item-".self::$parent_counter;
     }
 
     public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0): void
@@ -28,7 +31,7 @@ class OffcanvasNavWalker extends Walker_Nav_Menu
         $item_attributes = [];
         $anchor_attributes = [
             'class' => 'nav-link',
-            'href' => $item->url ?? '',
+            'href' => $item->url ?? '#',
             'target' => $item->target,
         ];
 
@@ -38,13 +41,17 @@ class OffcanvasNavWalker extends Walker_Nav_Menu
 
         // If this is a dropdown, prepare attributes and classes
         if(in_array('menu-item-has-children', $classes, true)) {
+
+            self::$parent_counter++;
+
             $classes[] = 'dropdown';
-            $anchor_attributes['class'].= ' ';
+            $anchor_attributes['class'].= ' dropdown-toggle';
             $anchor_attributes += [
-                'data-bs-toggle' => 'dropdown',
-                'id' => 'menu-item-dropdown-'.$item->ID,
+                'data-bs-toggle' => 'collapse',
+                'id' => self::getMenuPrefix($args).'-'.self::$parent_counter,
+                'aria-controls' => self::getMenuPrefix($args).'-dropdown',
+                'data-bs-target' => "#".self::getMenuPrefix($args).'-dropdown',
                 'role' => 'button',
-                'aria-haspopup' => 'true',
                 'aria-expanded' => 'false'
             ];
         }
@@ -83,12 +90,9 @@ class OffcanvasNavWalker extends Walker_Nav_Menu
         $output_item = '<li '.$this->getAttributesString($item_attributes).'>';
         $output_item.=
             '<a '.$this->getAttributesString($anchor_attributes).'>'.
-                $args->link_before . '<span class="nav-link-text">'.$title.'</span>' . $badge . $args->link_after.
+            $args->link_before . '<span class="nav-link-text">'.$title.'</span>' . $badge . $args->link_after.
             '</a>';
 
-        if(in_array('menu-item-has-children', $classes, true)) {
-            $output_item.= '<ul class="dropdown-menu px-3 px-md-5 px-lg-50 pb-md-3 pb-lg-50 mb-3 mb-md-0" id="menu-item-'.$item->ID.'-dropdown"><div class="offcanvas-header d-none d-md-block px-3 px-md-7 py-3 py-md-30 py-lg-50" aria-hidden="true"><div class="pt-md-30 pt-lg-50 mb-lg-2"></div></div>';
-        }
 
         $output .= apply_filters( 'walker_nav_menu_start_el', $output_item, $item, $depth, $args );
     }
@@ -112,6 +116,25 @@ class OffcanvasNavWalker extends Walker_Nav_Menu
         }
 
         return trim(implode(' ', $attributes));
+    }
+
+    public static function nav_menu_submenu_css_class(array $classes, object $args, int $depth): array
+    {
+        if( $args->walker instanceof self) {
+            $classes[] = 'collapse ps-3 pb-3 list-unstyled';
+        }
+
+        return $classes;
+    }
+
+    public static function nav_menu_submenu_attributes(array $attributes, object $args, int $depth): array
+    {
+        if( $args->walker instanceof self) {
+            self::$submenu_counter++;
+
+            $attributes['id'] = self::getMenuPrefix($args).'-dropdown';
+        }
+        return $attributes;
     }
 
 }

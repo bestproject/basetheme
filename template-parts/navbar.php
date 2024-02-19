@@ -23,17 +23,14 @@ if( is_int($logo_media_id) ) {
             </a>
             
             <?php if (has_nav_menu('mainmenu')): ?>
-                <button class="navbar-toggler mr-3" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false"
-                        aria-label="<?php echo __('Toggle navigation', 'basetheme') ?>">
-                    <i class="fas fa-bars" aria-hidden="true"></i>
-                </button>
 
-                <div id="main-navigation" class="collapse navbar-collapse d-none d-xl-flex justify-content-lg-end">
+                <div id="main-navigation" class="flex-grow-0 d-none d-xl-flex justify-content-xl-end">
                     <?php wp_nav_menu([
                         'theme_location' => 'mainmenu',
                         'container'      => false,
+                        'depth'          => 2,
                         'menu_class'     => 'navbar-nav nav',
+                        'menu_id'        => 'mainmenu-desktop',
                         'walker'         => new Bootstrap5NavWalker()
                     ]) ?>
                 </div>
@@ -47,9 +44,9 @@ if( is_int($logo_media_id) ) {
                 </button>
 
                 <div class="offcanvas offcanvas-end d-xl-none" tabindex="-1" id="offcanvas-navigation" aria-labelledby="offcanvas-navigation-toggle">
-                    <div class="offcanvas-header px-3 py-3 d-flex justify-content-between">
+                    <div class="offcanvas-header px-3 py-3 d-flex justify-content-between border-bottom mb-3">
                         <h4 class="h5 ms-3"><?php echo __('Menu', 'basetheme') ?></h4>
-                        <button data-bs-dismiss="offcanvas" class="btn btn-outline-primary btn-sm px-3 offcanvas-navigation-toggle d-flex align-items-center" aria-label="<?php echo __('Close') ?>">
+                        <button data-bs-dismiss="offcanvas" class="btn btn-outline-primary btn-sm p-3 offcanvas-navigation-toggle d-flex align-items-center" aria-label="<?php echo __('Close') ?>">
                             <i class="fas fa-times" aria-hidden="true"><span></span></i><span class="visually-hidden" aria-hidden="true"><?php echo __('Close menu', 'basetheme') ?></span>
                         </button>
                     </div>
@@ -57,7 +54,9 @@ if( is_int($logo_media_id) ) {
                         <?php wp_nav_menu([
                             'theme_location' => 'mainmenu',
                             'container'      => false,
+                            'depth'             => 2,
                             'menu_class'     => 'nav flex-column nav-offcanvas',
+                            'menu_id'        => 'mainmenu-mobile',
                             'walker'         => new OffcanvasNavWalker()
                         ]) ?>
                     </div>

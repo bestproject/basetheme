@@ -11,6 +11,8 @@ use BaseTheme\Action\wp_head;
 use BaseTheme\Block\Style\Spacer;
 use BestProject\Feature\Comments;
 use BestProject\Feature\Updates;
+use BestProject\NavWalker\Bootstrap5NavWalker;
+use BestProject\NavWalker\OffcanvasNavWalker;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -35,6 +37,12 @@ add_action('wp_enqueue_scripts', [wp_enqueue_scripts::class, 'theme']);
 
 // Theme functions
 //add_action('wp_footer', [wp_footer::class, 'stickyMenu']);
+
+// Filters
+add_filter('nav_menu_submenu_css_class', [OffcanvasNavWalker::class, 'nav_menu_submenu_css_class'], 10, 3);
+add_filter('nav_menu_submenu_attributes', [OffcanvasNavWalker::class, 'nav_menu_submenu_attributes'], 10, 3);
+add_filter('nav_menu_submenu_css_class', [Bootstrap5NavWalker::class, 'nav_menu_submenu_css_class'], 10, 3);
+add_filter('nav_menu_submenu_attributes', [Bootstrap5NavWalker::class, 'nav_menu_submenu_attributes'], 10, 3);
 
 // Block styles (Register your custom block styles)
 add_action('init', [Spacer::class, 'register']);
