@@ -78,12 +78,21 @@ class Bootstrap5NavWalker extends Walker_Nav_Menu
             $anchor_attributes['class'] .= ' active';
         }
 
+        $badge = '';
+        if( trim($item->attr_title)!=='' ) {
+            $badge = '<span class="badge bg-primary text-white ms-3 fw-light">'.$item->attr_title.'</span>';
+        }
+
         // Render item
         $output_item = '<li '.$this->getAttributesString($item_attributes).'>';
         $output_item.=
             '<a '.$this->getAttributesString($anchor_attributes).'>'.
-            $args->link_before . $title . $args->link_after.
+            $args->link_before . '<span class="nav-link-text">'.$title.'</span>' . $badge . $args->link_after.
             '</a>';
+
+        if( $item->post_content!=='' ) {
+            $output_item.= '<p class="font-sm text-muted px-4 mt-n2 mb-0">'.$item->post_content.'</p>';
+        }
 
         $output .= apply_filters( 'walker_nav_menu_start_el', $output_item, $item, $depth, $args );
     }

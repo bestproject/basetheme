@@ -18,21 +18,13 @@
         box-sizing: border-box;
     }
     .wpcf7-acceptance,.wpcf7-checkbox {
-        &>.wpcf7-list-item {
-            &>label {
-                @extend .form-check;
-                input {
-                    @extend .form-check-input;
-                }
-                .wpcf7-list-item-label {
-                    @extend .form-check-label;
-                }
+        label {
+            @extend .form-check;
+            input {
+                @extend .form-check-input;
             }
-            a {
-                color:$text-muted;
-                &:hover ,&:focus{
-                    text-decoration:none
-                }
+            .wpcf7-list-item-label {
+                @extend .form-check-label;
             }
         }
     }
