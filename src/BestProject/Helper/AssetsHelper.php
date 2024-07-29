@@ -54,7 +54,7 @@ abstract class AssetsHelper
                 foreach ($entrypoint['js'] as $path) {
 
                     $asset_url = home_url().self::getAssetUrl($path);
-                    wp_enqueue_script(basename($path), $asset_url, ['jquery'], false, true);
+                    wp_enqueue_script(pathinfo($path, PATHINFO_FILENAME), $asset_url, ['jquery'], false, true);
 
                     // Deffer the script
                     if( $defer ) {
@@ -74,7 +74,7 @@ abstract class AssetsHelper
                 foreach ($entrypoint['css'] as $path) {
 
                     $asset_url = home_url().self::getAssetUrl($path);
-                    wp_enqueue_style(basename($path), $asset_url);
+                    wp_enqueue_style(pathinfo($path, PATHINFO_FILENAME), $asset_url);
 
                     // Deffer the stylesheet
                     if( $defer ) {
