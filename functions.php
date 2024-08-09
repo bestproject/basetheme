@@ -10,6 +10,7 @@ use BaseTheme\Action\wp_footer;
 use BaseTheme\Action\wp_head;
 use BaseTheme\Block\Style\Spacer;
 use BaseTheme\Block\Bootstrap;
+use BaseTheme\Action\wp_default_scripts;
 use BestProject\Feature\Comments;
 use BestProject\Feature\Updates;
 use BestProject\NavWalker\Bootstrap5NavWalker;
@@ -37,6 +38,7 @@ add_action('admin_init', [admin_init::class, 'registerEditorStyles']);
 // Theme assets
 add_action('wp_head', [wp_head::class, 'preload']);
 add_action('wp_enqueue_scripts', [wp_enqueue_scripts::class, 'theme']);
+add_action('wp_default_scripts', [wp_default_scripts::class, 'removeJQueryMigrate']);
 
 // Theme functions
 //add_action('wp_footer', [wp_footer::class, 'stickyMenu']);
