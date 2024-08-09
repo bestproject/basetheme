@@ -22,7 +22,11 @@ Encore
     .setPublicPath('/wp-content/themes/'+templateName+'/assets/build')
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
-    .enableSassLoader()
+    .enableSassLoader((options) => {
+        options.sassOptions = {
+            quietDeps: true, // disable warning msg
+        }
+    })
     .enableVersioning(Encore.isProduction())
     .enableSingleRuntimeChunk()
     .enableSourceMaps(!Encore.isProduction())
@@ -61,8 +65,8 @@ Encore
     .addStyleEntry('editor-styles', [
         './.dev/scss/editor-styles.scss'
     ])
-    .addStyleEntry('fontawesome', [
-        './.dev/scss/fontawesome.scss'
+    .addStyleEntry('fonts', [
+        './.dev/scss/fonts.scss'
     ])
     .copyFiles({
         from: './.dev/images',

@@ -4,6 +4,7 @@ namespace BaseTheme\Action;
 
 use BaseTheme\Constants;
 use BestProject\Helper\AssetsHelper;
+use BestProject\Helper\ThemeHelper;
 use Exception;
 
 /**
@@ -30,7 +31,7 @@ final class wp_enqueue_scripts
         AssetsHelper::addEntryPointAssets('fontawesome', true);
 
         // Register and enqueue fonts
-        AssetsHelper::enqueueDeferredStyle(Constants::FONTS_URL, 'google-fonts');
+        AssetsHelper::enqueueDeferredStyle(AssetsHelper::getAssetUrl('wp-content/themes/'.ThemeHelper::getTheme().'/assets/build/fonts.css'), 'fonts');
     }
 
 }
