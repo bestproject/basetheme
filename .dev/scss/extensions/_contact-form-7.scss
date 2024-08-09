@@ -12,10 +12,10 @@
         display:block;
     }
     .form-control,.form-select {
+        box-sizing: border-box;
         &:not(textarea) {
             //height:rem(46);
         }
-        box-sizing: border-box;
     }
     .wpcf7-acceptance,.wpcf7-checkbox {
         label {
