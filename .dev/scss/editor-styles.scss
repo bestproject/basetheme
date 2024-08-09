@@ -31,8 +31,8 @@ body {
 
 /* Main column width */
 .is-root-container {
-    @include container-max-width();
     margin:0 auto;
+    @include container-max-width();
 }
 
 /* Gallery block types  */
@@ -48,9 +48,9 @@ body {
 
 /* Post title */
 .wp-block.wp-block-post-title {
-    @extend .h1;
-    @include container-max-width();
     margin:0 auto !important;
+    @include container-max-width();
+    @extend .h1;
 }
 
 /* Base block */
