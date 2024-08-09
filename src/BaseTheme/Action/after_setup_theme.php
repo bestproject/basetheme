@@ -40,6 +40,7 @@ final class after_setup_theme
     {
         register_nav_menus([
             'mainmenu' => __('Main menu', 'basetheme'),
+            'footermenu' => __('Footer', 'basetheme'),
         ]);
     }
 
