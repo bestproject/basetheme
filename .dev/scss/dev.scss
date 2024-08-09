@@ -20,7 +20,7 @@
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/utilities";
 
-body {
+body.admin-bar {
     &:after {
         position: fixed;
         top:75%;right:$spacer;
