@@ -51,10 +51,12 @@ export default function Edit({attributes, setAttributes}) {
 		xs_order, md_order, xl_order, className
 	} = attributes;
 
-
-	const deviceType = select( 'core/editor' ).getDeviceType();
 	let editorClasses = {};
 	let publishedClasses = {};
+
+	const deviceType = select( ( select ) => {
+		return select( 'core/block-editor' ).getDeviceType() ?? 'Desktop';
+	}, [] );
 
 	['xs', 'md', 'xl'].map((breakpoint)=> {
 

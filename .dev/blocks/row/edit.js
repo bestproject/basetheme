@@ -73,7 +73,9 @@ export default function Edit( {attributes, setAttributes}) {
 	let editorClasses = {};
 	let publishedClasses = {};
 
-	const deviceType = select( 'core/editor' ).getDeviceType();
+	const deviceType = select( ( select ) => {
+		return select( 'core/block-editor' ).getDeviceType() ?? 'Desktop';
+	}, [] );
 
 	['xs', 'md', 'xl'].map((breakpoint)=>{
 
