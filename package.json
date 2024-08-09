@@ -9,7 +9,21 @@
     "watch-prod": "npm encore prod --watch",
     "prod": "encore prod",
     "build": "encore prod",
-    "postinstall": "node .dev/js/build/postinstall.js"
+    "postinstall": "node .dev/js/build/postinstall.js",
+    "wp:format": "wp-scripts format ./.dev/blocks",
+    "wp:start": "wp-scripts start --webpack-copy-php --webpack-src-dir=./.dev/blocks --output-path=./blocks/wp --config=./.dev/blocks/webpack.config.js",
+    "wp:build": "wp-scripts build --webpack-copy-php --webpack-src-dir=./.dev/blocks --output-path=./blocks/wp --config=./.dev/blocks/webpack.config.js"
+  },
+  "scriptsComments": {
+    "test": "Run tests",
+    "dev": "Build assets for the development environment",
+    "watch": "Continuously build assets for the development environment",
+    "watch-prod": "Continuously build assets for the prodection environment",
+    "prod": "Build assets for the production environment",
+    "build": "Build assets for the production environment",
+    "wp:format": "Format custom blocks code",
+    "wp:start": "Continuously build custom blocks assets",
+    "wp:build": "Build custom blocks assets"
   },
   "private": true,
   "author": "Grupa Best Sp. z o.o.",
@@ -29,7 +43,13 @@
     "sass": "latest",
     "sass-loader": "^13",
     "swiper": "^10.3.1",
-    "webpack-notifier": "^1.15"
+    "webpack-notifier": "^1.15",
+    "@wordpress/scripts": "latest",
+    "@wordpress/components": "latest",
+    "@wordpress/block-editor": "latest",
+    "@wordpress/blocks": "latest",
+    "@wordpress/i18n": "latest",
+    "@wordpress/icons": "latest"
   },
   "engines": {
     "node": ">=13.0"

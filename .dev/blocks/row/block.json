@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bootstrap/row",
+	"version": "0.1.0",
+	"title": "Row",
+	"category": "theme",
+	"icon": "smiley",
+	"description": "Bootstrap row type block.",
+	"example": {},
+	"attributes": {
+		"xs_alignItems": {
+			"type": "string",
+			"default": ""
+		},
+		"md_alignItems": {
+			"type": "string",
+			"default": ""
+		},
+		"xl_alignItems": {
+			"type": "string",
+			"default": ""
+		},
+		"xs_justifyContent": {
+			"type": "string",
+			"default": ""
+		},
+		"md_justifyContent": {
+			"type": "string",
+			"default": ""
+		},
+		"xl_justifyContent": {
+			"type": "string",
+			"default": ""
+		},
+		"xs_gutter": {
+			"type": "string",
+			"default": ""
+		},
+		"md_gutter": {
+			"type": "string",
+			"default": ""
+		},
+		"xl_gutter": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"allowedBlocks": [ "bootstrap/column"],
+	"textdomain": "bootstrap",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

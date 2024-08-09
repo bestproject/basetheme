@@ -9,6 +9,7 @@ use BaseTheme\Action\wp_enqueue_scripts;
 use BaseTheme\Action\wp_footer;
 use BaseTheme\Action\wp_head;
 use BaseTheme\Block\Style\Spacer;
+use BaseTheme\Block\Bootstrap;
 use BestProject\Feature\Comments;
 use BestProject\Feature\Updates;
 use BestProject\NavWalker\Bootstrap5NavWalker;
@@ -45,6 +46,9 @@ add_filter('nav_menu_submenu_css_class', [OffcanvasNavWalker::class, 'nav_menu_s
 add_filter('nav_menu_submenu_attributes', [OffcanvasNavWalker::class, 'nav_menu_submenu_attributes'], 10, 3);
 add_filter('nav_menu_submenu_css_class', [Bootstrap5NavWalker::class, 'nav_menu_submenu_css_class'], 10, 3);
 add_filter('nav_menu_submenu_attributes', [Bootstrap5NavWalker::class, 'nav_menu_submenu_attributes'], 10, 3);
+
+// Block (Register your custom block)
+add_action('init', [Bootstrap::class, 'register']);
 
 // Block styles (Register your custom block styles)
 add_action('init', [Spacer::class, 'register']);
