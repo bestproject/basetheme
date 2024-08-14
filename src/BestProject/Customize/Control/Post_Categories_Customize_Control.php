@@ -9,7 +9,7 @@ use WP_Customize_Control;
  *
  * @package BestProject\Customize\Control
  */
-class Post_Categories_Control extends WP_Customize_Control
+class Post_Categories_Customize_Control extends WP_Customize_Control
 {
 
     /**
