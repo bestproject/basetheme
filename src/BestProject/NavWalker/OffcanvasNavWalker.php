@@ -93,7 +93,7 @@ class OffcanvasNavWalker extends Walker_Nav_Menu
             $args->link_before . '<span class="nav-link-text">'.$title.'</span>' . $badge . $args->link_after.
             '</a>';
 
-        if( $item->post_content!=='' ) {
+        if( trim($item->post_content)!=='' ) {
             $output_item.= '<p class="font-sm text-muted px-3 mt-n2 mb-0">'.$item->post_content.'</p>';
         }
 
