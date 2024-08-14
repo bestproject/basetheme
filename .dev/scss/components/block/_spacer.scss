@@ -1,6 +1,7 @@
 .wp-block-spacer {
 
     height: 0 !important;box-sizing: content-box;
+    margin-top:0;
 
     &:not([class*="is-style"]) {
         padding-top: $spacer;
