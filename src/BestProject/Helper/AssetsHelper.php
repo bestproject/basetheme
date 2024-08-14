@@ -169,6 +169,39 @@ abstract class AssetsHelper
         return $public_url;
     }
 
+
+
+    /**
+     * Get asset absolute path.
+     *
+     * @param   string  $url       Internal URL (eg. templates/test/assets/build/theme.css)
+     * @param   bool    $relative  If $relative is set to TRUE $url will be treated as relative to theme assets url (eg. wp-content/themes/some_theme/assets/build will be added as a prefix to $url).
+     *
+     * @return string
+     *
+     * @throws Exception
+     *
+     * @since 1.0.0
+     */
+    public static function getAssetPath(string $url, bool $relative = false): string
+    {
+        return ABSPATH.ltrim(self::getAssetUrl($url, $relative), '/');
+    }
+
+    /**
+     * Get asset version hash.
+     *
+     * @param   string  $url
+     * @param   bool    $relative
+     *
+     * @return string
+     * @throws Exception
+     */
+    public static function getAssetVersion(string $url, bool $relative = false): string
+    {
+        return crc32(self::getAssetUrl($url, $relative));
+    }
+
     /**
      * Return manifest array.
      *
