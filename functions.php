@@ -11,8 +11,10 @@ use BaseTheme\Action\wp_head;
 use BaseTheme\Block\Style\Spacer;
 use BaseTheme\Block\Bootstrap;
 use BaseTheme\Action\wp_default_scripts;
-use BestProject\Feature\Comments;
-use BestProject\Feature\Updates;
+use BaseTheme\Action\enqueue_block_assets;
+use BestProject\Feature\Comments as CommentsFeature;
+use BestProject\Feature\MenuIcon as MenuIconFeature;
+use BestProject\Feature\Updates as UpdatesFeature;
 use BestProject\NavWalker\Bootstrap5NavWalker;
 use BestProject\NavWalker\OffcanvasNavWalker;
 use BestProject\Plugin\ContactForm7;
@@ -39,6 +41,7 @@ add_action('admin_init', [admin_init::class, 'registerEditorStyles']);
 add_action('wp_head', [wp_head::class, 'preload']);
 add_action('wp_enqueue_scripts', [wp_enqueue_scripts::class, 'theme']);
 add_action('wp_default_scripts', [wp_default_scripts::class, 'removeJQueryMigrate']);
+add_action('enqueue_block_assets', [enqueue_block_assets::class, 'editor']);
 
 // Theme functions
 //add_action('wp_footer', [wp_footer::class, 'stickyMenu']);
@@ -69,5 +72,6 @@ add_filter('wpcf7_form_tag', [ContactForm7::class, 'addBootstrapAttributes'], 10
 add_filter('wpseo_breadcrumb_separator', [Yoast::class, 'changeBreadcrumbSeparator'], 10);
 
 // Features
-Updates::disableThemeUpdates();
-Comments::disable();
+UpdatesFeature::disableThemeUpdates();
+CommentsFeature::disable();
+MenuIconFeature::enable();
