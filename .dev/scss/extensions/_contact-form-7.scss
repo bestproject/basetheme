@@ -6,7 +6,7 @@
     @extend .invalid-feedback;
 }
 
-.wpcf7-form {
+form.wpcf7-form {
     .wpcf7-form-control-wrap {
         width:100%;
         display:block;
@@ -51,5 +51,9 @@
             @extend .alert;
             @extend .alert-success;
         }
+    }
+    .wpcf7-response-output {
+        border-color: var(--bs-alert-border-color) !important;
+        margin:1em 0 0 0 !important;
     }
 }
