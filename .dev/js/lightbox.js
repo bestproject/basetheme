@@ -2,12 +2,27 @@ import $ from 'jquery';
 import 'magnific-popup';
 import 'magnific-popup/dist/magnific-popup.css';
 
-$(function(){
+$(()=>{
 
     const galleries = [];
 
+    $('.wp-block-gallery').each(function(i,v){
+        const $gallery = $(v);
+        let galleryId;
+
+        if( $gallery.attr('id') ) {
+            galleryId = $gallery.attr('id');
+        } else {
+            galleryId = 'wp-gallery-'+Math.random().toString(32).substring(2);
+        }
+
+        $(v).find('a').attr('data-gallery', galleryId);
+    });
+
     $('a[data-gallery]').each(function(i,v){
         galleries.push($(v).attr('data-gallery'));
+
+        $(v).attr('gallery-setup-up','true');
     });
 
     $.each(galleries, function(i,v){
