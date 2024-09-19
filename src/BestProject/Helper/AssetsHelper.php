@@ -3,11 +3,10 @@
 namespace BestProject\Helper;
 
 use Exception;
+use RuntimeException;
 
 /**
  * Assets management helper.
- *
- * @since 1.0.0
  */
 abstract class AssetsHelper
 {
@@ -16,8 +15,6 @@ abstract class AssetsHelper
      * Manifest cache avoiding multiple disc reads.
      *
      * @var array
-     *
-     * @since 1.5.0
      */
     private static array $manifestCache = [];
 
@@ -26,8 +23,6 @@ abstract class AssetsHelper
      * Entry points cache.
      *
      * @var array
-     *
-     * @since 1.5.0
      */
     private static array $entrypointsCache = [];
 
@@ -38,7 +33,6 @@ abstract class AssetsHelper
      *
      *
      * @throws Exception
-     * @since 1.0.0
      */
     public static function addEntryPointAssets(string $name, bool $defer = false): void
     {
@@ -125,16 +119,17 @@ abstract class AssetsHelper
      *
      * @return array
      * @throws Exception
-     *
-     * @since 1.5
      */
     public static function getEntryPoints(): array
     {
         if (static::$entrypointsCache === []) {
-            $entrypoints_path = get_theme_root() . '/' . ThemeHelper::getTheme() . '/assets/build/entrypoints.json';
+            $entrypoints_file = '/' . ThemeHelper::getTheme() . '/assets/build/entrypoints.json';
+            $entrypoints_path = get_theme_root() . $entrypoints_file;
             if (file_exists($entrypoints_path)) {
                 static::$entrypointsCache = json_decode(file_get_contents($entrypoints_path), true, 512,
                     JSON_THROW_ON_ERROR);
+            } else {
+                throw new RuntimeException("File /wp-content/themes{$entrypoints_file} not found. Build theme assets 'npm run prod'");
             }
         }
 
@@ -150,8 +145,6 @@ abstract class AssetsHelper
      * @return string
      *
      * @throws Exception
-     *
-     * @since 1.0.0
      */
     public static function getAssetUrl(string $url, bool $relative = false): string
     {
@@ -180,8 +173,6 @@ abstract class AssetsHelper
      * @return string
      *
      * @throws Exception
-     *
-     * @since 1.0.0
      */
     public static function getAssetPath(string $url, bool $relative = false): string
     {
@@ -208,17 +199,18 @@ abstract class AssetsHelper
      * @return array
      *
      * @throws Exception
-     *
-     * @since 1.0.0
      */
     public static function getManifest(): array
     {
         if (static::$manifestCache === []) {
-            $manifest_path = get_theme_root() . '/' . ThemeHelper::getTheme() . '/assets/build/manifest.json';
+            $manifest_file = '/' . ThemeHelper::getTheme() . '/assets/build/manifest.json';
+            $manifest_path = get_theme_root() . $manifest_file;
 
             static::$manifestCache = [];
             if (file_exists($manifest_path)) {
                 static::$manifestCache = json_decode(file_get_contents($manifest_path), true, 512, JSON_THROW_ON_ERROR);
+            } else {
+                throw new RuntimeException("File /wp-content/themes{$manifest_file} not found. Build theme assets 'npm run prod'");
             }
         }
 
