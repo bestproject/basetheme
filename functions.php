@@ -34,8 +34,10 @@ add_action('customize_register', [customize_register::class, 'additionalCode']);
 
 // Init
 add_action('init', [init::class, 'registerPostSupport']);
+add_action('init', [init::class, 'registerThemePatternsCategory']);
 add_action('widgets_init', [widgets_init::class, 'registerSidebars']);
 add_action('admin_init', [admin_init::class, 'registerEditorStyles']);
+add_action('admin_init', [admin_init::class, 'syncPatterns']);
 
 // Theme assets
 add_action('wp_head', [wp_head::class, 'preload']);
