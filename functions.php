@@ -74,6 +74,6 @@ add_filter('wpcf7_form_tag', [ContactForm7::class, 'addBootstrapAttributes'], 10
 add_filter('wpseo_breadcrumb_separator', [Yoast::class, 'changeBreadcrumbSeparator'], 10);
 
 // Features
-UpdatesFeature::disableThemeUpdates();
+//UpdatesFeature::disableThemeUpdates();
 CommentsFeature::disable();
 MenuIconFeature::enable();
