@@ -59,6 +59,10 @@ body {
     margin:0 auto !important;
     @include container-max-width();
     @extend .h1;
+    & {
+        border:rem(1) dashed $text-muted;
+        padding: 0.5em 1em;
+    }
 }
 
 /* Base block */
