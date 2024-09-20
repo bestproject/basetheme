@@ -30,8 +30,8 @@ final class Pattern_Customize_Control extends WP_Customize_Control
             <?php $selected = (int)$this->value(); ?>
             <select id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" class="pattern_customize_control" <?php $this->link(); ?> aria-labelledby="<?php echo esc_attr( $this->id ) ?>__label">
                 <?php foreach ( $options as $key => $pattern ) { ?>
-                    <option value="<?php echo esc_attr($pattern) ?>" <?php echo ($selected===$pattern) ?>>
-                        <?php echo $pattern ?>
+                    <option value="<?php echo esc_attr($pattern->ID) ?>" <?php echo ($selected===$pattern->ID) ?>>
+                        <?php echo $pattern->post_title ?>
                     </option>
                 <?php	} ?>
             </select>
@@ -39,15 +39,11 @@ final class Pattern_Customize_Control extends WP_Customize_Control
         <?php
     }
 
+    /**
+     * @return WP_Post[]
+     */
     private function getOptions(): array
     {
-        $patterns  = WP_Block_Patterns_Registry::get_instance()->get_all_registered();
-
-        return array_map(
-            static function ( array $pattern ) {
-                return $pattern['name'];
-            },
-            $patterns
-        );
+        return get_posts(['post_type'=>'wp_block','order'=>'post_title']);
     }
 }
