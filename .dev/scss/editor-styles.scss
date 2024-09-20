@@ -22,6 +22,8 @@
 @import "components/block/heading";
 @import "components/block/spacer";
 @import "components/block/container";
+@import "components/block/paragraph";
+@import "tools/text";
 
 body {
     font-family: $font-family-base;
@@ -33,7 +35,12 @@ body {
 /* Main column width */
 .is-root-container {
     margin:0 auto;
-    @include container-max-width();
+    //@include container-max-width();
+    width:100%;max-width: 100%;
+    .container[class] {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 }
 
 /* Gallery block types  */
