@@ -1,0 +1,5 @@
+.is-root-container {
+    .container {
+        @include container-max-width;
+    }
+}
