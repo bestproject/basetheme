@@ -1,6 +1,6 @@
 <?php
 
-namespace BB\Customizer;
+namespace BestProject\Customize\Control;
 
 use WP_Block_Patterns_Registry;
 use WP_Customize_Control;
