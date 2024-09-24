@@ -113,6 +113,9 @@ export default function Edit({attributes, setAttributes}) {
 		} );
 	};
 
+	const TEMPLATE = [ [ 'core/paragraph', { content: 'Vestibulum euismod mi vitae ...' } ] ];
+	const DEFAULT_BLOCK = { name: 'core/paragraph', attributes: { placeholder: 'Vestibulum euismod mi vitae ...' } };
+
 	return (
 		<div { ...blockProps }>
 			<InspectorControls key="setting">
@@ -245,7 +248,7 @@ export default function Edit({attributes, setAttributes}) {
 				</Panel>
 			</InspectorControls>
 
-			<InnerBlocks  defaultBlock={['core/paragraph', {placeholder: "Vestibulum euismod mi vitae magna ultrices imperdiet. Vivamus aliquam porttitor vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit."}]} directInsert />
+			<InnerBlocks orientation="vertical"  template={ TEMPLATE } defaultBlock={ DEFAULT_BLOCK } directInsert templateInsertUpdatesSelection={ true } />
 		</div>
 	);
 }
