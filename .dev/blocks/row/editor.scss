@@ -5,4 +5,10 @@
  */
 
 .wp-block-bootstrap-row {
+    &>.block-list-appender {
+        position: absolute;
+        right:0 !important;
+        bottom:0 !important;
+        width:auto !important;
+    }
 }
