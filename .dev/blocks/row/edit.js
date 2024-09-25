@@ -15,6 +15,7 @@ import clsx from 'clsx';
  */
 import {
 	useBlockProps,
+	InnerBlocks,
 	useInnerBlocksProps,
 	InspectorControls,
 } from '@wordpress/block-editor';
@@ -149,7 +150,19 @@ export default function Edit( {attributes, setAttributes}) {
 		} );
 	};
 
-	const { children, ...innerBlocksProps } = useInnerBlocksProps( blockProps );
+	const TEMPLATE = [ [ 'bootstrap/column' ] ];
+	const DEFAULT_BLOCK = { name: 'bootstrap/column', attributes: {  } };
+	const ALLOWED_BLOCKS = ['bootstrap/column'];
+
+	const { children, ...innerBlocksProps } = useInnerBlocksProps( blockProps, {
+		allowedBlocks: ALLOWED_BLOCKS,
+		template: TEMPLATE,
+		defaultBlock: DEFAULT_BLOCK,
+		orientation: "horizontal",
+		directInsert: true,
+		templateInsertUpdatesSelection: true,
+	} );
+
 
 	return (
 		<div { ...blockProps }>
