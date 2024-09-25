@@ -35,9 +35,12 @@ export default function Edit() {
 		className: 'container ',
 	})
 
+	const TEMPLATE = [ [ 'core/paragraph', { placeholder: __( 'Start writing or type / to choose a block' ) } ] ];
+	const DEFAULT_BLOCK = { name: 'core/paragraph', attributes: { placeholder: __( 'Start writing or type / to choose a block' ) } };
+
 	return (
 		<div { ...blockProps }>
-			<InnerBlocks />
+			<InnerBlocks orientation="vertical"  template={ TEMPLATE } defaultBlock={ DEFAULT_BLOCK } directInsert templateInsertUpdatesSelection={ true } />
 		</div>
 	);
 }

@@ -113,7 +113,7 @@ export default function Edit({attributes, setAttributes}) {
 		} );
 	};
 
-	const TEMPLATE = [ [ 'core/paragraph', { content: 'Vestibulum euismod mi vitae ...' } ] ];
+	const TEMPLATE = [ [ 'core/paragraph', { placeholder: 'Vestibulum euismod mi vitae ...' } ] ];
 	const DEFAULT_BLOCK = { name: 'core/paragraph', attributes: { placeholder: 'Vestibulum euismod mi vitae ...' } };
 
 	return (
