@@ -181,6 +181,7 @@ class Build
         $strings = [
             "'basetheme'"           => "'$this->name'",
             'namespace BaseTheme\\' => "namespace $this->namespace\\",
+            'namespace BaseTheme;' => "namespace $this->namespace;",
             '@package BaseTheme\\'  => "@package $this->namespace\\",
             'use BaseTheme'         => "use $this->namespace",
             "'basetheme-google-fonts'"         => "'{$this->name}-google-fonts'",
