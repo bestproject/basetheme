@@ -24,7 +24,8 @@ Encore
     .enableBuildNotifications()
     .enableSassLoader((options) => {
         options.sassOptions = {
-            quietDeps: true, // disable warning msg
+            quietDeps: true, // disable warning msg,
+            silenceDeprecations: ['legacy-js-api'],
         }
     })
     .enableVersioning(Encore.isProduction())

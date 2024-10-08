@@ -71,6 +71,8 @@ body {
     margin-right: unset !important;
 }
 html :where(.wp-block):not(.container) {
+    margin-bottom:0;
+    margin-top:0;
     max-width: unset;
 }
 
