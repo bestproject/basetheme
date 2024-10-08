@@ -72,6 +72,7 @@ add_action('do_feed_atom_comments', 'wpb_disable_feed', 1);
 // plugins
 add_filter('wpcf7_form_tag', [ContactForm7::class, 'addBootstrapAttributes'], 10, 2);
 add_filter('wpseo_breadcrumb_separator', [Yoast::class, 'changeBreadcrumbSeparator'], 10);
+add_filter('wpseo_breadcrumb_links', [Yoast::class, 'addParentPages'], 10);
 
 // Features
 //UpdatesFeature::disableThemeUpdates();
