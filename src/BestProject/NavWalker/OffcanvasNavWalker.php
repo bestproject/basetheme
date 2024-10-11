@@ -77,7 +77,7 @@ class OffcanvasNavWalker extends Walker_Nav_Menu
         }
 
         // Check if this is current page
-        if( $item->current ) {
+        if( $item->current || $item->current_item_ancestor  ) {
             $anchor_attributes['class'] .= ' active';
         }
 
