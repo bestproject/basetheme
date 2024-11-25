@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -27,9 +27,7 @@ export default function Save() {
 		className: 'container ',
 	});
 
-	return (
-		<div { ...blockProps }>
-			<InnerBlocks.Content />
-		</div>
-	);
+	const innerBlocksProps = useInnerBlocksProps.save( blockProps );
+
+	return <div { ...innerBlocksProps } />;
 }
