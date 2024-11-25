@@ -44,6 +44,11 @@ final class Pattern_Customize_Control extends WP_Customize_Control
      */
     private function getOptions(): array
     {
-        return get_posts(['post_type'=>'wp_block','order'=>'post_title']);
+        return get_posts([
+            'post_type'=>'wp_block',
+            'orderby'=>'post_title',
+            'order'=>'asc',
+            'posts_per_page'=>-1
+        ]);
     }
 }
