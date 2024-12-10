@@ -79,7 +79,7 @@ html :where(.wp-block):not(.container) {
 }
 
 .row {
-    margin-top: calc(-1 * var(--bs-gutter-y), 0);
+    margin-top: calc(-1 * var(--bs-gutter-y, 0));
     & > * {
         margin-top:var(--bs-gutter-y, 0) !important;
     }

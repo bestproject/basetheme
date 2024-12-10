@@ -18,6 +18,9 @@ form.wpcf7-form {
         }
     }
     .wpcf7-acceptance,.wpcf7-checkbox {
+        .wpcf7-list-item {
+            margin-left:0;
+        }
         label {
             @extend .form-check;
             input {
