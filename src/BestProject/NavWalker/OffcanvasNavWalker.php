@@ -25,7 +25,9 @@ class OffcanvasNavWalker extends Walker_Nav_Menu
         // Prepare item classes
         $classes = ['nav-item','item-'.$item->ID];
         $classes = apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth );
-        array_push($classes, ...$item->classes);
+        if( is_array($item->classes) ) {
+            array_push($classes, ...$item->classes);
+        }
 
         // Prepare attributes
         $item_attributes = [];
@@ -65,6 +67,14 @@ class OffcanvasNavWalker extends Walker_Nav_Menu
         // Prepare item title
         $title = apply_filters( 'the_title', $item->title, $item->ID );
         $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
+
+        if( !is_array($item->classes) ) {
+            if( empty($item->classes) ) {
+                $item->classes = [];
+            } else {
+                $item->classes = explode(' ',$item->classes);
+            }
+        }
 
         // If item id is prepared, set the attribute
         if( !empty($item_id) ) {
