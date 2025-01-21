@@ -15,6 +15,9 @@
 // Boostrap SASS default styles
 @import "bootstrap";
 
+// Components
+@import "components/link";
+
 // Block styles
 @import "components/block/buttons";
 @import "components/block/columns";
