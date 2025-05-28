@@ -47,7 +47,7 @@ abstract class AssetsHelper
             if (array_key_exists('js', $entrypoint)) {
                 foreach ($entrypoint['js'] as $path) {
 
-                    $asset_url = home_url().self::getAssetUrl($path);
+                    $asset_url = site_url().self::getAssetUrl($path);
                     wp_enqueue_script(pathinfo($path, PATHINFO_FILENAME), $asset_url, ['jquery'], false, true);
 
                     // Deffer the script
@@ -67,7 +67,7 @@ abstract class AssetsHelper
             if (array_key_exists('css', $entrypoint)) {
                 foreach ($entrypoint['css'] as $path) {
 
-                    $asset_url = home_url().self::getAssetUrl($path);
+                    $asset_url = site_url().self::getAssetUrl($path);
                     wp_enqueue_style(pathinfo($path, PATHINFO_FILENAME), $asset_url);
 
                     // Deffer the stylesheet
