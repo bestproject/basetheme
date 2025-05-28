@@ -8,7 +8,7 @@ use BaseTheme\Action\widgets_init;
 use BaseTheme\Action\wp_enqueue_scripts;
 use BaseTheme\Action\wp_footer;
 use BaseTheme\Action\wp_head;
-use BaseTheme\Block\Style\Spacer;
+use BaseTheme\Block\Style\Spacer as SpacerStyles;
 use BaseTheme\Block\Bootstrap;
 use BaseTheme\Action\wp_default_scripts;
 use BaseTheme\Action\enqueue_block_assets;
@@ -58,7 +58,7 @@ add_filter('nav_menu_submenu_attributes', [Bootstrap5NavWalker::class, 'nav_menu
 add_action('init', [Bootstrap::class, 'register']);
 
 // Block styles (Register your custom block styles)
-add_action('init', [Spacer::class, 'register']);
+add_action('init', [SpacerStyles::class, 'register']);
 
 // Disable feeds
 add_action('do_feed', 'wpb_disable_feed', 1);

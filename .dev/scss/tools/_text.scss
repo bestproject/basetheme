@@ -1,0 +1,14 @@
+.has-text-color {
+    @each $color-name, $color-value in $theme-colors {
+        &.has-#{$color-name}-color {
+            color: var(--bs-#{$color-name});
+        }
+    }
+}
+
+@each $size-name, $size-value in $font-sizes {
+    .has-#{$size-name}-font-size {
+        font-size: $size-value;
+    }
+}
+

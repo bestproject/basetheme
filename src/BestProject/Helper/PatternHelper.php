@@ -8,9 +8,15 @@ namespace BestProject\Helper;
 class PatternHelper
 {
 
-    public static function getPatternById(int $id): ?string
+    public static function getPatternById(int $id, bool $filter = true): ?string
     {
-        return apply_filters('the_content', get_post($id)->post_content);
+        $post = get_post($id);
+
+        if( $filter ) {
+            return apply_filters('the_content', $post->post_content);
+        }
+
+        return $post->post_content;
     }
 }
 

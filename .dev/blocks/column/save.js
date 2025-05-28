@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import clsx from "clsx";
 
 /**
@@ -57,9 +57,7 @@ export default function Save({attributes}) {
 		className: clsx(publishedClasses),
 	});
 
-	return (
-		<div { ...blockProps }>
-			<InnerBlocks.Content />
-		</div>
-	);
+	const innerBlocksProps = useInnerBlocksProps.save( blockProps );
+
+	return <div { ...innerBlocksProps } />;
 }

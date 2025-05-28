@@ -48,6 +48,10 @@ Encore
             }
         }
     })
+    .configureImageRule({
+        type: 'asset',
+        maxSize: 5 * 1024, // use data URI when image size over the maxSize in kb
+    })
     .autoProvidejQuery()
     .enablePostCssLoader()
     .addExternals({
