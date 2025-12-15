@@ -1,3 +1,5 @@
+@use '../functions' as *;
+
 .screen-reader-response {
     @extend .visually-hidden;
 }
@@ -14,7 +16,7 @@ form.wpcf7-form {
     .form-control,.form-select {
         box-sizing: border-box;
         &:not(textarea) {
-            //height:rem(46);
+            //height:toREM(46);
         }
     }
     .wpcf7-acceptance,.wpcf7-checkbox {

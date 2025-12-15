@@ -50,7 +50,7 @@ body {
 
 /* Gallery block types  */
 .wp-block-gallery {
-    margin: rem(20) 0;
+    margin: toREM(20) 0;
     &.columns-4,&.columns-5 {
         .blocks-gallery-grid {
             justify-content: space-between;
@@ -65,7 +65,7 @@ body {
     @include container-max-width();
     @extend .h1;
     & {
-        border:rem(1) dashed $text-muted;
+        border:toREM(1) dashed $text-muted;
         padding: 0.5em 1em;
     }
 }

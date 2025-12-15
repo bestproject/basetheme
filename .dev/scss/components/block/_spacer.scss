@@ -1,3 +1,5 @@
+@use '../../functions' as *;
+
 .wp-block-spacer {
 
     height: 0 !important;box-sizing: content-box;
@@ -47,12 +49,12 @@
         background: repeating-linear-gradient(
                         45deg,
                         transparent,
-                        transparent  #{rem(10)},
-                        rgba(black, .5) #{rem(10)},
-                        rgba(black, .5) #{rem(11)},
-                        rgba(white, .8) #{rem(11)},
-                        rgba(white, .8) #{rem(12)}
+                        transparent  #{toREM(10)},
+                        rgba(black, .5) #{toREM(10)},
+                        rgba(black, .5) #{toREM(11)},
+                        rgba(white, .8) #{toREM(11)},
+                        rgba(white, .8) #{toREM(12)}
         );
-        box-shadow: inset 0 0 0 rem(1) white, inset 0 0 0 rem(2) black;
+        box-shadow: inset 0 0 0 toREM(1) white, inset 0 0 0 toREM(2) black;
     }
 }
