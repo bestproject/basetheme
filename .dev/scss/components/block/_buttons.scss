@@ -1,32 +1,135 @@
+@use 'sass:color';
 @use '../../functions' as *;
 
 .wp-block-buttons {
+    gap: 1em;
     .wp-block-button {
 
         .wp-block-button__link {
             @extend .btn;
+            padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
         }
+
         &.is-style-outline {
             .wp-block-button__link {
                 @extend .btn-outline-primary;
-                border-color:$primary !important;
-                color:$primary !important;
-                border-radius: 0 !important;
                 border-width: toREM(2);
-                &:hover,&:focus {
-                    background:$primary !important;
-                    color:white !important;
+            }
+            .wp-block-button__link.has-text-color {
+                &.has-primary-color {
+                    border-color: var(--#{$prefix}primary);
+                    color: var(--#{$prefix}primary);
+                    &:hover,&:focus {
+                        background: var(--#{$prefix}white);
+                        color: var(--#{$prefix}primary) !important;
+                    }
+                }
+                &.has-secondary-color {
+                    border-color: var(--#{$prefix}secondary);
+                    color: var(--#{$prefix}secondary);
+                    &:hover,&:focus {
+                        background: var(--#{$prefix}secondary);
+                        color: var(--#{$prefix}primary) !important;
+                    }
+                }
+                &.has-white-color {
+                    border-color: var(--#{$prefix}white);
+                    color: var(--#{$prefix}white);
+                    &:hover,&:focus {
+                        background: var(--#{$prefix}white);
+                        color: var(--#{$prefix}primary) !important;
+                    }
+                }
+                &.has-light-color {
+                    border-color: var(--#{$prefix}light);
+                    color: var(--#{$prefix}light);
+                    &:hover,&:focus {
+                        background: var(--#{$prefix}light);
+                        color: var(--#{$prefix}primary) !important;
+                    }
+                }
+                &.has-dark-color {
+                    border-color: var(--#{$prefix}dark);
+                    color: var(--#{$prefix}dark);
+                    &:hover,&:focus {
+                        background: var(--#{$prefix}dark);
+                        color: var(--#{$prefix}white) !important;
+                    }
+                }
+                &.has-black-color {
+                    border-color: var(--#{$prefix}black);
+                    color: var(--#{$prefix}black);
+                    &:hover,&:focus {
+                        background: var(--#{$prefix}black);
+                        color: var(--#{$prefix}white) !important;
+                    }
                 }
             }
         }
+
         &.is-style-fill {
             .wp-block-button__link {
-                @extend .btn-primary;
-                border-color:$primary !important;
-                background:$primary !important;
-                color:white !important;
-                border-radius: 0 !important;
+                @extend .btn;
                 border-width: toREM(2);
+            }
+            .wp-block-button__link.has-background {
+                &.has-primary-background-color {
+                    border-color: var(--#{$prefix}primary);
+                    color: var(--#{$prefix}white);
+                    background: var(--#{$prefix}primary);
+                    &:hover,&:focus {
+                        background: color.adjust($primary, $blackness: 10%);
+                        border-color: color.adjust($primary, $blackness: 10%);
+                        color: var(--#{$prefix}white) !important;
+                    }
+                }
+                &.has-secondary-background-color {
+                    border-color: var(--#{$prefix}secondary);
+                    color: var(--#{$prefix}white);
+                    background: var(--#{$prefix}secondary);
+                    &:hover,&:focus {
+                        background: color.adjust($secondary, $blackness: 10%);
+                        border-color: color.adjust($secondary, $blackness: 10%);
+                        color: var(--#{$prefix}white) !important;
+                    }
+                }
+                &.has-white-background-color {
+                    border-color: var(--#{$prefix}white);
+                    color: var(--#{$prefix}primary);
+                    background: var(--#{$prefix}white);
+                    &:hover,&:focus {
+                        background: var(--#{$prefix}white);
+                        color: color.adjust($primary, $blackness: 10%);
+                    }
+                }
+                &.has-light-background-color {
+                    border-color: var(--#{$prefix}light);
+                    color: var(--#{$prefix}primary);
+                    background: var(--#{$prefix}light);
+                    &:hover,&:focus {
+                        background: var(--#{$prefix}white);
+                        color: color.adjust($primary, $blackness: 10%);
+                    }
+                }
+                &.has-dark-background-color {
+                    border-color: var(--#{$prefix}dark);
+                    color: var(--#{$prefix}white);
+                    background: var(--#{$prefix}dark);
+                    &:hover,&:focus {
+                        background: color.adjust($dark, $blackness: 10%);
+                        border-color: color.adjust($dark, $blackness: 10%);
+                        color: var(--#{$prefix}white) !important;
+                    }
+                }
+                &.has-black-background-color {
+                    border-color: var(--#{$prefix}black);
+                    color: var(--#{$prefix}white);
+                    background: var(--#{$prefix}black);
+                    &:hover,&:focus {
+                        background: var(--#{$prefix}black);
+                        color: var(--#{$prefix}secondary) !important;
+                    }
+                }
             }
         }
     }

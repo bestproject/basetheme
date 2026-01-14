@@ -54,10 +54,6 @@ final class after_setup_theme
                 'slug'  => 'light',
                 'color'	=> '#f8f9fa',
             ],[
-                'name'  => __( 'Muted', 'basetheme' ),
-                'slug'  => 'muted',
-                'color'	=> '#212529c7',
-            ],[
                 'name'  => __( 'Dark', 'basetheme' ),
                 'slug'  => 'dark',
                 'color'	=> '#212529',
