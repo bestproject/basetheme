@@ -30,6 +30,7 @@ add_action('after_setup_theme', [after_setup_theme::class, 'registerThumbnailSiz
 
 // Customizer
 add_action('customize_register', [customize_register::class, 'logo']);
+add_action('customize_register', [customize_register::class, 'patterns']);
 add_action('customize_register', [customize_register::class, 'additionalCode']);
 
 // Init

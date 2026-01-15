@@ -35,6 +35,16 @@ final class customize_register
     }
 
     /**
+     * Register patterns sections.
+     *
+     * @param   WP_Customize_Manager  $customize
+     */
+    public static function patterns(WP_Customize_Manager $customize): void
+    {
+
+    }
+
+    /**
      * Register controls for additional code section.
      *
      * @param   WP_Customize_Manager  $customize
