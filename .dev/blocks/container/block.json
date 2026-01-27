@@ -9,7 +9,8 @@
 	"description": "Bootstrap container element.",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"anchor": true
 	},
 	"textdomain": "bootstrap",
 	"editorScript": "file:./index.js",

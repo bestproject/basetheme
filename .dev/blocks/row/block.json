@@ -47,7 +47,8 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"anchor": true
 	},
 	"allowedBlocks": [ "bootstrap/column"],
 	"textdomain": "bootstrap",

@@ -35,7 +35,8 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"anchor": true
 	},
 	"parent": [ "bootstrap/row" ],
 	"textdomain": "bootstrap",
