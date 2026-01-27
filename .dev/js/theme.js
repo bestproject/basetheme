@@ -13,19 +13,7 @@ $(()=>{
     // Setup tooltips
     $('[data-bs-toggle="tooltip"]').tooltip();
 
-    // Menu support
-    $('.navbar-nav .nav-link[href^="#"]').click(function(e){
+    // Anchors scrolling
+    $(window).scrollToSection(400, 16);
 
-        e.preventDefault();
-
-        let target = $(this).attr('href');
-        let $target = $(target);
-        let $nav = $('#nav');
-
-        if( $target.length ) {
-            $([document.documentElement, document.body]).animate({
-                scrollTop: parseInt($target.offset().top) - parseInt($nav.height()) - parseInt($nav.position().top) - 20
-            }, 500);
-        }
-    });
 });

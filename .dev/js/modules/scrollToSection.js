@@ -20,20 +20,38 @@ import $ from 'jquery';
 /**
  * Scroll to section if link starts with #
  */
-$.fn.scrollToSection = function (speed = 700) {
+$.fn.scrollToSection = function (speed = 700, defaultOffset = 16) {
     const $elements = $('a[href*="#"]');
+    const [currentUrl, currentHash] = window.location.toString().split('#', 2);
+    const $adminbar = $('#wpadminbar');
+    const offset = 0 + ($adminbar.length ? $adminbar.outerHeight() : 0) + defaultOffset; // Add height of any sticky elements
+
+    console.log('scrollToSection.window.location:', currentUrl, currentHash);
+    console.log('scrollToSection.offset:', offset);
 
     for (let i = 0, ic = $elements.length; i < ic; i++) {
-        let $href = $($elements[i]).attr('href');
-        if ($href.charAt(0) === '#' && $href.length > 1) {
-            $($elements[i]).click(function (e) {
-                e.preventDefault();
 
-                $('html,body').animate({
-                    scrollTop: $($(this).attr('href')).offset().top
-                }, speed);
-            });
-        }
+        $($elements[i]).click(function (e) {
+            let [url, hash] = $($elements[i]).attr('href').split('#', 2);
+            let $target = $('#'+hash);
+
+            // Prepare link URL
+            if( url.charAt(0) === '/' || url.charAt(0) === '#' || url.length === 0 ) {
+                url = currentUrl;
+            }
+
+            if( url !== currentUrl || hash.length < 1 || !$target.length ) {
+                return;
+            }
+
+            console.log('scrollToSection.clickedLink.location:', url, hash);
+
+            e.preventDefault();
+
+            $('html,body').animate({
+                scrollTop: $target.offset().top - offset
+            }, speed);
+        });
     }
 
 };
