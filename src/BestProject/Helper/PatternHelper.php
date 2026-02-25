@@ -10,6 +10,10 @@ class PatternHelper
 
     public static function getPatternById(int $id, bool $filter = true): ?string
     {
+        if( !$id ) {
+            return '';
+        }
+
         $post = get_post($id);
 
         if( $filter ) {
