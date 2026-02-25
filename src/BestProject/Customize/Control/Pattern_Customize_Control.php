@@ -11,9 +11,10 @@ final class Pattern_Customize_Control extends WP_Customize_Control
 
     public $type = 'pattern';
 
+    public string $placeholder = '';
+
     public function render_content(): void
     {
-
         ?>
         <div class="image_checkbox_control">
 
@@ -28,9 +29,15 @@ final class Pattern_Customize_Control extends WP_Customize_Control
             <?php $options = $this->getOptions() ?>
 
             <?php $selected = (int)$this->value(); ?>
+
             <select id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" class="pattern_customize_control" <?php $this->link(); ?> aria-labelledby="<?php echo esc_attr( $this->id ) ?>__label">
+                <?php if( !empty($this->placeholder) ): ?>
+                    <option value="" <?php echo ($this->value()==='' ? 'selected="selected"' : '') ?>>
+                        <?php echo $this->placeholder; ?>
+                    </option>
+                <?php endif ?>
                 <?php foreach ( $options as $key => $pattern ) { ?>
-                    <option value="<?php echo esc_attr($pattern->ID) ?>" <?php echo ($selected===$pattern->ID) ?>>
+                    <option value="<?php echo esc_attr($pattern->ID) ?>" <?php echo ($selected===$pattern->ID ? 'selected="selected"' : '') ?>>
                         <?php echo $pattern->post_title ?>
                     </option>
                 <?php	} ?>
@@ -45,10 +52,10 @@ final class Pattern_Customize_Control extends WP_Customize_Control
     private function getOptions(): array
     {
         return get_posts([
-            'post_type'=>'wp_block',
-            'orderby'=>'post_title',
-            'order'=>'asc',
-            'posts_per_page'=>-1
+                'post_type'=>'wp_block',
+                'orderby'=>'post_title',
+                'order'=>'asc',
+                'posts_per_page'=>-1
         ]);
     }
 }
