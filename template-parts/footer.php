@@ -13,7 +13,7 @@ extract($args, EXTR_OVERWRITE);
 <?php echo PatternHelper::getPatternById((int)get_theme_mod('patterns_footer', 0), true, 'footer-pattern'); ?>
 <footer>
     <div class="container d-flex flex-column flex-md-row flex-wrap align-items-center justify-content-between">
-        <p class="mb-0 copyrights text-muted">
+        <p class="mb-0 copyrights text-muted" <?php CustomizeHelper::edit('copyrights'); ?>>
             &copy;&nbsp;<?php echo date('Y') ?>&nbsp;<?php echo get_theme_mod('copyrights', get_bloginfo('name', 'display')) ?>
         </p>
 
