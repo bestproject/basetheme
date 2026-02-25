@@ -2,6 +2,7 @@
 
 namespace BaseTheme\Action;
 
+use BestProject\Customize\Control\Pattern_Customize_Control;
 use WP_Customize_Manager;
 use WP_Customize_Image_Control;
 
@@ -32,8 +33,20 @@ final class customize_register
             'settings' => 'logo',
         ]));
 
-    }
+        // Copyrights
+        $customize->add_setting('copyrights', [
+            'default'     => '',
+            'transport'   => 'refresh',
+        ]);
+        $customize->add_control('copyrights', [
+            'type' => 'textarea',
+            'label' => __('Copyrights note', 'basetheme'),
+            'description' => __('Default will be used if empty', 'basetheme'),
+            'section' => 'title_tagline',
+            'settings' => 'copyrights'
+        ]);
 
+    }
     /**
      * Register patterns sections.
      *
@@ -42,6 +55,22 @@ final class customize_register
     public static function patterns(WP_Customize_Manager $customize): void
     {
 
+        // Section
+        $customize->add_section('patterns', [
+            'title' => __( 'Patterns', 'basetheme'),
+        ]);
+
+        // Fields
+        $customize->add_setting('patterns_footer', [
+            'default'     => '',
+            'transport'   => 'refresh',
+        ]);
+        $customize->add_control(new Pattern_Customize_Control($customize, 'patterns_footer', [
+            'label' => __('Footer', 'basetheme'),
+            'section' => 'patterns',
+            'settings' => 'patterns_footer',
+            'placeholder' => _x('No footer', 'customizer', 'basetheme'),
+        ]));
     }
 
     /**
