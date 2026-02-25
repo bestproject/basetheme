@@ -1,7 +1,7 @@
 {
   "name": "basetheme",
   "version": "1.0.0",
-  "description": "Wordress theme build on Bootstrap 5",
+  "description": "WordPess theme build on Bootstrap 5",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "encore dev",
@@ -12,13 +12,15 @@
     "postinstall": "node .dev/js/build/postinstall.js",
     "wp:format": "wp-scripts format ./.dev/blocks",
     "wp:start": "wp-scripts start --webpack-copy-php --webpack-src-dir=./.dev/blocks --output-path=./blocks/wp --config=./.dev/blocks/webpack.config.js",
-    "wp:build": "wp-scripts build --webpack-copy-php --webpack-src-dir=./.dev/blocks --output-path=./blocks/wp --config=./.dev/blocks/webpack.config.js"
+    "wp:build": "wp-scripts build --webpack-copy-php --webpack-src-dir=./.dev/blocks --output-path=./blocks/wp --config=./.dev/blocks/webpack.config.js",
+    "stylelint": "stylelint ./.dev/**/*.scss",
+    "stylelint-fix": "stylelint ./.dev/**/*.scss --fix"
   },
   "scriptsComments": {
     "test": "Run tests",
     "dev": "Build assets for the development environment",
     "watch": "Continuously build assets for the development environment",
-    "watch-prod": "Continuously build assets for the prodection environment",
+    "watch-prod": "Continuously build assets for the production environment",
     "prod": "Build assets for the production environment",
     "build": "Build assets for the production environment",
     "wp:format": "Format custom blocks code",
@@ -42,6 +44,9 @@
     "postcss-loader": "7.x",
     "sass": "1.x",
     "sass-loader": "16.x",
+    "stylelint": "^16.26.1",
+    "stylelint-config-sass-guidelines": "^12.1.0",
+    "stylelint-scss": "^6.14.0",
     "swiper": "12.x",
     "webpack-notifier": "1.x",
     "@wordpress/scripts": "latest",
