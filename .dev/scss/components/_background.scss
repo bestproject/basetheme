@@ -1,5 +1,3 @@
-@use '../variables' as *;
-
 @each $color-name, $color-value in $theme-colors {
     .has-#{$color-name}-background-color {
         background-color: var(--#{$prefix}#{$color-name});
