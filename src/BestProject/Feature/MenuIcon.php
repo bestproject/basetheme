@@ -18,13 +18,13 @@ class MenuIcon
     {
         $menu_item_icon_class = get_post_meta( $item_id, '_menu_item_icon', true );
         ?>
-        <div style="clear: both;">
+        <p style="clear: both;">
             <span class="description"><?php _e( "Icon class", 'bestproject' ); ?></span><br />
             <input type="hidden" class="nav-menu-id" value="<?php echo $item_id ;?>" />
             <div class="logged-input-holder">
                 <input type="text" name="menu_item_icon[<?php echo $item_id ;?>]" id="menu-item-icon-<?php echo $item_id ;?>" value="<?php echo esc_attr( $menu_item_icon_class ); ?>" />
             </div>
-        </div>
+        </p>
         <?php
     }
 
