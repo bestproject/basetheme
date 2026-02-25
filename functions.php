@@ -80,4 +80,4 @@ add_filter('wpseo_breadcrumb_links', [Yoast::class, 'addParentPages'], 10);
 //UpdatesFeature::disableThemeUpdates();
 CommentsFeature::disable();
 MenuIconFeature::enable();
-MenuLinkClassFeature::enable();
+//MenuLinkClassFeature::enable();

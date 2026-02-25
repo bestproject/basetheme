@@ -35,7 +35,7 @@ if( is_int($logo_media_id) ) {
                     ]) ?>
                 </div>
 
-                <button class="btn btn-outline-primary main-navigation-toggle d-flex d-xl-none align-items-center" type="button" data-bs-toggle="offcanvas"
+                <button class="btn btn-outline-primary main-navigation-toggle btn-sm p-3 d-flex d-xl-none align-items-center" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvas-navigation" aria-controls="offcanvas-navigation" aria-expanded="false"
                         aria-label="<?php echo __('Toggle navigation', 'basetheme') ?>"
                         id="main-navigation-toggle"
