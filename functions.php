@@ -59,8 +59,9 @@ add_filter('nav_menu_submenu_attributes', [Bootstrap5NavWalker::class, 'nav_menu
 // Block (Register your custom block)
 add_action('init', [Bootstrap::class, 'register']);
 
-// Block styles (Register your custom block styles)
+//> Block styles
 add_action('init', [SpacerStyles::class, 'register']);
+//< Block styles
 
 // Disable feeds
 add_action('do_feed', 'wpb_disable_feed', 1);
@@ -73,6 +74,7 @@ add_action('do_feed_atom_comments', 'wpb_disable_feed', 1);
 
 // plugins
 add_filter('wpcf7_form_tag', [ContactForm7::class, 'addBootstrapAttributes'], 10, 2);
+add_filter('wpcf7_autop_or_not', '__return_false');
 add_filter('wpseo_breadcrumb_separator', [Yoast::class, 'changeBreadcrumbSeparator'], 10);
 add_filter('wpseo_breadcrumb_links', [Yoast::class, 'addParentPages'], 10);
 
