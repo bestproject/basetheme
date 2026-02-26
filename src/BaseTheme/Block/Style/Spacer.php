@@ -9,13 +9,7 @@ use BestProject\AutoRegister;
  */
 class Spacer extends AutoRegister
 {
-
-    /**
-     * A gray link button with underline.
-     *
-     * @return void
-     */
-    public static function link(): void
+    public static function styles(): void
     {
         register_block_style('core/spacer', [
             'name' => 'sm',
