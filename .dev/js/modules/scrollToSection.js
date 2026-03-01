@@ -20,10 +20,11 @@ import $ from 'jquery';
 /**
  * Scroll to section if link starts with #
  */
-$.fn.scrollToSection = function (speed = 700, defaultOffset = 16) {
+$.fn.scrollToSection = function (speed = 700, defaultOffset = 16, navigationOffsetElement = null) {
     const $elements = $('a[href*="#"]');
     const [currentUrl, currentHash] = window.location.toString().split('#', 2);
     const $adminbar = $('#wpadminbar');
+    const $navbar = $(navigationOffsetElement);
     const offset = 0 + ($adminbar.length ? $adminbar.outerHeight() : 0) + defaultOffset; // Add height of any sticky elements
 
     console.log('scrollToSection.window.location:', currentUrl, currentHash);
@@ -48,8 +49,10 @@ $.fn.scrollToSection = function (speed = 700, defaultOffset = 16) {
 
             e.preventDefault();
 
+            const navOffset = $navbar.length ? $navbar.outerHeight() : 0;
+
             $('html,body').animate({
-                scrollTop: $target.offset().top - offset
+                scrollTop: $target.offset().top - offset - navOffset
             }, speed);
         });
     }
