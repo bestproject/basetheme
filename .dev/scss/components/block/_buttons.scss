@@ -12,7 +12,7 @@
         &.is-style-outline {
             .wp-block-button__link {
                 @extend .btn-outline-primary;
-                border-width: toREM(2);
+                border-width: to-rem(2);
             }
             .wp-block-button__link.has-text-color {
                 &.has-primary-color {
@@ -69,7 +69,7 @@
         &.is-style-fill {
             .wp-block-button__link {
                 @extend .btn;
-                border-width: toREM(2);
+                border-width: to-rem(2);
             }
             .wp-block-button__link.has-background {
                 &.has-primary-background-color {
