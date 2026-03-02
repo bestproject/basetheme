@@ -134,9 +134,22 @@ final class after_setup_theme
      */
     public static function registerThumbnailSizes(): void
     {
+        remove_image_size('2048x2048');
+        remove_image_size('1536x1536');
+
         add_image_size( 'thumbnail', 150,  150, true); // 300 pixels wide (and unlimited height)
         add_image_size( 'medium', 960,  540, true); // 300 pixels wide (and unlimited height)
         add_image_size( 'large', 2304, 1296, true ); // (cropped)
+    }
+
+    public static function afterSwitchTheme(): void
+    {
+        update_option( 'thumbnail_size_h', 150 );
+        update_option( 'thumbnail_size_w', 150 );
+        update_option( 'medium_size_h', 960 );
+        update_option( 'medium_size_w', 960 );
+        update_option( 'large_size_h', 2048 );
+        update_option( 'large_size_w', 2048 );
     }
 
 }

@@ -28,6 +28,7 @@ add_action('after_setup_theme', [after_setup_theme::class, 'registerTheme']);
 add_action('after_setup_theme', [after_setup_theme::class, 'registerMenus']);
 add_action('after_setup_theme', [after_setup_theme::class, 'registerEditorStyles']);
 add_action('after_setup_theme', [after_setup_theme::class, 'registerThumbnailSizes']);
+add_action('after_switch_theme', [after_setup_theme::class, 'afterSwitchTheme']);
 
 // Customizer
 add_action('customize_register', [customize_register::class, 'logo']);
