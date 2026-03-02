@@ -16,6 +16,7 @@
  */
 
 import $ from 'jquery';
+import {Offcanvas} from 'bootstrap';
 
 /**
  * Scroll to section if link starts with #
@@ -29,6 +30,8 @@ $.fn.scrollToSection = function (speed = 700, defaultOffset = 16, navigationOffs
 
     console.log('scrollToSection.window.location:', currentUrl, currentHash);
     console.log('scrollToSection.offset:', offset);
+
+    const offcanvasMenu = Offcanvas.getOrCreateInstance('#offcanvas-navigation');
 
     for (let i = 0, ic = $elements.length; i < ic; i++) {
 
@@ -49,7 +52,11 @@ $.fn.scrollToSection = function (speed = 700, defaultOffset = 16, navigationOffs
 
             e.preventDefault();
 
-            const navOffset = $navbar.length ? $navbar.outerHeight() : 0;
+            if( $($elements[i]).closest('.offcanvas') ) {
+                offcanvasMenu.hide();
+            }
+
+            const navOffset = $navbar.length ? $navbar.outerHeight()+$navbar.position().top : 0;
 
             $('html,body').animate({
                 scrollTop: $target.offset().top - offset - navOffset
