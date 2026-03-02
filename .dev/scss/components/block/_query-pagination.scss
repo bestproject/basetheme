@@ -1,0 +1,41 @@
+.wp-block-query-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5em;
+
+    a, span {
+        text-decoration: none !important;
+    }
+
+    .page-numbers, .wp-block-query-pagination-previous, .wp-block-query-pagination-next {
+        display: inline-block;
+        padding: $pagination-padding-y $pagination-padding-x;
+        line-height: 1.6;
+    }
+
+    a.page-numbers, .wp-block-query-pagination-previous, .wp-block-query-pagination-next {
+        border: $pagination-border-width solid $pagination-border-color;
+        border-radius: $pagination-border-radius;
+        color: $pagination-color;
+        background: $pagination-bg;
+
+        &:hover, &:focus {
+            color: $pagination-hover-color;
+            background: $pagination-hover-bg;
+            border-color: $pagination-hover-border-color;
+        }
+    }
+
+    span.page-numbers {
+        border: $pagination-border-width solid $pagination-disabled-border-color;
+        border-radius: $pagination-border-radius;
+        color: $pagination-disabled-color;
+        background: $pagination-disabled-bg;
+    }
+
+    &-numbers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5em;
+    }
+}
