@@ -19,7 +19,7 @@ class ContactForm7
      */
     public static function addBootstrapAttributes($attributes, $replace): array
     {
-        if( self::tagTypeMatches($attributes['type'], ['textarea','text','email','tel','select','url','number','date']) ) {
+        if( self::tagTypeMatches($attributes['type'], ['textarea','text','email','tel','url','number','date']) ) {
             $attributes['options'][] = 'class:form-control';
         } else if (self::tagTypeMatches($attributes['type'], ['select'])) {
             $attributes['options'][] = 'class:form-select';
