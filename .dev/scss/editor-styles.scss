@@ -85,6 +85,15 @@ html :where(.wp-block):not(.container) {
 html :where(.wp-block.wp-block-paragraph) {
     max-width: unset;
 }
+html :where(.container) {
+    max-width: unset;
+    margin-top:0;
+    margin-bottom:0;
+}
+
+:where(.is-layout-flex) {
+    gap:0;
+}
 
 .row {
     margin-top: calc(-1 * var(--bs-gutter-y, 0));
