@@ -104,7 +104,7 @@ class OffcanvasNavWalker extends Walker_Nav_Menu
             '</a>';
 
         if( trim($item->post_content)!=='' ) {
-            $output_item.= '<p class="font-sm text-muted px-3 mt-n2 mb-0">'.$item->post_content.'</p>';
+            $output_item.= '<p class="fs-sm text-muted px-3 mt-n2 mb-0">'.$item->post_content.'</p>';
         }
 
         $output .= apply_filters( 'walker_nav_menu_start_el', $output_item, $item, $depth, $args );
