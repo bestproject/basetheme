@@ -5,7 +5,7 @@ namespace BestProject\Feature;
 /**
  * Comments feature changes.
  */
-class Comments
+readonly class Comments
 {
 
     public static function removePostSupport(): void

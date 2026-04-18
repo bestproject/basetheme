@@ -13,19 +13,19 @@ class Spacer extends AutoRegister
     {
         register_block_style('core/spacer', [
             'name' => 'sm',
-            'label' => __('SM', 'basetheme'),
+            'label' => __('SM', 'bestproject'),
         ]);
         register_block_style('core/spacer', [
             'name' => 'md',
-            'label' => __('MD', 'basetheme'),
+            'label' => __('MD', 'bestproject'),
         ]);
         register_block_style('core/spacer', [
             'name' => 'lg',
-            'label' => __('LG', 'basetheme'),
+            'label' => __('LG', 'bestproject'),
         ]);
         register_block_style('core/spacer', [
             'name' => 'xl',
-            'label' => __('XL', 'basetheme'),
+            'label' => __('XL', 'bestproject'),
         ]);
     }
 

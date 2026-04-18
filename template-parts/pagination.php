@@ -21,7 +21,7 @@ if( !is_array($pages) || $pages === [] ) {
     return;
 }
 ?>
-<nav aria-label="<?php echo __('Pages navigation', 'basetheme') ?>">
+<nav aria-label="<?php echo __('Pages navigation', 'bestproject') ?>">
     <ul class="pagination align-items-center justify-content-center my-3 my-md-5">
         <?php foreach( $pages as $page ): ?>
             <?php if( stripos($page, 'current')!==false ): ?>

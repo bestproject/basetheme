@@ -1,0 +1,184 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: bestproject\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-18 10:13+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.3; wp-6.9.4; php-8.4.18\n"
+"X-Domain: bestproject"
+
+#: src/BestProject/Customize/Control/Post_Customize_Control.php:34
+msgid "- Select -"
+msgstr ""
+
+#: src/BaseTheme/Action/customize_register.php:85
+msgid "Additional code"
+msgstr ""
+
+#: src/BaseTheme/Action/customize_register.php:116
+msgid "After &lt;body&gt;"
+msgstr ""
+
+#: src/BaseTheme/Action/customize_register.php:95
+msgid "After &lt;head&gt;"
+msgstr ""
+
+#. Description of the theme
+msgid "Base Wordpress theme."
+msgstr ""
+
+#. Name of the theme
+msgid "Basetheme"
+msgstr ""
+
+#: src/BaseTheme/Action/customize_register.php:127
+msgid "Before &lt;/body&gt;"
+msgstr ""
+
+#: src/BaseTheme/Action/customize_register.php:106
+msgid "Before &lt;/head&gt;"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:61
+msgid "Black"
+msgstr ""
+
+#: template-parts/navbar.php:50
+msgid "Close menu"
+msgstr ""
+
+#: src/BaseTheme/Action/customize_register.php:43
+msgid "Copyrights note"
+msgstr ""
+
+#: src/BaseTheme/Action/customize_register.php:72
+msgctxt "customizer"
+msgid "No footer"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:57
+msgid "Dark"
+msgstr ""
+
+#: src/BaseTheme/Action/customize_register.php:44
+msgid "Default will be used if empty"
+msgstr ""
+
+#: template-parts/footer.php:27
+msgid "Designed by"
+msgstr ""
+
+#: template-parts/footer.php:27
+msgid "Designer"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:96
+msgid "Extra Large"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:71
+msgid "Extra Small"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:115
+#: src/BaseTheme/Action/customize_register.php:69
+msgid "Footer"
+msgstr ""
+
+#. Author of the theme
+msgid "Grupa Best Sp. z o.o."
+msgstr ""
+
+#. URI of the theme
+#. Author URI of the theme
+msgid "https://bestproject.pl"
+msgstr ""
+
+#: src/BestProject/Feature/MenuIcon.php:22
+msgid "Icon class"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:91
+msgid "Large"
+msgstr ""
+
+#: src/BaseTheme/Block/Style/Spacer.php:30
+msgid "LG"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:53
+msgid "Light"
+msgstr ""
+
+#: template-parts/navbar.php:19
+msgid "Logo"
+msgstr ""
+
+#: src/BaseTheme/Action/customize_register.php:31
+msgid "Logo image"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:114
+msgid "Main menu"
+msgstr ""
+
+#: src/BaseTheme/Block/Style/Spacer.php:26
+msgid "MD"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:86
+msgid "Medium"
+msgstr ""
+
+#: template-parts/navbar.php:43 template-parts/navbar.php:48
+msgid "Menu"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:81
+msgid "Normal"
+msgstr ""
+
+#: template-parts/pagination.php:24
+msgid "Pages navigation"
+msgstr ""
+
+#: src/BaseTheme/Action/customize_register.php:60
+msgid "Patterns"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:41
+msgid "Primary"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:45
+msgid "Secondary"
+msgstr ""
+
+#: src/BaseTheme/Block/Style/Spacer.php:22
+msgid "SM"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:76
+msgid "Small"
+msgstr ""
+
+#: template-parts/navbar.php:40
+msgid "Toggle navigation"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:49
+msgid "White"
+msgstr ""
+
+#: src/BaseTheme/Block/Style/Spacer.php:34
+msgid "XL"
+msgstr ""

@@ -15,6 +15,7 @@ use BaseTheme\Action\enqueue_block_assets;
 use BestProject\Feature\Comments as CommentsFeature;
 use BestProject\Feature\MenuIcon as MenuIconFeature;
 use BestProject\Feature\MenuLinkClass as MenuLinkClassFeature;
+use BestProject\Feature\Security;
 use BestProject\Feature\RemoveJQueryMigrate;
 use BestProject\Feature\Updates as UpdatesFeature;
 use BestProject\NavWalker\Bootstrap5NavWalker;
@@ -76,13 +77,14 @@ add_action('do_feed_atom_comments', 'wpb_disable_feed', 1);
 
 // plugins
 add_filter('wpcf7_form_tag', [ContactForm7::class, 'addBootstrapAttributes'], 10, 2);
-add_filter('wpcf7_autop_or_not', '__return_false');
 add_filter('wpseo_breadcrumb_separator', [Yoast::class, 'changeBreadcrumbSeparator'], 10);
 add_filter('wpseo_breadcrumb_links', [Yoast::class, 'addParentPages'], 10);
 
 // Features
 //UpdatesFeature::disableThemeUpdates();
 CommentsFeature::disable();
-MenuIconFeature::enable();
+//MenuIconFeature::enable();
 //MenuLinkClassFeature::enable();
+Security::disableXmlrpc();
+Security::disableFileEditing();
 RemoveJQueryMigrate::register();

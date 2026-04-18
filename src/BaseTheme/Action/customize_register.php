@@ -28,7 +28,7 @@ final class customize_register
         ]);
 
         $customize->add_control( new WP_Customize_Image_Control( $customize, 'logo', [
-            'label' => __('Logo image', 'basetheme'),
+            'label' => __('Logo image', 'bestproject'),
             'section' => 'title_tagline',
             'settings' => 'logo',
         ]));
@@ -40,8 +40,8 @@ final class customize_register
         ]);
         $customize->add_control('copyrights', [
             'type' => 'textarea',
-            'label' => __('Copyrights note', 'basetheme'),
-            'description' => __('Default will be used if empty', 'basetheme'),
+            'label' => __('Copyrights note', 'bestproject'),
+            'description' => __('Default will be used if empty', 'bestproject'),
             'section' => 'title_tagline',
             'settings' => 'copyrights'
         ]);
@@ -57,7 +57,7 @@ final class customize_register
 
         // Section
         $customize->add_section('patterns', [
-            'title' => __( 'Patterns', 'basetheme'),
+            'title' => __( 'Patterns', 'bestproject'),
         ]);
 
         // Fields
@@ -66,10 +66,10 @@ final class customize_register
             'transport'   => 'refresh',
         ]);
         $customize->add_control(new Pattern_Customize_Control($customize, 'patterns_footer', [
-            'label' => __('Footer', 'basetheme'),
+            'label' => __('Footer', 'bestproject'),
             'section' => 'patterns',
             'settings' => 'patterns_footer',
-            'placeholder' => _x('No footer', 'customizer', 'basetheme'),
+            'placeholder' => _x('No footer', 'customizer', 'bestproject'),
         ]));
     }
 
@@ -82,7 +82,7 @@ final class customize_register
     {
         // Section
         $customize->add_section('additional-code', [
-            'title' => __( 'Additional code', 'basetheme'),
+            'title' => __( 'Additional code', 'bestproject'),
         ]);
 
         // Fields
@@ -92,7 +92,7 @@ final class customize_register
         ]);
         $customize->add_control('code_head_top', [
             'type' => 'textarea',
-            'label' => __('After &lt;head&gt;', 'basetheme'),
+            'label' => __('After &lt;head&gt;', 'bestproject'),
             'section' => 'additional-code',
             'settings' => 'code_head_top'
         ]);
@@ -103,7 +103,7 @@ final class customize_register
         ]);
         $customize->add_control('code_head_bottom', [
             'type' => 'textarea',
-            'label' => __('Before &lt;/head&gt;', 'basetheme'),
+            'label' => __('Before &lt;/head&gt;', 'bestproject'),
             'section' => 'additional-code',
             'settings' => 'code_head_bottom'
         ]);
@@ -113,7 +113,7 @@ final class customize_register
         ]);
         $customize->add_control('code_body_top', [
             'type' => 'textarea',
-            'label' => __('After &lt;body&gt;', 'basetheme'),
+            'label' => __('After &lt;body&gt;', 'bestproject'),
             'section' => 'additional-code',
             'settings' => 'code_body_top'
         ]);
@@ -124,7 +124,7 @@ final class customize_register
         ]);
         $customize->add_control('code_body_bottom', [
             'type' => 'textarea',
-            'label' => __('Before &lt;/body&gt;', 'basetheme'),
+            'label' => __('Before &lt;/body&gt;', 'bestproject'),
             'section' => 'additional-code',
             'settings' => 'code_body_bottom'
         ]);

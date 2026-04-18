@@ -7,7 +7,7 @@ use WP_Post;
 /**
  * Navigation link class feature.
  */
-class MenuLinkClass
+readonly class MenuLinkClass
 {
     public static function enable(): void
     {
@@ -21,7 +21,7 @@ class MenuLinkClass
         $menu_item_link_class_class = get_post_meta( $item_id, '_menu_item_link_class', true );
         ?>
         <p style="clear: both;">
-            <span class="description"><?php _e( "Link class", 'basetheme' ); ?></span><br />
+            <span class="description"><?php _e( "Link class", 'bestproject'); ?></span><br />
             <input type="hidden" class="nav-menu-id" value="<?php echo $item_id ;?>" />
         <div class="logged-input-holder">
             <input type="text" name="menu_item_link_class[<?php echo $item_id ;?>]" id="menu-item-link-class-<?php echo $item_id ;?>" value="<?php echo esc_attr( $menu_item_link_class_class ); ?>" />

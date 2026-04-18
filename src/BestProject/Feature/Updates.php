@@ -5,7 +5,7 @@ namespace BestProject\Feature;
 /**
  * Update features.
  */
-class Updates
+readonly class Updates
 {
     public static function disableThemeUpdates(): void
     {

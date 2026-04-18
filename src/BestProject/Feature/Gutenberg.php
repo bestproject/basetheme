@@ -5,7 +5,7 @@ namespace BestProject\Feature;
 /**
  * Update features.
  */
-class Gutenberg
+readonly class Gutenberg
 {
     public static function disableBlockEditor($restrict_posts = []): void
     {

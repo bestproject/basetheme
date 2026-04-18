@@ -24,7 +24,7 @@ $patterns_footer = PatternHelper::getPatternById((int)get_theme_mod('patterns_fo
         </p>
 
         <p class="mb-0 designed-by text-muted">
-            <?php echo __('Designed by', 'basetheme') ?>: <a href="#" target="_blank"><?php echo __('Designer', 'basetheme') ?></a>
+            <?php echo __('Designed by', 'bestproject') ?>: <a href="#" target="_blank"><?php echo __('Designer', 'bestproject') ?></a>
         </p>
 
         <?php if( has_nav_menu('footermenu') ): ?>

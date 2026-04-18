@@ -38,27 +38,27 @@ final class after_setup_theme
 
         add_theme_support( 'editor-color-palette', [
             [
-                'name'  => __( 'Primary', 'basetheme' ),
+                'name'  => __( 'Primary', 'bestproject'),
                 'slug'  => 'primary',
                 'color'	=> '#0d6efd',
             ],[
-                'name'  => __( 'Secondary', 'basetheme' ),
+                'name'  => __( 'Secondary', 'bestproject'),
                 'slug'  => 'secondary',
                 'color'	=> '#6c757d',
             ],[
-                'name'  => __( 'White', 'basetheme' ),
+                'name'  => __( 'White', 'bestproject'),
                 'slug'  => 'white',
                 'color'	=> '#fff',
             ],[
-                'name'  => __( 'Light', 'basetheme' ),
+                'name'  => __( 'Light', 'bestproject'),
                 'slug'  => 'light',
                 'color'	=> '#f8f9fa',
             ],[
-                'name'  => __( 'Dark', 'basetheme' ),
+                'name'  => __( 'Dark', 'bestproject'),
                 'slug'  => 'dark',
                 'color'	=> '#212529',
             ],[
-                'name'  => __( 'Black', 'basetheme' ),
+                'name'  => __( 'Black', 'bestproject'),
                 'slug'  => 'black',
                 'color'	=> '#000',
             ],
@@ -68,32 +68,32 @@ final class after_setup_theme
             'editor-font-sizes',
             [
                 [
-                    'name'      => __( 'Extra Small', 'basetheme' ),
+                    'name'      => __( 'Extra Small', 'bestproject'),
                     'size'      => "0.5rem",
                     'slug'      => 'xs'
                 ],
                 [
-                    'name'      => __( 'Small', 'basetheme' ),
+                    'name'      => __( 'Small', 'bestproject'),
                     'size'      => "0.875rem",
                     'slug'      => 'small'
                 ],
                 [
-                    'name'      => __( 'Normal', 'basetheme' ),
+                    'name'      => __( 'Normal', 'bestproject'),
                     'size'      => "1rem",
                     'slug'      => 'medium'
                 ],
                 [
-                    'name'      => __( 'Medium', 'basetheme' ),
+                    'name'      => __( 'Medium', 'bestproject'),
                     'size'      => "1.25rem",
                     'slug'      => 'medium'
                 ],
                 [
-                    'name'      => __( 'Large', 'basetheme' ),
+                    'name'      => __( 'Large', 'bestproject'),
                     'size'      => "1.5rem",
                     'slug'      => 'large'
                 ],
                 [
-                    'name'      => __( 'Extra Large', 'basetheme' ),
+                    'name'      => __( 'Extra Large', 'bestproject'),
                     'size'      => "2.5rem",
                     'slug'      => 'x-large'
                 ],
@@ -102,6 +102,7 @@ final class after_setup_theme
 
         // Load theme translation domain
         load_theme_textdomain('basetheme');
+        load_theme_textdomain('bestproject', dirname(__DIR__, 3).'/language/bestproject');
     }
 
     /**
@@ -110,8 +111,8 @@ final class after_setup_theme
     public static function registerMenus(): void
     {
         register_nav_menus([
-            'mainmenu' => __('Main menu', 'basetheme'),
-            'footermenu' => __('Footer', 'basetheme'),
+            'mainmenu' => __('Main menu', 'bestproject'),
+            'footermenu' => __('Footer', 'bestproject'),
         ]);
     }
 

@@ -5,7 +5,7 @@ namespace BestProject\Feature;
 /**
  * Menu icon feature.
  */
-class MenuIcon
+readonly class MenuIcon
 {
     public static function enable(): void
     {
