@@ -15,9 +15,6 @@ if( is_front_page() ) {
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="white">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <?php wp_head(); ?>
     <?php echo get_theme_mod('code_head_bottom','') ?>
 </head>
