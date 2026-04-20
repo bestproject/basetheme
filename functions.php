@@ -12,12 +12,7 @@ use BaseTheme\Block\Style\Spacer as SpacerStyles;
 use BaseTheme\Block\Bootstrap;
 use BaseTheme\Action\wp_default_scripts;
 use BaseTheme\Action\enqueue_block_assets;
-use BestProject\Feature\Comments as CommentsFeature;
-use BestProject\Feature\MenuIcon as MenuIconFeature;
-use BestProject\Feature\MenuLinkClass as MenuLinkClassFeature;
-use BestProject\Feature\Security;
-use BestProject\Feature\RemoveJQueryMigrate;
-use BestProject\Feature\Updates as UpdatesFeature;
+use BestProject\Feature;
 use BestProject\NavWalker\Bootstrap5NavWalker;
 use BestProject\NavWalker\OffcanvasNavWalker;
 use BestProject\Plugin\ContactForm7;
@@ -81,10 +76,10 @@ add_filter('wpseo_breadcrumb_separator', [Yoast::class, 'changeBreadcrumbSeparat
 add_filter('wpseo_breadcrumb_links', [Yoast::class, 'addParentPages'], 10);
 
 // Features
-//UpdatesFeature::disableThemeUpdates();
-CommentsFeature::disable();
-//MenuIconFeature::enable();
-//MenuLinkClassFeature::enable();
-Security::disableXmlrpc();
-Security::disableFileEditing();
-RemoveJQueryMigrate::register();
+//Feature\Updates::disableThemeUpdates();
+Feature\Comments::disable();
+//Feature\MenuIcon::enable();
+//Feature\MenuLinkClass::enable();
+Feature\Security::disableXmlrpc();
+Feature\Security::disableFileEditing();
+Feature\RemoveJQueryMigrate::register();
