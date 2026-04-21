@@ -2,6 +2,7 @@ import 'popper.js';
 import * as bootstrap from 'bootstrap';
 import './modules/classOnScroll';
 import './modules/scrollToSection';
+import './modules/contactForm7';
 import 'swiper';
 import 'swiper/css';
 import $ from 'jquery';
