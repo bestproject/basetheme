@@ -1,0 +1,11 @@
+.icon {
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    height: 1em;
+    aspect-ratio: 1;
+    //&-phone{
+    //    mask-image: url(../../images/icons/icon.svg);
+    //}
+}
