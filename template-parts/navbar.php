@@ -14,7 +14,7 @@ if( is_int($logo_media_id) ) {
 <header class="position-relative">
     <div class="navbar navbar-light navbar-expand-xl" id="nav">
         <div class="container">
-            <a class="navbar-brand mr-0 mr-lg-60" href="<?php echo get_home_url() ?>"<?php CustomizeHelper::edit('logo'); ?>>
+            <a class="navbar-brand mr-0 me-lg-5 d-inline-flex" href="<?php echo get_home_url() ?>"<?php CustomizeHelper::edit('logo'); ?>>
                 <?php if ($logo_media_id): ?>
                     <?php echo MediaHelper::getImageTag($logo_media_id, ['alt' => get_bloginfo('name').' - '.__('Logo', 'bestproject'), 'class'=>'navbar-brand-logo']) ?>
                 <?php else: ?>
