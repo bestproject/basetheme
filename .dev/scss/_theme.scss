@@ -5,33 +5,39 @@
 //----------------------------------------
 
 
-// Tools
+//> Tools
 @import "tools/layout";
 @import "tools/text";
+//> Tools
 
-// Components updates
+//> Components
 @import "components/background";
 @import "components/navbar";
 @import "components/footer";
 @import "components/header";
 @import "components/link";
 @import "components/icons";
+//< Components
 
-// Blocks
+//> Blocks
 @import "components/block/buttons";
 @import "components/block/heading";
 @import "components/block/spacer";
+@import "components/block/separator";
 @import "components/block/columns";
 @import "components/block/gallery";
 @import "components/block/container";
 @import "components/block/paragraph";
 @import "components/block/embed";
 @import "components/block/query-pagination";
+//< Blocks
 
-// Page styling
+//> Pages
 @import "pages/all";
 @import "pages/frontpage";
 @import "pages/subpage";
+//< Pages
 
-// Plugins
+//> Plugins
 @import "extensions/contact-form-7";
+//< Plugins
