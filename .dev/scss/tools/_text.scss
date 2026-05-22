@@ -4,6 +4,12 @@
             color: var(--bs-#{$color-name});
         }
     }
+    &.has-white-color {
+        color: var(--bs-white);
+    }
+    &.has-black-color {
+        color: var(--bs-black);
+    }
 }
 
 @each $size-name, $size-value in $font-sizes {
