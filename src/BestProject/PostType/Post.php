@@ -2,26 +2,19 @@
 
 namespace BestProject\PostType;
 
-final class Post {
+final class Post
+{
 
-    public static function registerHideSidebarLink(): void
+    public static function remove(): void
     {
-        add_action( 'admin_menu',  [self::class, 'hideSidebarLink'] );
+        add_action('admin_menu', static function () {
+            remove_menu_page('edit.php');
+        });
+        add_action('admin_bar_menu', static function ($wp_admin_bar) {
+            $wp_admin_bar->remove_node('new-post');
+        }, 999);
+        add_filter('wpseo_sitemap_exclude_post_type', static function ($value, $post_type) {
+            return $post_type === 'post' ? false : $value;
+        }, 10, 2);
     }
-
-    public static function hideSidebarLink(): void
-    {
-        remove_menu_page( 'edit.php' );
-    }
-
-    public static function registerHideAdminBarLink(): void
-    {
-        add_action( 'admin_bar_menu',  [self::class, 'hideAdminBarLink'], 999 );
-    }
-
-    public static function hideAdminBarLink($wp_admin_bar): void
-    {
-        $wp_admin_bar->remove_node( 'new-post' );
-    }
-
 }

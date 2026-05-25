@@ -80,7 +80,7 @@ final class after_setup_theme
                 [
                     'name'      => __( 'Normal', 'bestproject'),
                     'size'      => "1rem",
-                    'slug'      => 'medium'
+                    'slug'      => 'normal'
                 ],
                 [
                     'name'      => __( 'Medium', 'bestproject'),

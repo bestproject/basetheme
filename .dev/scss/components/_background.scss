@@ -3,3 +3,10 @@
         background-color: var(--#{$prefix}#{$color-name});
     }
 }
+
+&.has-white-background-color {
+    background-color: var(--bs-white);
+}
+&.has-black-background-color {
+    background-color: var(--bs-black);
+}
