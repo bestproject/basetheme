@@ -31,7 +31,9 @@ $.fn.scrollToSection = function (speed = 700, defaultOffset = 16, navigationOffs
     console.log('scrollToSection.window.location:', currentUrl, currentHash);
     console.log('scrollToSection.offset:', offset);
 
-    const offcanvasMenu = Offcanvas.getOrCreateInstance('#offcanvas-navigation');
+    if( $('#offcanvas-navigation').length ) {
+        const offcanvasMenu = Offcanvas.getOrCreateInstance('#offcanvas-navigation');
+    }
 
     for (let i = 0, ic = $elements.length; i < ic; i++) {
 
@@ -53,7 +55,7 @@ $.fn.scrollToSection = function (speed = 700, defaultOffset = 16, navigationOffs
 
             e.preventDefault();
 
-            if( $($elements[i]).closest('.offcanvas') ) {
+            if( $($elements[i]).closest('.offcanvas') && offcanvasMenu ) {
                 offcanvasMenu.hide();
             }
 
