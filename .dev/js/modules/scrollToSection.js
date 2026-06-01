@@ -31,12 +31,15 @@ $.fn.scrollToSection = function (speed = 700, defaultOffset = 16, navigationOffs
     console.log('scrollToSection.window.location:', currentUrl, currentHash);
     console.log('scrollToSection.offset:', offset);
 
-    const offcanvasMenu = Offcanvas.getOrCreateInstance('#offcanvas-navigation');
+    if( $('#offcanvas-navigation').length ) {
+        const offcanvasMenu = Offcanvas.getOrCreateInstance('#offcanvas-navigation');
+    }
 
     for (let i = 0, ic = $elements.length; i < ic; i++) {
 
         $($elements[i]).click(function (e) {
-            let [url, hash] = $($elements[i]).attr('href').split('#', 2);
+            const elementHref = $($elements[i]).attr('href');
+            let [url, hash] = elementHref.split('#', 2);
             let $target = $('#'+hash);
 
             // Prepare link URL
@@ -52,11 +55,13 @@ $.fn.scrollToSection = function (speed = 700, defaultOffset = 16, navigationOffs
 
             e.preventDefault();
 
-            if( $($elements[i]).closest('.offcanvas') ) {
+            if( $($elements[i]).closest('.offcanvas') && offcanvasMenu ) {
                 offcanvasMenu.hide();
             }
 
             const navOffset = $navbar.length ? $navbar.outerHeight()+$navbar.position().top : 0;
+
+            window.history.pushState([], '', elementHref);
 
             $('html,body').animate({
                 scrollTop: $target.offset().top - offset - navOffset

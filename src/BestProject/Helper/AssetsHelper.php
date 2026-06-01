@@ -48,17 +48,13 @@ abstract class AssetsHelper
                 foreach ($entrypoint['js'] as $path) {
 
                     $asset_url = site_url().self::getAssetUrl($path);
-                    wp_enqueue_script(pathinfo($path, PATHINFO_FILENAME), $asset_url, ['jquery'], false, true);
+                    $handle = pathinfo($path, PATHINFO_FILENAME);
 
                     // Deffer the script
                     if( $defer ) {
-                        add_filter('script_loader_tag', static function($html) use ($asset_url) {
-                            if (stripos($html, $asset_url)!==false) {
-                                return str_ireplace(' />', ' defer />', $html);
-                            }
-
-                            return $html;
-                        }, 10,1);
+                        wp_enqueue_script($handle, $asset_url, ['jquery'], false, ['strategy' => 'defer']);
+                    } else {
+                        wp_enqueue_script($handle, $asset_url, ['jquery'], false, true);
                     }
                 }
             }
@@ -68,17 +64,18 @@ abstract class AssetsHelper
                 foreach ($entrypoint['css'] as $path) {
 
                     $asset_url = site_url().self::getAssetUrl($path);
-                    wp_enqueue_style(pathinfo($path, PATHINFO_FILENAME), $asset_url);
+                    $handle = pathinfo($path, PATHINFO_FILENAME);
+                    wp_enqueue_style($handle, $asset_url);
 
                     // Deffer the stylesheet
                     if( $defer ) {
-                        add_filter('style_loader_tag', static function($html) use ($asset_url) {
-                            if (stripos($html, $asset_url)!==false) {
-                                return str_ireplace(" media='all'", ' media=\'none\' onLoad=\'this.media="all"\'', $html).'<noscript>'.PHP_EOL.$html.'</noscript>'.PHP_EOL;
+                        add_filter('style_loader_tag', static function($html, $style_handle) use ($asset_url, $handle) {
+                            if ($style_handle === $handle) {
+                                return str_ireplace(" rel='stylesheet'", ' rel=\'preload\' as=\'style\' onload=\'this.rel="stylesheet"\'', $html).'<noscript>'.PHP_EOL.$html.'</noscript>'.PHP_EOL;
                             }
 
                             return $html;
-                        }, 10,1);
+                        }, 10, 2);
                     }
                 }
             }
@@ -105,13 +102,13 @@ abstract class AssetsHelper
         wp_enqueue_style($handle, $asset_url, [], null);
 
         // Deffer the loading
-        add_filter('style_loader_tag', static function($html) use ($handle) {
-            if (stripos($html, $handle.'-css')!==false) {
-                return str_ireplace(" media='all'", ' media=\'none\' onLoad=\'this.media="all"\'', $html).'<noscript>'.PHP_EOL.$html.'</noscript>'.PHP_EOL;
+        add_filter('style_loader_tag', static function($html, $style_handle) use ($handle) {
+            if ($style_handle === $handle) {
+                return str_ireplace(" rel='stylesheet'", ' rel=\'preload\' as=\'style\' onload=\'this.rel="stylesheet"\'', $html).'<noscript>'.PHP_EOL.$html.'</noscript>'.PHP_EOL;
             }
 
             return $html;
-        }, 10,1);
+        }, 10,2);
     }
 
     /**
