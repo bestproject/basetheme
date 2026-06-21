@@ -146,7 +146,7 @@ abstract class AssetsHelper
     public static function getAssetUrl(string $url, bool $relative = false): string
     {
         if ($relative) {
-            $url = 'wp-content/themes/' . ThemeHelper::getTheme() . '/assets/build/' . ltrim($url, '/');
+            $url = '/wp-content/themes/' . ThemeHelper::getTheme() . '/assets/build/' . ltrim($url, '/');
         }
         $public_url  = $url;
         $manifest    = static::getManifest();
