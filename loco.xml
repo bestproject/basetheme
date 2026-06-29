@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bundle name="BaseTheme">
+    <domain name="basetheme">
+        <project name="basetheme" slug="basetheme">
+            <source>
+                <directory>.</directory>
+            </source>
+            <target>
+                <directory>languages</directory>
+            </target>
+            <template>
+                <file>languages/basetheme.pot</file>
+            </template>
+        </project>
+    </domain>
+    <domain name="bestproject">
+        <project name="BestProject" slug="bestproject">
+            <source>
+                <directory>.</directory>
+            </source>
+            <target>
+                <directory>languages</directory>
+            </target>
+            <template>
+                <file>languages/bestproject.pot</file>
+            </template>
+        </project>
+    </domain>
+    <exclude>
+        <directory>vendor</directory>
+        <directory>node_modules</directory>
+    </exclude>
+</bundle>
