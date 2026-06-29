@@ -160,6 +160,8 @@ class Build
             '"name": "bestproject/basetheme"' => '"name": "bestproject/' . strtolower($this->name) . '"',
             'use BaseTheme'                   => 'use ' . $this->namespace,
             'BaseTheme\\'                   => $this->namespace.'\\',
+            'BaseTheme'                   => $this->namespace,
+            'basetheme'                   => $this->name,
         ];
 
         // Replace in files
