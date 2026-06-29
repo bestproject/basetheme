@@ -101,8 +101,8 @@ final class after_setup_theme
         );
 
         // Load theme translation domain
-        load_theme_textdomain('basetheme');
-        load_theme_textdomain('bestproject', dirname(__DIR__, 3).'/language/bestproject');
+        load_textdomain('basetheme', dirname(__DIR__, 3).'/languages/basetheme-pl_PL.mo');
+        load_textdomain('bestproject', dirname(__DIR__, 3).'/languages/bestproject-pl_PL.mo');
     }
 
     /**
