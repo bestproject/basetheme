@@ -2,11 +2,12 @@
 
 namespace BestProject\Helper;
 
+use BestProject\Helper\ThemeHelper;
 use Exception;
 use RuntimeException;
 
 /**
- * Assets management helper.
+ * Vite Assets management helper.
  */
 abstract class AssetsHelper
 {
@@ -36,50 +37,87 @@ abstract class AssetsHelper
      */
     public static function addEntryPointAssets(string $name, bool $defer = false): void
     {
-        $entrypoints = self::getEntryPoints()['entrypoints'];
+        $entrypoints = self::getEntryPoints();
 
         // If there is anything from this entrypoint
         if (array_key_exists($name, $entrypoints)) {
 
-            $entrypoint = $entrypoints[$name];
+            $entrypoint = &$entrypoints[$name];
 
-            // If there are js scripts in this entry point
-            if (array_key_exists('js', $entrypoint)) {
-                foreach ($entrypoint['js'] as $path) {
-
-                    $asset_url = site_url().self::getAssetUrl($path);
-                    $handle = pathinfo($path, PATHINFO_FILENAME);
-
-                    // Deffer the script
-                    if( $defer ) {
-                        wp_enqueue_script($handle, $asset_url, ['jquery'], false, ['strategy' => 'defer']);
-                    } else {
-                        wp_enqueue_script($handle, $asset_url, ['jquery'], false, true);
-                    }
-                }
-            }
-
-            // If there are css styles in this entry point
-            if (array_key_exists('css', $entrypoint)) {
-                foreach ($entrypoint['css'] as $path) {
-
-                    $asset_url = site_url().self::getAssetUrl($path);
-                    $handle = pathinfo($path, PATHINFO_FILENAME);
-                    wp_enqueue_style($handle, $asset_url);
-
-                    // Deffer the stylesheet
-                    if( $defer ) {
-                        add_filter('style_loader_tag', static function($html, $style_handle) use ($asset_url, $handle) {
-                            if ($style_handle === $handle) {
-                                return str_ireplace(" rel='stylesheet'", ' rel=\'preload\' as=\'style\' onload=\'this.rel="stylesheet"\'', $html).'<noscript>'.PHP_EOL.$html.'</noscript>'.PHP_EOL;
-                            }
-
-                            return $html;
-                        }, 10, 2);
-                    }
-                }
-            }
+            self::importAsset($entrypoint['file'], $defer);
         }
+    }
+
+    /**
+     * @throws Exception
+     */
+    private static function importAsset(string $name, bool $defer = false): void
+    {
+        $manifest = self::getManifest();
+
+        if( array_key_exists($name, $manifest) ) {
+            $asset = $manifest[$name];
+
+            if( !empty($asset['imports']) ) {
+                foreach($asset['imports'] as $script) {
+                    self::importAsset($script, $defer);
+                }
+            }
+
+            if( !empty($asset['css']) ) {
+                foreach($asset['css'] as $stylesheet) {
+                    self::importAsset($stylesheet, $defer);
+                }
+            }
+
+            if( str_ends_with($name, '.js') ) {
+                self::enqueueJavaScript($name, $asset['file'], $defer);
+
+//                $handle = pathinfo($name, PATHINFO_FILENAME);
+//                wp_enqueue_script($handle, self::getAssetUrl($asset['file']), [], null, $defer ? ['strategy'=>'defer'] : true);
+            }
+
+            if( str_ends_with($name, '.css') ) {
+                $handle = pathinfo($name, PATHINFO_FILENAME);
+
+                if( !$defer ) {
+                    wp_enqueue_style($handle, self::getAssetUrl($asset['file']), [], null);
+                } else {
+                    self::enqueueDeferredStyle(self::getAssetUrl($asset['file']));
+                }
+            }
+        } else {
+
+            if( str_ends_with($name, '.js') ) {
+                self::enqueueJavaScript($name, $name, $defer);
+//                $handle = pathinfo($name, PATHINFO_FILENAME);
+//                wp_enqueue_script($handle, self::getAssetUrl($name), [], null, $defer ? ['strategy'=>'defer'] : true);
+            }
+
+            if( str_ends_with($name, '.css') ) {
+                $handle = pathinfo($name, PATHINFO_FILENAME);
+
+                if( !$defer ) {
+                    wp_enqueue_style($handle, self::getAssetUrl($name), [], null);
+                } else {
+                    self::enqueueDeferredStyle(self::getAssetUrl($name));
+                }
+            }
+
+        }
+    }
+
+    private static function enqueueJavaScript(string $handle, string $file, bool $defer = false): void
+    {
+        $handle = pathinfo($handle, PATHINFO_FILENAME);
+        wp_enqueue_script($handle, self::getAssetUrl($file), [], null, $defer ? ['strategy'=>'defer'] : true);
+        add_filter('script_loader_tag', static function($html, $script_handle) use ($handle) {
+            if ($script_handle===$handle) {
+                return str_ireplace(" src=", ' type=\'module\' src=', $html);
+            }
+
+            return $html;
+        }, 10,2);
     }
 
     /**
@@ -103,8 +141,8 @@ abstract class AssetsHelper
 
         // Deffer the loading
         add_filter('style_loader_tag', static function($html, $style_handle) use ($handle) {
-            if ($style_handle === $handle) {
-                return str_ireplace(" rel='stylesheet'", ' rel=\'preload\' as=\'style\' onload=\'this.rel="stylesheet"\'', $html).'<noscript>'.PHP_EOL.$html.'</noscript>'.PHP_EOL;
+            if ($style_handle===$handle) {
+                return str_ireplace(" media='all'", ' media=\'none\' onLoad=\'this.media="all"\'', $html).'<noscript>'.PHP_EOL.$html.'</noscript>'.PHP_EOL;
             }
 
             return $html;
@@ -120,43 +158,61 @@ abstract class AssetsHelper
     public static function getEntryPoints(): array
     {
         if (static::$entrypointsCache === []) {
-            $entrypoints_file = '/' . ThemeHelper::getTheme() . '/assets/build/entrypoints.json';
-            $entrypoints_path = get_theme_root() . $entrypoints_file;
-            if (file_exists($entrypoints_path)) {
-                static::$entrypointsCache = json_decode(file_get_contents($entrypoints_path), true, 512,
-                    JSON_THROW_ON_ERROR);
-            } else {
-                throw new RuntimeException("File /wp-content/themes{$entrypoints_file} not found. Build theme assets 'npm run prod'");
+            $manifest = self::getManifest();
+
+            foreach( $manifest as $file => $entrypoint ) {
+                if( $entrypoint['isEntry'] ?? false) {
+                    static::$entrypointsCache[$entrypoint['name']] = $entrypoint;
+                }
             }
         }
 
         return static::$entrypointsCache;
     }
 
+    private static function getImports(array $entry): array
+    {
+        $imports = [];
+
+        if( !empty($entry['imports']) ) {
+            $imports = [...$imports, ...array_map(static fn($name) => pathinfo($name, PATHINFO_FILENAME), $entry['imports'])];
+        }
+
+        if( !empty($entry['css']) ) {
+            $imports = [...$imports, ...array_map(static fn($name) => pathinfo($name, PATHINFO_FILENAME), $entry['css'])];
+        }
+
+        return $imports;
+    }
+
     /**
      * Get asset url using manifest.json build by webpack in /templates/THEME_NAME/assets/build.
      *
-     * @param   string  $url       Internal URL (eg. templates/test/assets/build/theme.css)
-     * @param   bool    $relative  If $relative is set to TRUE $url will be treated as relative to theme assets url (eg. wp-content/themes/some_theme/assets/build will be added as a prefix to $url).
+     * @param   string  $file      Internal URL (eg. templates/test/assets/build/theme.css)
      *
      * @return string
      *
      * @throws Exception
      */
-    public static function getAssetUrl(string $url, bool $relative = false): string
+    public static function getAssetUrl(string $file): string
     {
-        if ($relative) {
-            $url = '/wp-content/themes/' . ThemeHelper::getTheme() . '/assets/build/' . ltrim($url, '/');
-        }
-        $public_url  = $url;
         $manifest    = static::getManifest();
-        $relativeUrl = ltrim($url, '/');
 
-        if (array_key_exists($relativeUrl, $manifest)) {
-            $public_url = $manifest[$relativeUrl];
+        foreach($manifest as $key => $details) {
+            if( !array_key_exists('names', $details) && !array_key_exists('file', $details) ) {
+                continue;
+            }
+
+            if( array_key_exists('names', $details) && in_array($file, $details['names'], true) ) {
+                return '/wp-content/themes/' . ThemeHelper::getTheme() . '/assets/' . $details['file'];
+            }
+
+            if( array_key_exists('src', $details) && $details['src']===$file ) {
+                return '/wp-content/themes/' . ThemeHelper::getTheme() . '/assets/' . $details['file'];
+            }
         }
 
-        return $public_url;
+        return '/wp-content/themes/' . ThemeHelper::getTheme() . '/assets/' . $file;
     }
 
 
@@ -197,15 +253,36 @@ abstract class AssetsHelper
      *
      * @throws Exception
      */
-    public static function getManifest(): array
+    private static function getManifest(): array
     {
         if (static::$manifestCache === []) {
-            $manifest_file = '/' . ThemeHelper::getTheme() . '/assets/build/manifest.json';
+            $manifest_file = '/' . ThemeHelper::getTheme() . '/assets/.vite/manifest.json';
             $manifest_path = get_theme_root() . $manifest_file;
 
             static::$manifestCache = [];
             if (file_exists($manifest_path)) {
                 static::$manifestCache = json_decode(file_get_contents($manifest_path), true, 512, JSON_THROW_ON_ERROR);
+
+                foreach(static::$manifestCache as $key => $asset) {
+                    if( array_key_exists('name', $asset) ) {
+                        static::$manifestCache[ $asset['name'] ] = $asset;
+                    }
+
+                    if( array_key_exists('names', $asset) ) {
+                        array_walk($asset['names'], static function($name) use ($asset){
+                            static::$manifestCache[ $name ] = $asset;
+                        });
+                    }
+
+                    if( array_key_exists('file', $asset) ) {
+                        static::$manifestCache[ $asset['file'] ] = $asset;
+                    }
+
+                    if( array_key_exists('src', $asset) ) {
+                        static::$manifestCache[ $asset['src'] ] = $asset;
+                    }
+                }
+
             } else {
                 throw new RuntimeException("File /wp-content/themes{$manifest_file} not found. Build theme assets 'npm run prod'");
             }

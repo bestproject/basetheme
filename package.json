@@ -4,11 +4,11 @@
   "description": "WordPess theme build on Bootstrap 5",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "encore dev",
-    "watch": "encore dev --watch",
-    "watch-prod": "npm encore prod --watch",
-    "prod": "encore prod",
-    "build": "encore prod",
+    "dev": "vite build --mode=development",
+    "watch": "vite build --mode=development --watch",
+    "watch-prod": "vite build --watch",
+    "prod": "vite build",
+    "build": "vite build",
     "postinstall": "node .dev/js/build/postinstall.js",
     "wp:format": "wp-scripts format ./.dev/blocks",
     "wp:start": "wp-scripts start --webpack-copy-php --webpack-src-dir=./.dev/blocks --output-path=./blocks/wp --config=./.dev/blocks/webpack.config.js",
@@ -46,8 +46,8 @@
     "postcss-loader": "7.x",
     "sass": "1.x",
     "sass-loader": "16.x",
-    "stylelint": "^16.26.1",
-    "stylelint-config-sass-guidelines": "^12.1.0",
+    "stylelint": "16.x",
+    "stylelint-config-sass-guidelines": "12.x",
     "stylelint-scss": "^6.14.0",
     "swiper": "12.x",
     "webpack-notifier": "1.x",
@@ -57,7 +57,8 @@
     "@wordpress/blocks": "latest",
     "@wordpress/i18n": "latest",
     "@wordpress/icons": "latest",
-    "@popperjs/core": "2.x"
+    "@popperjs/core": "2.x",
+    "vite": "8.x"
   },
   "engines": {
     "node": ">=13.0"
