@@ -25,5 +25,8 @@
     },
     "scripts-descriptions": {
         "build": "Build theme."
+    },
+    "require-dev": {
+        "wp-cli/wp-cli": "2.x"
     }
 }
