@@ -21,6 +21,9 @@ final class wp_enqueue_scripts
      */
     public static function theme(): void
     {
+        // Enqueue required jQuery
+        wp_enqueue_script( 'jquery' );
+
         // Theme assets
         AssetsHelper::addEntryPointAssets('theme');
 
