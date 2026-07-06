@@ -181,12 +181,14 @@ class Build
         $this->write("Preparing libraries files ...");
 
         $strings = [
-            "'basetheme'"           => "'$this->name'",
-            'namespace BaseTheme\\' => "namespace $this->namespace\\",
-            'namespace BaseTheme;' => "namespace $this->namespace;",
-            '@package BaseTheme\\'  => "@package $this->namespace\\",
-            'use BaseTheme'         => "use $this->namespace",
-            "'basetheme-google-fonts'"         => "'{$this->name}-google-fonts'",
+            "'basetheme'"              => "'$this->name'",
+            'namespace BaseTheme\\'    => "namespace $this->namespace\\",
+            'namespace BaseTheme;'     => "namespace $this->namespace;",
+            '@package BaseTheme\\'     => "@package $this->namespace\\",
+            'use BaseTheme'            => "use $this->namespace",
+            "'basetheme-google-fonts'" => "'{$this->name}-google-fonts'",
+            'BaseTheme'                => $this->namespace,
+            'basetheme'                => $this->name,
         ];
 
         // Replace in files
@@ -211,8 +213,9 @@ class Build
         $this->write("Preparing theme template-parts files. ...");
 
         $strings = [
-            "'basetheme'"           => "'$this->name'",
-            'use BaseTheme'         => "use $this->namespace",
+            "'basetheme'"   => "'$this->name'",
+            'use BaseTheme' => "use $this->namespace",
+            'BaseTheme'     => $this->namespace,
         ];
 
         // Replace in files
