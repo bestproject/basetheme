@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .has-text-color {
     @each $color-name, $color-value in $theme-colors {
         &.has-#{$color-name}-color {
@@ -16,7 +18,7 @@ $additional-font-sizes: (
     'small': $font-size-sm,
     'large': $font-size-lg,
 );
-@each $size-name, $size-value in map-merge($font-sizes, $additional-font-sizes) {
+@each $size-name, $size-value in map.merge($font-sizes, $additional-font-sizes) {
     .has-#{$size-name}-font-size {
         font-size: $size-value;
     }

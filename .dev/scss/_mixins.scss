@@ -1,77 +1,84 @@
+@use 'sass:map';
 
 // Float clear fix
-@mixin clr($where: after){
-    &::#{$where}{
-        clear:both;content:'';display:block;
+@mixin clr($where: after) {
+    &::#{$where} {
+        clear: both;
+        content: '';
+        display: block;
     }
 }
 
 // Style the placeholder
 @mixin placeholder($color) {
-     /* Chrome/Opera/Safari */
-    &::-webkit-input-placeholder {
-        color: $color;opacity:1;
+    /* Chrome/Opera/Safari */
+    &::input-placeholder {
+        color: $color;
+        opacity: 1;
     }
     /* Firefox 19+ */
-    &::-moz-placeholder { 
-        color: $color;opacity:1;
+    &::placeholder {
+        color: $color;
+        opacity: 1;
     }
-     /* IE 10+ */
-    &:-ms-input-placeholder {
-        color: $color;opacity:1;
+    /* IE 10+ */
+    &:input-placeholder {
+        color: $color;
+        opacity: 1;
     }
-     /* Firefox 18- */
-    &:-moz-placeholder {
-        color: $color;opacity:1;
+    /* Firefox 18- */
+    &:placeholder {
+        color: $color;
+        opacity: 1;
     }
 }
 
 // Enable animations on element
 @mixin anim($time:0.2s) {
-    transition:$time linear all;
+    transition: $time linear all;
 }
 
 @mixin container-max-width() {
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     @include media-breakpoint-up(xxl) {
-        max-width: map-get($container-max-widths, 'xxl') !important;
+        max-width: map.get($container-max-widths, 'xxl') !important;
     }
     @include media-breakpoint-only(xl) {
-        max-width: map-get($container-max-widths, 'xl') !important;
+        max-width: map.get($container-max-widths, 'xl') !important;
     }
     @include media-breakpoint-only(lg) {
-        max-width: map-get($container-max-widths, 'lg') !important;
+        max-width: map.get($container-max-widths, 'lg') !important;
     }
     @include media-breakpoint-only(md) {
-        max-width: map-get($container-max-widths, 'md') !important;
+        max-width: map.get($container-max-widths, 'md') !important;
     }
     @include media-breakpoint-only(sm) {
-        max-width: map-get($container-max-widths, 'sm') !important;
+        max-width: map.get($container-max-widths, 'sm') !important;
     }
     @include media-breakpoint-only(xs) {
-        max-width: map-get($container-max-widths, 'xs') !important;
+        max-width: map.get($container-max-widths, 'xs') !important;
     }
 }
 
 @mixin make-wide() {
     @include media-breakpoint-up(sm) {
-        width:100vw;
+        width: 100vw;
     }
     @include media-breakpoint-up(xxl) {
-        margin-left: calc( (50vw - #{map-get($container-max-widths, 'xxl')} * 0.5 + var(--bs-gutter-x)) * -1);
+        margin-left: calc((50vw - #{map.get($container-max-widths, 'xxl')} * 0.5 + var(--bs-gutter-x)) * -1);
     }
     @include media-breakpoint-only(xl) {
-        margin-left: calc( (50vw - #{map-get($container-max-widths, 'xl')} * 0.5 + var(--bs-gutter-x)) * -1);
+        margin-left: calc((50vw - #{map.get($container-max-widths, 'xl')} * 0.5 + var(--bs-gutter-x)) * -1);
     }
     @include media-breakpoint-only(lg) {
-        margin-left: calc( (50vw - #{map-get($container-max-widths, 'lg')} * 0.5 + var(--bs-gutter-x)) * -1);
+        margin-left: calc((50vw - #{map.get($container-max-widths, 'lg')} * 0.5 + var(--bs-gutter-x)) * -1);
     }
     @include media-breakpoint-only(md) {
-        margin-left: calc( (50vw - #{map-get($container-max-widths, 'md')} * 0.5 + var(--bs-gutter-x)) * -1);
+        margin-left: calc((50vw - #{map.get($container-max-widths, 'md')} * 0.5 + var(--bs-gutter-x)) * -1);
     }
     @include media-breakpoint-only(sm) {
-        margin-left: calc( (50vw - #{map-get($container-max-widths, 'sm')} * 0.5 + var(--bs-gutter-x)) * -1);
+        margin-left: calc((50vw - #{map.get($container-max-widths, 'sm')} * 0.5 + var(--bs-gutter-x)) * -1);
     }
     @include media-breakpoint-only(xs) {
         margin-left: 0;
@@ -79,15 +86,15 @@
 }
 
 // Rules for dark theme color
-@mixin theme-dark(){
-    [data-bs-theme="dark"] {
+@mixin theme-dark() {
+    [data-bs-theme='dark'] {
         @content;
     }
 }
 
 // Rules for light theme color
-@mixin theme-light(){
-    [data-bs-theme="light"] {
+@mixin theme-light() {
+    [data-bs-theme='light'] {
         @content;
     }
 }
