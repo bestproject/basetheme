@@ -8,8 +8,12 @@ use BaseTheme\Action\widgets_init;
 use BaseTheme\Action\wp_enqueue_scripts;
 use BaseTheme\Action\wp_footer;
 use BaseTheme\Action\wp_head;
+//> Block styles use
 use BaseTheme\Block\Style\Spacer as SpacerStyles;
+//< Block styles use
+//> Blocks use
 use BaseTheme\Block\Bootstrap;
+//< Blocks use
 use BaseTheme\Action\wp_default_scripts;
 use BaseTheme\Action\enqueue_block_assets;
 use BestProject\Feature;
@@ -55,12 +59,13 @@ add_filter('nav_menu_submenu_css_class', [Bootstrap5NavWalker::class, 'nav_menu_
 add_filter('nav_menu_submenu_attributes', [Bootstrap5NavWalker::class, 'nav_menu_submenu_attributes'], 10, 3);
 add_filter('get_the_archive_title', [PostPostType::class, 'get_the_archive_title'], 10, 3);
 
-// Block (Register your custom block)
+//> Block registration
 add_action('init', [Bootstrap::class, 'register']);
+//< Block registration
 
-//> Block styles
+//> Block styles registration
 add_action('init', [SpacerStyles::class, 'register']);
-//< Block styles
+//< Block styles registration
 
 // Disable feeds
 add_action('do_feed', 'wpb_disable_feed', 1);
