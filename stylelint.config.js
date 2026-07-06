@@ -5,7 +5,10 @@ module.exports = {
     "stylelint-scss",
   ],
   rules: {
-    "block-no-empty": true
+    "block-no-empty": true,
+    "max-nesting-depth": 5,
+    "selector-no-qualifying-type": false,
+    "selector-class-pattern": null,
   },
   overrides: [
     {

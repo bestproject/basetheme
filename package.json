@@ -15,7 +15,8 @@
     "wp:build": "wp-scripts build --webpack-copy-php --webpack-src-dir=./.dev/blocks --output-path=./blocks/wp --config=./.dev/blocks/webpack.config.js",
     "wp:translate": "wp i18n make-pot --skip-php --domain=bestproject .dev/blocks languages/bestproject.json.pot && wp i18n make-json --pretty-print languages/bestproject.json.pot",
     "stylelint": "stylelint ./.dev/**/*.scss",
-    "stylelint-fix": "stylelint ./.dev/**/*.scss --fix"
+    "stylelint-fix": "stylelint ./.dev/**/*.scss --fix",
+    "format": "prettier --write ./.dev/**/*.scss"
   },
   "scriptsComments": {
     "test": "Run tests",
@@ -27,7 +28,10 @@
     "wp:format": "Format custom blocks code",
     "wp:start": "Continuously build custom blocks assets",
     "wp:build": "Build custom blocks assets",
-    "wp:translate": "Prepare translation files"
+    "wp:translate": "Prepare translation files",
+    "stylelint": "Lint SCSS code",
+    "stylelint-fix": "Fix SCSS code style",
+    "format": "Format SCSS files"
   },
   "private": true,
   "author": "Grupa Best Sp. z o.o.",
@@ -44,6 +48,7 @@
     "magnific-popup": "1.x",
     "popper.js": "1.x",
     "postcss-loader": "7.x",
+    "prettier": "3.x",
     "sass": "1.x",
     "sass-loader": "16.x",
     "stylelint": "16.x",
