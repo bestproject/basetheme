@@ -13,6 +13,8 @@ final class Post_Customize_Control extends WP_Customize_Control
 
     public $post_type = 'post';
 
+    public $post_status = 'publish';
+
     public function render_content(): void
     {
 
@@ -36,7 +38,7 @@ final class Post_Customize_Control extends WP_Customize_Control
                     /**
                      * @var WP_Post $post
                      */
-                ?>
+                    ?>
                     <option value="<?php echo $post->ID ?>" <?php echo ($selected===$post->ID ? 'selected="':'') ?>>
                         <?php echo $post->post_title ?>
                     </option>
@@ -49,17 +51,17 @@ final class Post_Customize_Control extends WP_Customize_Control
     private function getOptions(): array
     {
         $args = [
-            'ignore_sticky_posts' => 1,
-            'posts_per_page'      => -1,
-            'fields'              => 'id,post_title',
-            'post_type'           => $this->post_type,
-            'post_status'         => 'publish',
-            'orderby' => 'post_title',
-            'order' => 'ASC',
+                'ignore_sticky_posts' => 1,
+                'posts_per_page'      => -1,
+                'fields'              => 'id,post_title',
+                'post_type'           => $this->post_type,
+                'post_status'         => $this->post_status,
+                'orderby' => 'post_title',
+                'order' => 'ASC',
         ];
 
         return (new WP_Query(
-            $args
+                $args
         ))->get_posts();
     }
 }
