@@ -35,7 +35,7 @@ if( is_int($logo_media_id) ) {
                     ]) ?>
                 </div>
 
-                <button class="btn btn-outline-primary main-navigation-toggle btn-sm p-3 d-flex d-xl-none align-items-center" type="button" data-bs-toggle="offcanvas"
+                <button class="btn btn-outline-primary main-navigation-toggle p-3 d-flex d-xl-none align-items-center" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvas-navigation" aria-controls="offcanvas-navigation" aria-expanded="false"
                         aria-label="<?php echo __('Toggle navigation', 'bestproject') ?>"
                         id="main-navigation-toggle"
@@ -46,7 +46,7 @@ if( is_int($logo_media_id) ) {
                 <div class="offcanvas offcanvas-end d-xl-none" tabindex="-1" id="offcanvas-navigation" aria-labelledby="offcanvas-navigation-toggle">
                     <div class="offcanvas-header px-3 py-3 d-flex justify-content-between border-bottom mb-3">
                         <p class="h5 ms-3 mb-0"><?php echo __('Menu', 'bestproject') ?></p>
-                        <button data-bs-dismiss="offcanvas" class="btn btn-outline-primary btn-sm p-3 offcanvas-navigation-toggle d-flex align-items-center" aria-label="<?php echo __('Close') ?>">
+                        <button data-bs-dismiss="offcanvas" class="btn btn-outline-primary btn-sm offcanvas-navigation-toggle d-flex align-items-center" aria-label="<?php echo __('Close') ?>">
                             <i class="fas fa-times" aria-hidden="true"><span></span></i><span class="visually-hidden" aria-hidden="true"><?php echo __('Close menu', 'bestproject') ?></span>
                         </button>
                     </div>
