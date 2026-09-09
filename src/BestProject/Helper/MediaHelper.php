@@ -34,6 +34,6 @@ class MediaHelper
 
         $attributes = array_merge($attributes, $attribs);
 
-        return '<img '.ArrayHelper::toAttributes($attributes).' />';
+        return '<img '.ArrayHelper::toString($attributes).' />';
     }
 }

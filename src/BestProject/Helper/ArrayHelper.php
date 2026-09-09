@@ -9,13 +9,13 @@ class ArrayHelper
 {
 
     /**
-     * Convert HTMl associative array to HTMl attributes string.
+     * Convert associative array to HTMl attributes string.
      *
      * @param   array  $data    Associative array to convert.
      *
      * @return string   Returns class="test" data-day="today" for ["class"=>"test", "data-day"=>"today"] array
      */
-    public static function toAttributes(array $data): string
+    public static function toString(array $data): string
     {
         if( $data===[] ) {
             return '';
