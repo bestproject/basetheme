@@ -1,16 +1,4 @@
 .link {
-    &-hover-underline {
-        text-decoration: none;
-        &:hover,&:focus {
-        	text-decoration: underline;
-        }
-    }
-    &-underline {
-        text-decoration: underline;
-        &:hover,&:focus {
-        	text-decoration: none;
-        }
-    }
     &-hover-dotted {
         text-decoration: transparent dotted underline;
         &:hover,&:focus {
