@@ -8,6 +8,12 @@
     aspect-ratio: 1;
     background: currentColor;
 
+    &-xs {
+        height:.5em;
+    }
+    &-sm {
+        height:.75em;
+    }
     &-md {
         height:1.25em;
     }
