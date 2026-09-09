@@ -40,16 +40,16 @@ readonly class MenuLinkClass
         }
     }
 
-    public static function show($atts, WP_Post $menu_item, $args, $depth): array
+    public static function show($attributes, WP_Post $menu_item): array
     {
-        if( isset( $menu_item->ID ) ) {
-            $menu_item_link_class = get_post_meta( $menu_item->ID, '_menu_item_link_class', true );
+        if( is_object( $menu_item ) && isset( $menu_item->ID ) ) {
+            $menu_item_link_class = get_post_meta($menu_item->ID, '_menu_item_link_class', true);
 
             if ( !empty( $menu_item_link_class ) ) {
-                $atts['class'] .= ' '.$menu_item_link_class;
+                $attributes['class'] .= ' '.$menu_item_link_class;
             }
         }
 
-        return $atts;
+        return $attributes;
     }
 }
