@@ -69,7 +69,7 @@ final class customize_register
             'label' => __('Footer', 'bestproject'),
             'section' => 'patterns',
             'settings' => 'patterns_footer',
-            'placeholder' => _x('No footer', 'customizer', 'bestproject'),
+            'placeholder' => _x('None', 'customizer', 'bestproject'),
         ]));
     }
 
