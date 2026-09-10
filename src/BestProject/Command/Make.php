@@ -153,6 +153,13 @@ class Make
                 "@import 'components/block/{$filename}';",
                 "{$this->theme_path}/.dev/scss/_theme.scss"
             );
+
+            // Add import in editor-styles.scss
+            self::insertFileText(
+                "//< Blocks",
+                "@import 'components/block/{$filename}';",
+                "{$this->theme_path}/.dev/scss/editor-styles.scss"
+            );
         }
 
         // Create php class
