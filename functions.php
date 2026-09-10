@@ -21,6 +21,7 @@ use BestProject\NavWalker\Bootstrap5NavWalker;
 use BestProject\NavWalker\OffcanvasNavWalker;
 use BestProject\Plugin\ContactForm7;
 use BestProject\Plugin\Yoast;
+use BestProject\PostType\Post as PostPostType;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
