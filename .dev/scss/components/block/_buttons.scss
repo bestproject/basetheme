@@ -12,122 +12,33 @@
         &.is-style-outline {
             .wp-block-button__link {
                 @extend .btn-outline-primary;
-                border-width: to-rem(2);
+                border-width: $btn-border-width;
             }
+
+
             .wp-block-button__link.has-text-color {
-                &.has-primary-color {
-                    border-color: var(--#{$prefix}primary);
-                    color: var(--#{$prefix}primary);
-                    &:hover,&:focus {
-                        background: var(--#{$prefix}white);
-                        color: var(--#{$prefix}primary) !important;
-                    }
-                }
-                &.has-secondary-color {
-                    border-color: var(--#{$prefix}secondary);
-                    color: var(--#{$prefix}secondary);
-                    &:hover,&:focus {
-                        background: var(--#{$prefix}secondary);
-                        color: var(--#{$prefix}primary) !important;
-                    }
-                }
-                &.has-white-color {
-                    border-color: var(--#{$prefix}white);
-                    color: var(--#{$prefix}white);
-                    &:hover,&:focus {
-                        background: var(--#{$prefix}white);
-                        color: var(--#{$prefix}primary) !important;
-                    }
-                }
-                &.has-light-color {
-                    border-color: var(--#{$prefix}light);
-                    color: var(--#{$prefix}light);
-                    &:hover,&:focus {
-                        background: var(--#{$prefix}light);
-                        color: var(--#{$prefix}primary) !important;
-                    }
-                }
-                &.has-dark-color {
-                    border-color: var(--#{$prefix}dark);
-                    color: var(--#{$prefix}dark);
-                    &:hover,&:focus {
-                        background: var(--#{$prefix}dark);
-                        color: var(--#{$prefix}white) !important;
-                    }
-                }
-                &.has-black-color {
-                    border-color: var(--#{$prefix}black);
-                    color: var(--#{$prefix}black);
-                    &:hover,&:focus {
-                        background: var(--#{$prefix}black);
-                        color: var(--#{$prefix}white) !important;
-                    }
+                background: transparent;
+                border-color: var(--selected-text-color);
+                &:hover,&:focus {
+                    background: var(--selected-text-color) !important;
+                    border-color: var(--selected-text-color) !important;
+                    color: var(--#{$prefix}white) !important;
                 }
             }
         }
 
         &.is-style-fill {
             .wp-block-button__link {
-                @extend .btn;
-                border-width: to-rem(2);
+                @extend .btn-primary;
+                border-width: $btn-border-width;
             }
             .wp-block-button__link.has-background {
-                &.has-primary-background-color {
-                    border-color: var(--#{$prefix}primary);
-                    color: var(--#{$prefix}white);
-                    background: var(--#{$prefix}primary);
-                    &:hover,&:focus {
-                        background: color.adjust($primary, $blackness: 10%);
-                        border-color: color.adjust($primary, $blackness: 10%);
-                        color: var(--#{$prefix}white) !important;
-                    }
-                }
-                &.has-secondary-background-color {
-                    border-color: var(--#{$prefix}secondary);
-                    color: var(--#{$prefix}white);
-                    background: var(--#{$prefix}secondary);
-                    &:hover,&:focus {
-                        background: color.adjust($secondary, $blackness: 10%);
-                        border-color: color.adjust($secondary, $blackness: 10%);
-                        color: var(--#{$prefix}white) !important;
-                    }
-                }
-                &.has-white-background-color {
-                    border-color: var(--#{$prefix}white);
-                    color: var(--#{$prefix}primary);
-                    background: var(--#{$prefix}white);
-                    &:hover,&:focus {
-                        background: var(--#{$prefix}white);
-                        color: color.adjust($primary, $blackness: 10%);
-                    }
-                }
-                &.has-light-background-color {
-                    border-color: var(--#{$prefix}light);
-                    color: var(--#{$prefix}primary);
-                    background: var(--#{$prefix}light);
-                    &:hover,&:focus {
-                        background: var(--#{$prefix}white);
-                        color: color.adjust($primary, $blackness: 10%);
-                    }
-                }
-                &.has-dark-background-color {
-                    border-color: var(--#{$prefix}dark);
-                    color: var(--#{$prefix}white);
-                    background: var(--#{$prefix}dark);
-                    &:hover,&:focus {
-                        background: color.adjust($dark, $blackness: 10%);
-                        border-color: color.adjust($dark, $blackness: 10%);
-                        color: var(--#{$prefix}white) !important;
-                    }
-                }
-                &.has-black-background-color {
-                    border-color: var(--#{$prefix}black);
-                    color: var(--#{$prefix}white);
-                    background: var(--#{$prefix}black);
-                    &:hover,&:focus {
-                        background: var(--#{$prefix}black);
-                        color: var(--#{$prefix}secondary) !important;
-                    }
+                background: var(--selected-background);
+                border-color: var(--selected-background);
+                &:hover,&:focus {
+                    background: color-mix(in hsl, var(--selected-background), black 10%) !important;
+                    border-color: color-mix(in hsl, var(--selected-background), black 10%) !important;
+                    color: var(--#{$prefix}white) !important;
                 }
             }
         }
