@@ -69,14 +69,29 @@ final class after_setup_theme
             'editor-font-sizes',
             [
                 [
-                    'name'      => __( 'Extra Small', 'bestproject'),
-                    'size'      => "0.5rem",
-                    'slug'      => 'xs'
+                    'name'      => "H1",
+                    'size'      => "3.375rem",
+                    'slug'      => '1'
                 ],
                 [
-                    'name'      => __( 'Small', 'bestproject'),
-                    'size'      => "0.875rem",
-                    'slug'      => 'small'
+                    'name'      => "H2",
+                    'size'      => "3rem",
+                    'slug'      => '2'
+                ],
+                [
+                    'name'      => "H3",
+                    'size'      => "2.25rem",
+                    'slug'      => '3'
+                ],
+                [
+                    'name'      => "H4",
+                    'size'      => "1.5rem",
+                    'slug'      => '4'
+                ],
+                [
+                    'name'      => "H5",
+                    'size'      => "1.125rem",
+                    'slug'      => '5'
                 ],
                 [
                     'name'      => __( 'Normal', 'bestproject'),
@@ -84,19 +99,14 @@ final class after_setup_theme
                     'slug'      => 'normal'
                 ],
                 [
-                    'name'      => __( 'Medium', 'bestproject'),
-                    'size'      => "1.25rem",
-                    'slug'      => 'medium'
+                    'name'      => __( 'Small', 'bestproject'),
+                    'size'      => "0.875rem",
+                    'slug'      => 'sm'
                 ],
                 [
-                    'name'      => __( 'Large', 'bestproject'),
-                    'size'      => "1.5rem",
-                    'slug'      => 'large'
-                ],
-                [
-                    'name'      => __( 'Extra Large', 'bestproject'),
-                    'size'      => "2.5rem",
-                    'slug'      => 'x-large'
+                    'name'      => __( 'Extra Small', 'bestproject'),
+                    'size'      => "0.75rem",
+                    'slug'      => 'xs'
                 ],
             ]
         );
