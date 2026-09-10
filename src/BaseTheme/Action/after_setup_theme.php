@@ -166,6 +166,28 @@ final class after_setup_theme
         update_option( 'medium_size_w', 960 );
         update_option( 'large_size_h', 2048 );
         update_option( 'large_size_w', 2048 );
+
+        self::loadSampleData();
+    }
+
+    private static function loadSampleData(): void
+    {
+        // Check if typography post exists
+        $typography_page_name = 'typography';
+        $typography_path = dirname(__DIR__, 3).'/.sample-data/typography.html';
+
+        if( !get_page_by_path( $typography_page_name ) && is_file($typography_path) ) {
+            $post_data = [
+                'post_title'   => 'Typography',
+                'post_name'   => $typography_page_name,
+                'post_content' => file_get_contents($typography_path),
+                'post_status'  => 'private',
+                'post_type'    => 'page',
+            ];
+
+            // Post doesn't exist, so load it from sample data
+            wp_insert_post( $post_data );
+        }
     }
 
 }
