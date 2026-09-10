@@ -35,6 +35,7 @@ final class after_setup_theme
         add_theme_support( 'disable-custom-gradients' );
         add_theme_support( 'disable-custom-font-sizes' );
         remove_theme_support( 'editor-gradient-presets' );
+        remove_theme_support( 'core-block-patterns' );
 
         add_theme_support( 'editor-color-palette', [
             [
