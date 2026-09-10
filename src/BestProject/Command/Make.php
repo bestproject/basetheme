@@ -194,6 +194,8 @@ CLASS_CODE;
                 "add_action('init', [{$class_name}Styles::class, 'register']);",
                 "{$this->theme_path}/functions.php"
             );
+
+            self::write("Created class {$this->namespace}\Block\Style\\{$class_name}");
         }
 
     }

@@ -21,6 +21,9 @@
         ],
         "build": [
             "BestProject\\Command\\Build::execute"
+        ],
+        "make": [
+            "BestProject\\Command\\Make::execute"
         ]
     },
     "scripts-descriptions": {
