@@ -18,7 +18,7 @@ $additional-text-colors: (
     }
 }
 
-@each $size-name, $size-value in map.merge($font-sizes, $additional-font-sizes) {
+@each $size-name, $size-value in $font-sizes {
     .has-#{$size-name}-font-size {
         font-size: $size-value;
     }
