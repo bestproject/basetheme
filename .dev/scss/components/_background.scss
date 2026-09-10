@@ -1,12 +1,17 @@
-@each $color-name, $color-value in $theme-colors {
+@use "sass:map";
+
+$additional-colors: (
+    'black': $black,
+    'white': $white,
+);
+
+@each $color-name, $color-value in map.merge($theme-colors, $additional-colors) {
     .has-#{$color-name}-background-color {
         background-color: var(--#{$prefix}#{$color-name});
+        --selected-background: var(--#{$prefix}#{$color-name});
     }
-}
-
-&.has-white-background-color {
-    background-color: var(--bs-white);
-}
-&.has-black-background-color {
-    background-color: var(--bs-black);
+    .has-#{$color-name}-subtle-background-color {
+        background-color: var(--#{$prefix}#{$color-name}-bg-subtle);
+        --selected-background: var(--#{$prefix}#{$color-name}-bg-subtle);
+    }
 }
