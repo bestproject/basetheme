@@ -39,6 +39,10 @@ final class after_setup_theme
 
         add_theme_support( 'editor-color-palette', [
             [
+                'name'  => __( 'Primary Subtle', 'bestproject'),
+                'slug'  => 'primary-subtle',
+                'color'	=> '#cfe2ff',
+            ],[
                 'name'  => __( 'Primary', 'bestproject'),
                 'slug'  => 'primary',
                 'color'	=> '#0d6efd',

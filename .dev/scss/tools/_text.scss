@@ -1,23 +1,23 @@
 @use "sass:map";
 
+$additional-text-colors: (
+    'black': $black,
+    'white': $white,
+);
+
 .has-text-color {
-    @each $color-name, $color-value in $theme-colors {
+    @each $color-name, $color-value in map.merge($theme-colors, $additional-text-colors) {
         &.has-#{$color-name}-color {
             color: var(--bs-#{$color-name});
+            --selected-text-color: var(--#{$prefix}#{$color-name});
         }
-    }
-    &.has-white-color {
-        color: var(--bs-white);
-    }
-    &.has-black-color {
-        color: var(--bs-black);
+        &.has-#{$color-name}-subtle-color {
+            color: var(--bs-#{$color-name}-bg-subtle);
+            --selected-text-color: var(--#{$prefix}#{$color-name}-bg-subtle);
+        }
     }
 }
 
-$additional-font-sizes: (
-    //'sm': $font-size-sm,
-    //'xs': $font-size-lg,
-);
 @each $size-name, $size-value in map.merge($font-sizes, $additional-font-sizes) {
     .has-#{$size-name}-font-size {
         font-size: $size-value;
