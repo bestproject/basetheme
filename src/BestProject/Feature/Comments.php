@@ -30,5 +30,11 @@ readonly class Comments
         add_action('admin_menu', [self::class,'hideAdminMenu']);
         add_filter('comments_open', '__return_false', 20, 2);
         add_filter('pings_open', '__return_false', 20, 2);
+        add_action('wp_before_admin_bar_render', [self::class, 'hideAdminBar']);
+    }
+    public static function hideAdminBar(): void
+    {
+        global $wp_admin_bar;
+        $wp_admin_bar->remove_menu('comments');
     }
 }
