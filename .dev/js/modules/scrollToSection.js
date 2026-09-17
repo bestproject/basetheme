@@ -27,12 +27,13 @@ $.fn.scrollToSection = function (speed = 700, defaultOffset = 16, navigationOffs
     const $adminbar = $('#wpadminbar');
     const $navbar = $(navigationOffsetElement);
     const offset = 0 + ($adminbar.length ? $adminbar.outerHeight() : 0) + defaultOffset; // Add height of any sticky elements
+    let offcanvasMenu = false;
 
     console.log('scrollToSection.window.location:', currentUrl, currentHash);
     console.log('scrollToSection.offset:', offset);
 
     if( $('#offcanvas-navigation').length ) {
-        const offcanvasMenu = Offcanvas.getOrCreateInstance('#offcanvas-navigation');
+        offcanvasMenu = Offcanvas.getOrCreateInstance('#offcanvas-navigation');
     }
 
     for (let i = 0, ic = $elements.length; i < ic; i++) {
