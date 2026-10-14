@@ -59,7 +59,7 @@ add_filter('nav_menu_submenu_attributes', [OffcanvasNavWalker::class, 'nav_menu_
 add_filter('nav_menu_submenu_css_class', [Bootstrap5NavWalker::class, 'nav_menu_submenu_css_class'], 10, 3);
 add_filter('nav_menu_submenu_attributes', [Bootstrap5NavWalker::class, 'nav_menu_submenu_attributes'], 10, 3);
 add_filter('get_the_archive_title', [PostPostType::class, 'get_the_archive_title'], 10, 3);
-add_filter('should_load_separate_core_block_assets', '__return_true' );
+add_filter('should_load_separate_core_block_assets', '__return_true', 11);
 
 //> Block registration
 add_action('init', [Bootstrap::class, 'register']);
