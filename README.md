@@ -4,8 +4,8 @@ Source files for a base WordPress theme build on top of Bootstrap.
 ## Installation
 - `composer install`
 - `composer build`
-- `npm i`
-- 
+- `npm ci`
+
 ## Development
 - `npm run dev` or `npm run watch` for continuous building.
 
