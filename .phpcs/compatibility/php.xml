@@ -1,0 +1,17 @@
+<ruleset name="style">
+    <arg value="s"/>
+    <arg value="p"/>
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+
+    <exclude-pattern>*</exclude-pattern>
+    <include-pattern>./*.php</include-pattern>
+    <include-pattern>./src</include-pattern>
+    <include-pattern>./template-parts</include-pattern>
+    <include-pattern>./patterns</include-pattern>
+    <include-pattern>./blocks</include-pattern>
+    <include-pattern>./.dev/blocks</include-pattern>
+
+    <config name="testVersion" value="8.4-"/>
+    <rule ref="PHPCompatibility"/>
+</ruleset>

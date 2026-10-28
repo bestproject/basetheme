@@ -20,6 +20,12 @@
             "php": "8.4.0"
         }
     },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "squizlabs/php_codesniffer": "3.x",
+        "phpcompatibility/php-compatibility": "9.x",
+        "dealerdirect/phpcodesniffer-composer-installer": "1.x"
+    },
     "require": {
         "php": ">=8.4"
     },
@@ -32,7 +38,11 @@
         ],
         "make": [
             "BestProject\\Command\\Make::execute"
-        ]
+        ],
+        "test:compatibility": [
+            "@test:compatibility:php"
+        ],
+        "test:compatibility:php": "phpcs --standard=.phpcs/compatibility/php.xml ."
     },
     "scripts-descriptions": {
         "build": "Build theme."
