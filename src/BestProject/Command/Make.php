@@ -112,7 +112,7 @@ class Make
 
         $instance = new self();
 
-        $command = array_first($arguments);
+        $command = $arguments[array_key_first($arguments)];
         switch ($command) {
             case 'block-style':
                 $instance->createBlockStyle(...array_slice($arguments, 1));
