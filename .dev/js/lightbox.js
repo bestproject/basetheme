@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import 'magnific-popup';
-import 'magnific-popup/dist/magnific-popup.css';
 
 $(()=>{
 

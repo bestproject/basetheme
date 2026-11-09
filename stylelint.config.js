@@ -1,5 +1,5 @@
 /** @type {import('stylelint').Config} */
-module.exports = {
+export default {
   extends: [
     "stylelint-config-sass-guidelines",
     "stylelint-scss",
@@ -15,4 +15,4 @@ module.exports = {
       files: ".dev/**/*.scss"
     }
   ]
-};
+}

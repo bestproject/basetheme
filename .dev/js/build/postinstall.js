@@ -1,6 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const path_base = path.dirname(path.dirname(path.dirname(path.resolve(__dirname))));
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const script_dir = path.dirname(fileURLToPath(import.meta.url));
+const path_base = path.dirname(path.dirname(path.dirname(path.resolve(script_dir))));
 
 /**
  * Copy file from bootstrap repo upon installation.

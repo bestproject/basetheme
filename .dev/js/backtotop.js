@@ -1,1 +1,1 @@
-import './modules/backToTopButton';
+import './modules/backToTopButton.js';
