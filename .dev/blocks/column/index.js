@@ -17,8 +17,8 @@ import './style.scss';
 /**
  * Internal dependencies
  */
-import Edit from './edit';
-import Save from './save';
+import Edit from './edit.js';
+import Save from './save.js';
 import metadata from './block.json';
 
 const IconColumn = (

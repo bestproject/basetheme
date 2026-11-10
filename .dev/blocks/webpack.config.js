@@ -1,6 +1,8 @@
-const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
+// const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 
-module.exports = {
+import defaultConfig from '@wordpress/scripts/config/webpack.config.js';
+
+export default {
     ...defaultConfig,
     module: {
         ...defaultConfig.module,

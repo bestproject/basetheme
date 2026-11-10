@@ -39,7 +39,6 @@ import {
 	arrowDown,
 	pageBreak,
 	arrowUp,
-	code,
 	mobile as IconMobile,
 	tablet as IconTablet,
 	desktop as IconDesktop,
