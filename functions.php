@@ -23,6 +23,8 @@ use BestProject\Plugin\ContactForm7;
 use BestProject\Plugin\Yoast;
 use BestProject\PostType\Post as PostPostType;
 
+file_exists(__DIR__ . '/vendor/autoload.php') or die('Run `composer install` first.');
+
 require_once __DIR__ . '/vendor/autoload.php';
 
 // Theme setup
