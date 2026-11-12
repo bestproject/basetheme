@@ -45,6 +45,9 @@ abstract class AssetsHelper
 
             // If there are js scripts in this entry point
             if (array_key_exists('js', $entrypoint)) {
+
+                wp_enqueue_script('jquery');
+
                 foreach ($entrypoint['js'] as $path) {
 
                     $asset_url = site_url().self::getAssetUrl($path);
@@ -52,9 +55,9 @@ abstract class AssetsHelper
 
                     // Deffer the script
                     if( $defer ) {
-                        wp_enqueue_script($handle, $asset_url, ['jquery'], false, ['strategy' => 'defer']);
+                        wp_enqueue_script_module($handle, $asset_url, [], null, ['strategy' => 'defer']);
                     } else {
-                        wp_enqueue_script($handle, $asset_url, ['jquery'], false, true);
+                        wp_enqueue_script_module($handle, $asset_url, [], null);
                     }
                 }
             }
@@ -65,7 +68,7 @@ abstract class AssetsHelper
 
                     $asset_url = site_url().self::getAssetUrl($path);
                     $handle = pathinfo($path, PATHINFO_FILENAME);
-                    wp_enqueue_style($handle, $asset_url);
+                    wp_enqueue_style($handle, $asset_url, [], null);
 
                     // Deffer the stylesheet
                     if( $defer ) {
@@ -104,7 +107,8 @@ abstract class AssetsHelper
         // Deffer the loading
         add_filter('style_loader_tag', static function($html, $style_handle) use ($handle) {
             if ($style_handle === $handle) {
-                return str_ireplace(" rel='stylesheet'", ' rel=\'preload\' as=\'style\' onload=\'this.rel="stylesheet"\'', $html).'<noscript>'.PHP_EOL.$html.'</noscript>'.PHP_EOL;
+                return str_ireplace(" rel='stylesheet'", ' rel=\'preload\' as=\'style\' onload=\'this.rel="stylesheet"\'', $html)
+                    .'<noscript>'.PHP_EOL.$html.'</noscript>'.PHP_EOL;
             }
 
             return $html;

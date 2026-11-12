@@ -54,8 +54,8 @@ Encore.setOutputPath('assets/build')
     })
     .autoProvidejQuery()
     .addExternals({
-        jquery: 'jQuery',
-        wp: 'wp',
+        jquery: 'window jQuery',
+        wp: 'window wp',
     })
 
     .addEntry('theme', themeAssets)
