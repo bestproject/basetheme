@@ -1,8 +1,8 @@
 # AGENTS.md
-- Install deps: `pnpm install`
-- Start dev server: `pnpm watch`
-- Build production assets: `pnpm build`
-- Build build-in blocks: `pnpm wp:build`
+- Install deps: `npm ci`
+- Start dev server: `npm watch`
+- Build production assets: `npm build`
+- Build build-in blocks: `npm wp:build`
 
 ## Overview
 - Type: `hybrid`;
@@ -12,13 +12,16 @@
 
 ## Structure
 - `./` Theme root directory
-- `./dev` Theme source assets directory
-- `./dev/scss` Theme SCSS source directory
-- `./dev/scss/components` Theme components SCSS source directory
-- `./dev/scss/components/block` Theme blocks and block styles specific SCSS source directory
-- `./dev/scss/extensions` Theme plugins and extensions styles SCSS source directory
-- `./dev/scss/pages` Theme page-specific styles SCSS source directory
-- `./dev/scss/tools` Theme tools styles SCSS source directory
+- `./.dev` Theme source assets directory
+- `./.dev/blocks` Theme blocks source directory
+- `./.dev/images` Theme images source directory
+- `./.dev/images/icons` Theme icons source directory
+- `./.dev/scss` Theme SCSS source directory
+- `./.dev/scss/components` Theme components SCSS source directory
+- `./.dev/scss/components/block` Theme blocks and block styles specific SCSS source directory
+- `./.dev/scss/extensions` Theme plugins and extensions styles SCSS source directory
+- `./.dev/scss/pages` Theme page-specific styles SCSS source directory
+- `./.dev/scss/tools` Theme tools styles SCSS source directory
 - `./.dev/scss/_variables.scss` Theme SCSS variables
 - `./.dev/scss/_mixins.scss` Theme SCSS mixins
 - `./.dev/scss/_functions.scss` Theme SCSS functions
@@ -27,13 +30,10 @@
 - `./.dev/scss/_theme.scss` Theme main SCSS file holding references to all other SCSS files. New stylesheets should be registered here.
 - `./.dev/scss/editor-styles.scss` Theme block editor SCSS file holding references to all other SCSS files. New stylesheets should be registered here.
 - `./.dev/scss/index.scss` Theme entrypoint, do not modify.
-- `./dev/js` Theme JavaScript source directory
-- `./dev/js/theme.js` Theme JavaScript entrypoint (a theme main script file)
-- `./dev/js/dev.js` Theme JavaScript development script file executed only on the development environment
-- `./dev/js/lightbox.js` Theme JavaScript lightbox entrypoint
-- `./dev/images` Theme images source directory
-- `./dev/images/icons` Theme icons source directory
-- `./dev/blocks` Theme blocks source directory
+- `./.dev/js` Theme JavaScript source directory
+- `./.dev/js/theme.js` Theme JavaScript entrypoint (a theme main script file)
+- `./.dev/js/dev.js` Theme JavaScript development script file executed only on the development environment
+- `./.dev/js/lightbox.js` Theme JavaScript lightbox entrypoint
 - `./.sample-data` Theme sample data (including typography samples)
 - `./langauges` Theme translations files
 - `./src/BestProject` Theme creator classes and helpers directory (do not modify)
@@ -56,14 +56,14 @@
 ### SCSS
 - Follow the existing structure (`components/`, `extensions/`, `pages/`, `tools/`).
 - Use project variables and mixins; do not hardcode colors, spacing, or breakpoints.
-    - Variables should be defined in `./.dev/scss/_variables.scss`.
-    - If possible, re-use variables from `./dev/scss/_variables.scss`.
+  - Variables should be defined in `./.dev/scss/_variables.scss`.
+  - If possible, re-use variables from `./dev/scss/_variables.scss`.
 - If a new stylesheet is created, it should be registered in `./.dev/scss/_theme.scss` and `./.dev/scss/editor-styles.scss`.
-    - New layout tools register between `//> Tools` and `//< Tools`
-    - New components register between `//> Components` and `//< Components`
-    - New blocks and block styles register between `//> Blocks` and `//< Blocks`
-    - Page-specific styles register between `//> Pages` and `//< Pages`
-    - Plugins/Extensions specific styles register between `//> Plugins` and `//< Plugins`
+  - New layout tools register between `//> Tools` and `//< Tools`
+  - New components register between `//> Components` and `//< Components`
+  - New blocks and block styles register between `//> Blocks` and `//< Blocks`
+  - Page-specific styles register between `//> Pages` and `//< Pages`
+  - Plugins/Extensions specific styles register between `//> Plugins` and `//< Plugins`
 - Class naming: `project convention`.
 - New block styles file should be created using `composer make block-style <block-name>` command. This command will also prepare a proper hook to register this block style.
 - New plugin styles file should be created using `composer make plugin-style <plugin-name>` command
@@ -75,8 +75,8 @@
 ### Templating
 - Prefer using WordPress built-in blocks over custom ones.
 - Prefer creating custom patterns in `./patterns` for a reusable set of blocks.
-    - Each pattern should define `Title`, `Slug`, and `Categories` according to WordPress specification `https://developer.wordpress.org/themes/patterns/registering-patterns/`
-    - Each pattern should also be added to `BaseTheme` category.
+  - Each pattern should define `Title`, `Slug`, and `Categories` according to WordPress specification `https://developer.wordpress.org/themes/patterns/registering-patterns/`
+  - Each pattern should also be added to `BaseTheme` category.
 - Prefer using existing font sizes defined in `editor-font-sizes` of `./src/BaseTheme/Action/after_setup_theme.php` unless specified otherwise.
 - Prefer using existing colors defined in `editor-color-palette` of `./src/BaseTheme/Action/after_setup_theme.php` unless specified otherwise.
 - If a new font size is needed, add it to `add_theme_support( editor-font-sizes)` in `./src/BaseTheme/Action/after_setup_theme.php` and register in `$font-sizes` of `.dev/scss/_variables.scss`.
@@ -113,3 +113,4 @@
 - Ask before making changes outside the scope of the request (DB schema, plugin dependencies, build tooling).
 - Summarize what changed, which files were touched, and how it was verified.
 - If a requirement is ambiguous, state your assumption explicitly instead of guessing silently.
+- If the prompt is a question, provide a detailed answer instead of changing the code.
