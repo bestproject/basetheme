@@ -93,4 +93,5 @@ Feature\Comments::disable();
 //Feature\MenuLinkClass::enable();
 Feature\Security::disableXmlrpc();
 Feature\Security::disableFileEditing();
+Feature\Security::disablePublicRestApiAccess();
 Feature\RemoveJQueryMigrate::register();
