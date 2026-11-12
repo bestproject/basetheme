@@ -95,3 +95,4 @@ Feature\Security::disableXmlrpc();
 Feature\Security::disableFileEditing();
 Feature\Security::disablePublicUsersRestApiAccess();
 Feature\RemoveJQueryMigrate::register();
+Feature\Emoji::disable();
