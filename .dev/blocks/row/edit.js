@@ -168,9 +168,9 @@ export default function Edit( {attributes, setAttributes}) {
 			<InspectorControls key="setting">
 				<Panel>
 
-					<PanelBody title={ __( 'Smartphone (≥0px)', 'basetheme' ) } icon={ IconMobile } initialOpen={ deviceType==='Mobile' }>
+					<PanelBody title={ __( 'Smartphone (≥0px)', 'bestproject' ) } icon={ IconMobile } initialOpen={ deviceType==='Mobile' }>
 
-						<ToggleGroupControl label={ __("Gutter", 'basetheme') } value={ (xs_gutter) } isBlock isDeselectable onChange={ (value)=>updateGutter('xs', value)  }>
+						<ToggleGroupControl label={ __("Gutter", 'bestproject') } value={ (xs_gutter) } isBlock isDeselectable onChange={ (value)=>updateGutter('xs', value)  }>
 							<ToggleGroupControlOption value="0" label="0" />
 							<ToggleGroupControlOption value="1" label="1" />
 							<ToggleGroupControlOption value="2" label="2" />
@@ -179,55 +179,55 @@ export default function Edit( {attributes, setAttributes}) {
 							<ToggleGroupControlOption value="5" label="5" />
 						</ToggleGroupControl>
 
-						<ToggleGroupControl label={ __("Vertical alignment", 'basetheme') } value={ (xs_alignItems) } isBlock isDeselectable onChange={ (value)=>updateAlignItems('xs', value)  }>
+						<ToggleGroupControl label={ __("Vertical alignment", 'bestproject') } value={ (xs_alignItems) } isBlock isDeselectable onChange={ (value)=>updateAlignItems('xs', value)  }>
 							<ToggleGroupControlOptionIcon
 								value="start"
-								label={ __("Start", 'basetheme') }
+								label={ __("Start", 'bestproject') }
 								icon = { arrowDown }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="center"
-								label={ __("Center", 'basetheme') }
+								label={ __("Center", 'bestproject') }
 								icon = { pageBreak }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="end"
-								label={ __("End", 'basetheme') }
+								label={ __("End", 'bestproject') }
 								icon = { arrowUp }
 							/>
 						</ToggleGroupControl>
 
-						<ToggleGroupControl label={ __("Horizontal alignment", 'basetheme') } value={ (xs_justifyContent) } isBlock isDeselectable onChange={ (value)=>updateJustifyContent('xs', value)  }>
+						<ToggleGroupControl label={ __("Horizontal alignment", 'bestproject') } value={ (xs_justifyContent) } isBlock isDeselectable onChange={ (value)=>updateJustifyContent('xs', value)  }>
 							<ToggleGroupControlOptionIcon
 								value="start"
-								label={ __("Start", 'basetheme') }
+								label={ __("Start", 'bestproject') }
 								icon = { justifyLeft }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="center"
-								label={ __("Center", 'basetheme') }
+								label={ __("Center", 'bestproject') }
 								icon = { justifyCenter }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="between"
-								label={ __("Between", 'basetheme') }
+								label={ __("Between", 'bestproject') }
 								icon = { justifySpaceBetween }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="around"
-								label={ __("Around", 'basetheme') }
+								label={ __("Around", 'bestproject') }
 								icon = { sidesAll }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="end"
-								label={ __("End", 'basetheme') }
+								label={ __("End", 'bestproject') }
 								icon = { justifyRight }
 							/>
 						</ToggleGroupControl>
 					</PanelBody>
-					<PanelBody title={ __( 'Tablet (≥768px)', 'basetheme' ) } icon={ IconTablet } initialOpen={ deviceType==='Tablet' }>
+					<PanelBody title={ __( 'Tablet (≥768px)', 'bestproject' ) } icon={ IconTablet } initialOpen={ deviceType==='Tablet' }>
 
-						<ToggleGroupControl label={ __("Gutter", 'basetheme') } value={ (md_gutter) } isBlock isDeselectable onChange={ (value)=>updateGutter('md', value)  }>
+						<ToggleGroupControl label={ __("Gutter", 'bestproject') } value={ (md_gutter) } isBlock isDeselectable onChange={ (value)=>updateGutter('md', value)  }>
 							<ToggleGroupControlOption value="0" label="0" />
 							<ToggleGroupControlOption value="1" label="1" />
 							<ToggleGroupControlOption value="2" label="2" />
@@ -236,55 +236,55 @@ export default function Edit( {attributes, setAttributes}) {
 							<ToggleGroupControlOption value="5" label="5" />
 						</ToggleGroupControl>
 
-						<ToggleGroupControl label={ __("Vertical alignment", 'basetheme') } value={ (md_alignItems) } isBlock isDeselectable onChange={ (value)=>updateAlignItems('md', value)  }>
+						<ToggleGroupControl label={ __("Vertical alignment", 'bestproject') } value={ (md_alignItems) } isBlock isDeselectable onChange={ (value)=>updateAlignItems('md', value)  }>
 							<ToggleGroupControlOptionIcon
 								value="start"
-								label={ __("Start", 'basetheme') }
+								label={ __("Start", 'bestproject') }
 								icon = { arrowDown }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="center"
-								label={ __("Center", 'basetheme') }
+								label={ __("Center", 'bestproject') }
 								icon = { pageBreak }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="end"
-								label={ __("End", 'basetheme') }
+								label={ __("End", 'bestproject') }
 								icon = { arrowUp }
 							/>
 						</ToggleGroupControl>
 
-						<ToggleGroupControl label={ __("Horizontal alignment", 'basetheme') } value={ (md_justifyContent) } isBlock isDeselectable onChange={ (value)=>updateJustifyContent('md', value)  }>
+						<ToggleGroupControl label={ __("Horizontal alignment", 'bestproject') } value={ (md_justifyContent) } isBlock isDeselectable onChange={ (value)=>updateJustifyContent('md', value)  }>
 							<ToggleGroupControlOptionIcon
 								value="start"
-								label={ __("Start", 'basetheme') }
+								label={ __("Start", 'bestproject') }
 								icon = { justifyLeft }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="center"
-								label={ __("Center", 'basetheme') }
+								label={ __("Center", 'bestproject') }
 								icon = { justifyCenter }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="between"
-								label={ __("Between", 'basetheme') }
+								label={ __("Between", 'bestproject') }
 								icon = { justifySpaceBetween }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="around"
-								label={ __("Around", 'basetheme') }
+								label={ __("Around", 'bestproject') }
 								icon = { sidesAll }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="end"
-								label={ __("End", 'basetheme') }
+								label={ __("End", 'bestproject') }
 								icon = { justifyRight }
 							/>
 						</ToggleGroupControl>
 					</PanelBody>
-					<PanelBody title={ __( 'Desktop (≥1200px)', 'basetheme' ) } icon={ IconDesktop } initialOpen={ deviceType==='Desktop' }>
+					<PanelBody title={ __( 'Desktop (≥1200px)', 'bestproject' ) } icon={ IconDesktop } initialOpen={ deviceType==='Desktop' }>
 
-						<ToggleGroupControl label={ __("Gutter", 'basetheme') } value={ (xl_gutter) } isBlock isDeselectable onChange={ (value)=>updateGutter('xl', value)  }>
+						<ToggleGroupControl label={ __("Gutter", 'bestproject') } value={ (xl_gutter) } isBlock isDeselectable onChange={ (value)=>updateGutter('xl', value)  }>
 							<ToggleGroupControlOption value="0" label="0" />
 							<ToggleGroupControlOption value="1" label="1" />
 							<ToggleGroupControlOption value="2" label="2" />
@@ -293,48 +293,48 @@ export default function Edit( {attributes, setAttributes}) {
 							<ToggleGroupControlOption value="5" label="5" />
 						</ToggleGroupControl>
 
-						<ToggleGroupControl label={ __("Vertical alignment", 'basetheme') } value={ (xl_alignItems) } isBlock isDeselectable onChange={ (value)=>updateAlignItems('xl', value)  }>
+						<ToggleGroupControl label={ __("Vertical alignment", 'bestproject') } value={ (xl_alignItems) } isBlock isDeselectable onChange={ (value)=>updateAlignItems('xl', value)  }>
 							<ToggleGroupControlOptionIcon
 								value="start"
-								label={ __("Start", 'basetheme') }
+								label={ __("Start", 'bestproject') }
 								icon = { arrowDown }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="center"
-								label={ __("Center", 'basetheme') }
+								label={ __("Center", 'bestproject') }
 								icon = { pageBreak }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="end"
-								label={ __("End", 'basetheme') }
+								label={ __("End", 'bestproject') }
 								icon = { arrowUp }
 							/>
 						</ToggleGroupControl>
 
-						<ToggleGroupControl label={ __("Horizontal alignment", 'basetheme') } value={ (xl_justifyContent) } isBlock isDeselectable onChange={ (value)=>updateJustifyContent('xl', value)  }>
+						<ToggleGroupControl label={ __("Horizontal alignment", 'bestproject') } value={ (xl_justifyContent) } isBlock isDeselectable onChange={ (value)=>updateJustifyContent('xl', value)  }>
 							<ToggleGroupControlOptionIcon
 								value="start"
-								label={ __("Start", 'basetheme') }
+								label={ __("Start", 'bestproject') }
 								icon = { justifyLeft }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="center"
-								label={ __("Center", 'basetheme') }
+								label={ __("Center", 'bestproject') }
 								icon = { justifyCenter }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="between"
-								label={ __("Between", 'basetheme') }
+								label={ __("Between", 'bestproject') }
 								icon = { justifySpaceBetween }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="around"
-								label={ __("Around", 'basetheme') }
+								label={ __("Around", 'bestproject') }
 								icon = { sidesAll }
 							/>
 							<ToggleGroupControlOptionIcon
 								value="end"
-								label={ __("End", 'basetheme') }
+								label={ __("End", 'bestproject') }
 								icon = { justifyRight }
 							/>
 						</ToggleGroupControl>

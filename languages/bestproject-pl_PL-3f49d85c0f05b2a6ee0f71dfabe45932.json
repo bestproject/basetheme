@@ -1,0 +1,48 @@
+{
+    "translation-revision-date": "2026-11-11 12:09+0000",
+    "generator": "Loco https://localise.biz/",
+    "source": "blocks/wp/row/index.js",
+    "domain": "bestproject",
+    "locale_data": {
+        "bestproject": {
+            "": {
+                "domain": "",
+                "lang": "pl_PL",
+                "plural-forms": "nplurals=3; plural=(n==1 ? 0 : n%10 >= 2 && n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);"
+            },
+            "Around": [
+                "Dooko\u0142a"
+            ],
+            "Between": [
+                "Pomi\u0119dzy"
+            ],
+            "Center": [
+                "\u015arodek"
+            ],
+            "Desktop (\u22651200px)": [
+                "Desktop (\u22651200px)"
+            ],
+            "End": [
+                "Koniec"
+            ],
+            "Gutter": [
+                "Odst\u0119p"
+            ],
+            "Horizontal alignment": [
+                "Wyr\u00f3wnanie poziome"
+            ],
+            "Smartphone (\u22650px)": [
+                "Telefon (\u22650px)"
+            ],
+            "Start": [
+                "Start"
+            ],
+            "Tablet (\u2265768px)": [
+                "Tablet (\u2265768px)"
+            ],
+            "Vertical alignment": [
+                "Wyr\u00f3wnanie pionowe"
+            ]
+        }
+    }
+}

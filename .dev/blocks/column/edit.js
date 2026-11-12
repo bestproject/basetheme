@@ -121,10 +121,10 @@ export default function Edit({attributes, setAttributes}) {
 			<InspectorControls key="setting">
 				<Panel>
 
-					<PanelBody title={ __( 'Smartphone (≥0px)', 'basetheme' ) } icon={ IconMobile } initialOpen={ deviceType==='Mobile' }>
+					<PanelBody title={ __( 'Smartphone (≥0px)', 'bestproject' ) } icon={ IconMobile } initialOpen={ deviceType==='Mobile' }>
 
 						<SelectControl
-							label={ __( 'Width', 'basetheme' ) }
+							label={ __( 'Width', 'bestproject' ) }
 							value={ xs_columns }
 							options={ [
 								{ label: '1 / 12', value: '1' },
@@ -146,10 +146,10 @@ export default function Edit({attributes, setAttributes}) {
 						/>
 
 						<SelectControl
-							label={ __( "Order", 'basetheme' ) }
+							label={ __( "Order", 'bestproject' ) }
 							value={ xs_order }
 							options={ [
-								{ label: __( 'Automatic', 'basetheme' ), value: '' },
+								{ label: __( 'Automatic', 'bestproject' ), value: '' },
 								{ label: '1', value: '1' },
 								{ label: '2', value: '2' },
 								{ label: '3', value: '3' },
@@ -162,13 +162,13 @@ export default function Edit({attributes, setAttributes}) {
 						/>
 
 					</PanelBody>
-					<PanelBody title={ __( 'Tablet (≥768px)', 'basetheme' ) } icon={ IconTablet } initialOpen={ deviceType==='Tablet' }>
+					<PanelBody title={ __( 'Tablet (≥768px)', 'bestproject' ) } icon={ IconTablet } initialOpen={ deviceType==='Tablet' }>
 
 						<SelectControl
-							label={ __( "Width", 'basetheme' ) }
+							label={ __( "Width", 'bestproject' ) }
 							value={ md_columns }
 							options={ [
-								{ label: __( 'Inherited', 'basetheme' ), value: '' },
+								{ label: __( 'Inherited', 'bestproject' ), value: '' },
 								{ label: '1 / 12', value: '1' },
 								{ label: '2 / 12', value: '2' },
 								{ label: '3 / 12', value: '3' },
@@ -188,10 +188,10 @@ export default function Edit({attributes, setAttributes}) {
 						/>
 
 						<SelectControl
-							label={ __( "Order", 'basetheme' ) }
+							label={ __( "Order", 'bestproject' ) }
 							value={ md_order }
 							options={ [
-								{ label: __( 'Automatic', 'basetheme' ), value: '' },
+								{ label: __( 'Automatic', 'bestproject' ), value: '' },
 								{ label: '1', value: '1' },
 								{ label: '2', value: '2' },
 								{ label: '3', value: '3' },
@@ -203,13 +203,13 @@ export default function Edit({attributes, setAttributes}) {
 							__nextHasNoMarginBottom
 						/>
 					</PanelBody>
-					<PanelBody title={ __( 'Desktop (≥1200px)', 'basetheme' ) } icon={ IconDesktop } initialOpen={ deviceType==='Desktop' }>
+					<PanelBody title={ __( 'Desktop (≥1200px)', 'bestproject' ) } icon={ IconDesktop } initialOpen={ deviceType==='Desktop' }>
 
 						<SelectControl
-							label={ __( "Width", 'basetheme' ) }
+							label={ __( "Width", 'bestproject' ) }
 							value={ xl_columns }
 							options={ [
-								{ label: __( 'Inherited', 'basetheme' ), value: '' },
+								{ label: __( 'Inherited', 'bestproject' ), value: '' },
 								{ label: '1 / 12', value: '1' },
 								{ label: '2 / 12', value: '2' },
 								{ label: '3 / 12', value: '3' },
@@ -229,10 +229,10 @@ export default function Edit({attributes, setAttributes}) {
 						/>
 
 						<SelectControl
-							label={ __( "Order", 'basetheme' ) }
+							label={ __( "Order", 'bestproject' ) }
 							value={ xl_order }
 							options={ [
-								{ label: __('Automatic', 'basetheme'), value: '' },
+								{ label: __('Automatic', 'bestproject'), value: '' },
 								{ label: '1', value: '1' },
 								{ label: '2', value: '2' },
 								{ label: '3', value: '3' },

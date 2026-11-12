@@ -1,9 +1,15 @@
-// const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
+const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 
-import defaultConfig from '@wordpress/scripts/config/webpack.config.js';
-
-export default {
+module.exports = {
     ...defaultConfig,
+    output: {
+        ...defaultConfig.output,
+        iife: true,
+    },
+    optimization: {
+        ...defaultConfig.optimization,
+        avoidEntryIife: false,
+    },
     module: {
         ...defaultConfig.module,
     },

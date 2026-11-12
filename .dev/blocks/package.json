@@ -1,0 +1,8 @@
+{
+    "name": "Bootstrap 5 Blocks",
+    "version": "1.0.0",
+    "description": "Bootstrap blocks for WordPress theme",
+    "private": true,
+    "author": "Grupa Best Sp. z o.o.",
+    "license": "MIT"
+}

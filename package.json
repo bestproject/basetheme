@@ -1,5 +1,5 @@
 {
-    "name": "basetheme",
+    "name": "BaseTheme",
     "version": "1.0.0",
     "description": "WordPess theme build on Bootstrap 5",
     "type": "module",
@@ -12,9 +12,10 @@
         "build": "encore prod",
         "postinstall": "node .dev/js/build/postinstall.js",
         "wp:format": "wp-scripts format ./.dev/blocks",
-        "wp:start": "wp-scripts start --webpack-copy-php --webpack-src-dir=./.dev/blocks --output-path=./blocks/wp --config=./.dev/blocks/webpack.config.js",
-        "wp:build": "wp-scripts build --webpack-copy-php --webpack-src-dir=./.dev/blocks --output-path=./blocks/wp --config=./.dev/blocks/webpack.config.js",
-        "wp:translate": "wp i18n make-pot --skip-php --domain=bestproject .dev/blocks languages/bestproject.json.pot && wp i18n make-json --pretty-print languages/bestproject.json.pot",
+        "wp:start": "wp-scripts start --webpack-copy-php --blocks-manifest --webpack-src-dir=./.dev/blocks --output-path=./blocks/wp --config=./.dev/blocks/webpack.config.js",
+        "wp:build": "wp-scripts build --webpack-copy-php --blocks-manifest --webpack-src-dir=./.dev/blocks --output-path=./blocks/wp --config=./.dev/blocks/webpack.config.js",
+        "wp:translate": "wp i18n make-pot . languages/bestproject.pot --merge --skip-php --exclude=.dev --domain=bestproject",
+        "wp:translate:json": "wp i18n make-json languages/ --pretty-print",
         "stylelint": "stylelint ./.dev/**/*.scss",
         "stylelint-fix": "stylelint ./.dev/**/*.scss --fix",
         "format": "prettier --write ./.dev/**/*.scss"

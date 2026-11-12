@@ -1,55 +1,81 @@
-#, fuzzy
+# Copyright (C) 2026 Grupa Best Sp. z o.o.
+# This file is distributed under the proprietary.
 msgid ""
 msgstr ""
-"Project-Id-Version: bestproject\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-18 10:13+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Project-Id-Version: BestProject 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/bestproject/basetheme/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.8.3; wp-6.9.4; php-8.4.18\n"
-"X-Domain: bestproject"
+"POT-Creation-Date: 2026-11-11T12:08:13+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: bestproject\n"
 
-#: src/BestProject/Customize/Control/Post_Customize_Control.php:34
+#: src/BestProject/Customize/Control/Post_Customize_Control.php:36
 msgid "- Select -"
 msgstr ""
 
-#: src/BaseTheme/Action/customize_register.php:85
+#: src/BaseTheme/Action/customize_register.php:73
 msgid "Additional code"
 msgstr ""
 
-#: src/BaseTheme/Action/customize_register.php:116
+#: src/BaseTheme/Action/customize_register.php:104
 msgid "After &lt;body&gt;"
 msgstr ""
 
-#: src/BaseTheme/Action/customize_register.php:95
+#: src/BaseTheme/Action/customize_register.php:83
 msgid "After &lt;head&gt;"
 msgstr ""
 
-#. Description of the theme
-msgid "Base Wordpress theme."
-msgstr ""
-
-#. Name of the theme
-msgid "Basetheme"
-msgstr ""
-
-#: src/BaseTheme/Action/customize_register.php:127
+#: src/BaseTheme/Action/customize_register.php:115
 msgid "Before &lt;/body&gt;"
 msgstr ""
 
-#: src/BaseTheme/Action/customize_register.php:106
+#: src/BaseTheme/Action/customize_register.php:94
 msgid "Before &lt;/head&gt;"
 msgstr ""
 
-#: src/BaseTheme/Action/after_setup_theme.php:61
+#: src/BaseTheme/Action/after_setup_theme.php:67
 msgid "Black"
+msgstr ""
+
+#: blocks/wp/column/block.json:1
+#: blocks/wp/column/block.json
+msgctxt "block description"
+msgid "Bootstrap column type block."
+msgstr ""
+
+#: blocks/wp/container/block.json:1
+#: blocks/wp/container/block.json
+msgctxt "block description"
+msgid "Bootstrap container element."
+msgstr ""
+
+#: blocks/wp/row/block.json:1
+#: blocks/wp/row/block.json
+msgctxt "block description"
+msgid "Bootstrap row type block."
+msgstr ""
+
+#: blocks/wp/column/block.json:1
+#: blocks/wp/column/block.json
+msgctxt "block title"
+msgid "Column"
+msgstr ""
+
+#: blocks/wp/container/block.json:1
+#: blocks/wp/container/block.json
+msgctxt "block title"
+msgid "Container"
+msgstr ""
+
+#: blocks/wp/row/block.json:1
+#: blocks/wp/row/block.json
+msgctxt "block title"
+msgid "Row"
 msgstr ""
 
 #: template-parts/navbar.php:50
@@ -60,12 +86,7 @@ msgstr ""
 msgid "Copyrights note"
 msgstr ""
 
-#: src/BaseTheme/Action/customize_register.php:72
-msgctxt "customizer"
-msgid "No footer"
-msgstr ""
-
-#: src/BaseTheme/Action/after_setup_theme.php:57
+#: src/BaseTheme/Action/after_setup_theme.php:63
 msgid "Dark"
 msgstr ""
 
@@ -73,50 +94,28 @@ msgstr ""
 msgid "Default will be used if empty"
 msgstr ""
 
-#: template-parts/footer.php:27
-msgid "Designed by"
-msgstr ""
-
-#: template-parts/footer.php:27
-msgid "Designer"
-msgstr ""
-
-#: src/BaseTheme/Action/after_setup_theme.php:96
-msgid "Extra Large"
-msgstr ""
-
-#: src/BaseTheme/Action/after_setup_theme.php:71
+#: src/BaseTheme/Action/after_setup_theme.php:112
 msgid "Extra Small"
 msgstr ""
 
-#: src/BaseTheme/Action/after_setup_theme.php:115
-#: src/BaseTheme/Action/customize_register.php:69
+#: src/BaseTheme/Action/after_setup_theme.php:131
 msgid "Footer"
-msgstr ""
-
-#. Author of the theme
-msgid "Grupa Best Sp. z o.o."
-msgstr ""
-
-#. URI of the theme
-#. Author URI of the theme
-msgid "https://bestproject.pl"
 msgstr ""
 
 #: src/BestProject/Feature/MenuIcon.php:22
 msgid "Icon class"
 msgstr ""
 
-#: src/BaseTheme/Action/after_setup_theme.php:91
-msgid "Large"
-msgstr ""
-
-#: src/BaseTheme/Block/Style/Spacer.php:30
+#: src/BaseTheme/Block/Style/Spacer.php:24
 msgid "LG"
 msgstr ""
 
-#: src/BaseTheme/Action/after_setup_theme.php:53
+#: src/BaseTheme/Action/after_setup_theme.php:59
 msgid "Light"
+msgstr ""
+
+#: src/BestProject/Feature/MenuLinkClass.php:24
+msgid "Link class"
 msgstr ""
 
 #: template-parts/navbar.php:19
@@ -127,23 +126,20 @@ msgstr ""
 msgid "Logo image"
 msgstr ""
 
-#: src/BaseTheme/Action/after_setup_theme.php:114
+#: src/BaseTheme/Action/after_setup_theme.php:130
 msgid "Main menu"
 msgstr ""
 
-#: src/BaseTheme/Block/Style/Spacer.php:26
+#: src/BaseTheme/Block/Style/Spacer.php:20
 msgid "MD"
 msgstr ""
 
-#: src/BaseTheme/Action/after_setup_theme.php:86
-msgid "Medium"
-msgstr ""
-
-#: template-parts/navbar.php:43 template-parts/navbar.php:48
+#: template-parts/navbar.php:43
+#: template-parts/navbar.php:48
 msgid "Menu"
 msgstr ""
 
-#: src/BaseTheme/Action/after_setup_theme.php:81
+#: src/BaseTheme/Action/after_setup_theme.php:102
 msgid "Normal"
 msgstr ""
 
@@ -155,19 +151,23 @@ msgstr ""
 msgid "Patterns"
 msgstr ""
 
-#: src/BaseTheme/Action/after_setup_theme.php:41
+#: src/BaseTheme/Action/after_setup_theme.php:47
 msgid "Primary"
 msgstr ""
 
-#: src/BaseTheme/Action/after_setup_theme.php:45
+#: src/BaseTheme/Action/after_setup_theme.php:43
+msgid "Primary Subtle"
+msgstr ""
+
+#: src/BaseTheme/Action/after_setup_theme.php:51
 msgid "Secondary"
 msgstr ""
 
-#: src/BaseTheme/Block/Style/Spacer.php:22
+#: src/BaseTheme/Block/Style/Spacer.php:16
 msgid "SM"
 msgstr ""
 
-#: src/BaseTheme/Action/after_setup_theme.php:76
+#: src/BaseTheme/Action/after_setup_theme.php:107
 msgid "Small"
 msgstr ""
 
@@ -175,10 +175,95 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: src/BaseTheme/Action/after_setup_theme.php:49
+#: src/BaseTheme/Action/after_setup_theme.php:55
 msgid "White"
 msgstr ""
 
-#: src/BaseTheme/Block/Style/Spacer.php:34
+#: src/BaseTheme/Block/Style/Spacer.php:28
 msgid "XL"
+msgstr ""
+
+#. Theme Name of the theme
+#: style.css:3
+msgid "BaseTheme"
+msgstr ""
+
+#. Theme URI of the theme
+#. Author URI of the theme
+#: style.css:5
+#: style.css:9
+msgid "https://bestproject.pl"
+msgstr ""
+
+#. Description of the theme
+#: style.css:11
+msgid "Base Wordpress theme."
+msgstr ""
+
+#. Author of the theme
+#: style.css:7
+msgid "Grupa Best Sp. z o.o."
+msgstr ""
+
+#: blocks/wp/column/index.js:1
+#: blocks/wp/row/index.js:1
+msgid "Smartphone (≥0px)"
+msgstr ""
+
+#: blocks/wp/column/index.js:1
+msgid "Width"
+msgstr ""
+
+#: blocks/wp/column/index.js:1
+msgid "Order"
+msgstr ""
+
+#: blocks/wp/column/index.js:1
+msgid "Automatic"
+msgstr ""
+
+#: blocks/wp/column/index.js:1
+#: blocks/wp/row/index.js:1
+msgid "Tablet (≥768px)"
+msgstr ""
+
+#: blocks/wp/column/index.js:1
+msgid "Inherited"
+msgstr ""
+
+#: blocks/wp/column/index.js:1
+#: blocks/wp/row/index.js:1
+msgid "Desktop (≥1200px)"
+msgstr ""
+
+#: blocks/wp/row/index.js:1
+msgid "Gutter"
+msgstr ""
+
+#: blocks/wp/row/index.js:1
+msgid "Vertical alignment"
+msgstr ""
+
+#: blocks/wp/row/index.js:1
+msgid "Start"
+msgstr ""
+
+#: blocks/wp/row/index.js:1
+msgid "Center"
+msgstr ""
+
+#: blocks/wp/row/index.js:1
+msgid "End"
+msgstr ""
+
+#: blocks/wp/row/index.js:1
+msgid "Horizontal alignment"
+msgstr ""
+
+#: blocks/wp/row/index.js:1
+msgid "Between"
+msgstr ""
+
+#: blocks/wp/row/index.js:1
+msgid "Around"
 msgstr ""

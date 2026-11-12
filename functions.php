@@ -12,7 +12,7 @@ use BaseTheme\Action\wp_head;
 use BaseTheme\Block\Style\Spacer as SpacerStyles;
 //< Block styles use
 //> Blocks use
-use BaseTheme\Block\Bootstrap;
+use BestProject\Block\BootstrapCollection;
 //< Blocks use
 use BaseTheme\Action\wp_default_scripts;
 use BaseTheme\Action\enqueue_block_assets;
@@ -64,7 +64,7 @@ add_filter('get_the_archive_title', [PostPostType::class, 'get_the_archive_title
 add_filter('should_load_separate_core_block_assets', '__return_true', 11);
 
 //> Block registration
-add_action('init', [Bootstrap::class, 'register']);
+add_action('init', [BootstrapCollection::class, 'register']);
 //< Block registration
 
 //> Block styles registration
