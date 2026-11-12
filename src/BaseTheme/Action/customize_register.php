@@ -59,18 +59,6 @@ final class customize_register
         $customize->add_section('patterns', [
             'title' => __( 'Patterns', 'bestproject'),
         ]);
-
-        // Fields
-        $customize->add_setting('patterns_footer', [
-            'default'     => '',
-            'transport'   => 'refresh',
-        ]);
-        $customize->add_control(new Pattern_Customize_Control($customize, 'patterns_footer', [
-            'label' => __('Footer', 'bestproject'),
-            'section' => 'patterns',
-            'settings' => 'patterns_footer',
-            'placeholder' => _x('None', 'customizer', 'bestproject'),
-        ]));
     }
 
     /**
